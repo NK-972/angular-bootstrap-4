@@ -1,61 +1,49 @@
-<p> hello {{ data }} </p>
 <div class="produit panel panel-default">
-  <div class="panel-body container">Nom du produit + Référence 
+  <div class="panel-body container">{{ data.id }}
   <div class="mypanel row"> 
     <div class="descision col-sm-6">
       <label>Prix : </label><br>
-      <input type="nummber" id="name" [value]=20 name="name" required minlength="1" maxlength="8" size="10"><br>
+      <input type="nummber" id="name" [value]=data.Prix name="name" required minlength="1" maxlength="8" size="10"><br>
       <label>R&D :</label><br>
-      <input type="nummber" id="name" [value]=20 name="name" required minlength="1" maxlength="10" size="10"><br>
+      <input type="nummber" id="name" [value]=data.RD name="name" required minlength="1" maxlength="10" size="10"><br>
       <label>Installations :</label><br>
       <div class="panel panel-primary" id="result_panel">
-    <div class="panel-heading"><h3 class="panel-title">Result List</h3>
-    </div>
+    <div class="panel-heading"><h3 class="panel-title">Result List</h3></div>
     <div class="panel-body">
         <ul class="list-group">
-            <li class="list-group-item"><strong>Signature
-                Accommodations</strong>(1480m)
-            </li>
-            <li class="list-group-item"><strong>Signature
-                Accommodations</strong>(1480m)
-            </li>
-            <li class="list-group-item"><strong>Signature
-                Accommodations</strong>(1480m)
-            </li>
-            <li class="list-group-item"><strong>Signature
-                Accommodations</strong>(1480m)
-            </li>
-            <li class="list-group-item"><strong>Signature
-                Accommodations</strong>(1480m)
-            </li>
+          <ng-container *ngFor='let x of data.Installations'>
+            <ng-container *ngIf="x != 0">
+              <li class="list-group-item"><strong>{{x}}</strong></li>
+            </ng-container>
+          </ng-container>
         </ul>
     </div>
-
+    </div>
       <label>Production (%) :</label><br>
       <progress id="file" max="100" [value]="70"> 70% </progress><br>
       <label>Production :</label><br>
       <input type="nummber" id="name" name="name" [value]=20 required minlength="1" maxlength="6" size="10"><br>
       <label>Production totale :</label><br>
-      <input type="nummber" id="name" name="name" [value]=20 required minlength="1" maxlength="8" size="10"><br>
+      <input type="nummber" id="name" name="name" [value]=data.Production required minlength="1" maxlength="8" size="10"><br>
     </div>
 
     <div class="information col-sm-5">
       <label>Qualité :</label><br>
-      <input type="nummber" size="10" [value]=20><br>
+      <input type="nummber" size="10" [value]=data.Qualite><br>
       <label>Image Prix :</label><br>
-      <input type="nummber" size="10" [value]=20><br>
+      <input type="nummber" size="10" [value]=data.IP><br>
       <label>Indice Technique : </label><br>
-      <input type="nummber" size="10" [value]=20><br>
+      <input type="nummber" size="10" [value]=data.IT><br>
       <label>Notoriété :</label><br>
-      <input type="nummber" size="10" [value]=20><br>
+      <input type="nummber" size="10" [value]=data.Notoriete><br>
       <label>Demande :</label><br>
-      <input type="nummber" size="10" [value]=20><br>
+      <input type="nummber" size="10" [value]=data.Demande><br>
       <label>En stock :</label><br>
-      <input type="nummber" size="10" [value]=20><br>
+      <input type="nummber" size="10" [value]=data.Stock><br>
       <label>Marge brute : </label><br>
-      <input type="nummber" size="10" [value]=20><br>
+      <input type="nummber" size="10" [value]=data.MB><br>
       <label>Taux de marge brute : </label><br>
-      <input type="nummber" size="10" [value]=20><br>
+      <input type="nummber" size="10" [value]=data.TMB><br>
     </div>
 
   </div>

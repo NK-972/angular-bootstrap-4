@@ -7,12 +7,12 @@
   </ng-container>
   <ng-container *ngFor="let key of key_panel_produits">
     <ng-container *ngIf="key">
-        <li>{{ key }}</li>
+        <li>{{ panel_produits[key].RD }}</li>
     </ng-container>
   </ng-container>
 </ul>
 
 
 <div *ngFor="let key of key_panel_produits"> 
-  <app-produit  data={{panel_produits[key]}}></app-produit>
+  <app-produit  [data]=panel_produits[key]></app-produit>
 </div>

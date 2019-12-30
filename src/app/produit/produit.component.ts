@@ -10,14 +10,13 @@ import { Product } from '../Interfaces/product';
 export class ProduitComponent implements OnInit{
   @Input() data: Product;
   utilitaire: Utilitaire = new Utilitaire();
+  prod: Product;
 
-
-  constructor() { 
-    console.log('mydata '+this.data);
+  constructor() {
   }
 
   ngOnInit(){
-    //this.data = this.data as string[];
+    this.data = this.data as Product;
     console.log('mydata '+this.data);
   }
 
