@@ -15,6 +15,7 @@ export class ProduitsComponent{
   key_product: string[];
   produit: Product;
   panel_produits: JSON;
+  key_panel_produits: string[];
 
 
   createProduct(name: string){
@@ -53,6 +54,7 @@ export class ProduitsComponent{
       JSONQury[product_turn[i].split('_')[0]] = this.createProduct(product_turn[i].split('_')[0]);
     }
     this.panel_produits = JSONQury as JSON;
+    this.key_panel_produits = Object.keys(this.panel_produits);
     console.log(this.panel_produits);
 
    }
