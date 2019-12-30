@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Utilitaire } from '../../utilitaire'
 
 @Component({
@@ -6,13 +6,16 @@ import { Utilitaire } from '../../utilitaire'
   templateUrl: './produit.component.html',
   styleUrls: ['./produit.component.css']
 })
-export class ProduitComponent{
-  @Input() data: string;
+export class ProduitComponent implements OnInit{
+  @Input() data: string[];
   utilitaire: Utilitaire = new Utilitaire();
 
   constructor() { 
     console.log('mydata '+this.data);
   }
 
+  ngOnInit(){
+    console.log('mydata '+this.data);
+  }
 
 }

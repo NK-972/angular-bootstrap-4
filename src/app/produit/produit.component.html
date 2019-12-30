@@ -1,4 +1,4 @@
-<p> {{ data }} </p>
+<p> hello {{ data }} </p>
 <div class="produit panel panel-default">
   <div class="panel-body container">Nom du produit + Référence 
   <div class="mypanel row"> 
@@ -8,16 +8,28 @@
       <label>R&D :</label><br>
       <input type="nummber" id="name" [value]=20 name="name" required minlength="1" maxlength="10" size="10"><br>
       <label>Installations :</label><br>
-      <div class="container">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-        <div class="dropdown-menu">
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <a class="dropdown-item" href="#">Something else here</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#">Separated link</a>
-      </div><br>
-      </div>
+      <div class="panel panel-primary" id="result_panel">
+    <div class="panel-heading"><h3 class="panel-title">Result List</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="list-group">
+            <li class="list-group-item"><strong>Signature
+                Accommodations</strong>(1480m)
+            </li>
+            <li class="list-group-item"><strong>Signature
+                Accommodations</strong>(1480m)
+            </li>
+            <li class="list-group-item"><strong>Signature
+                Accommodations</strong>(1480m)
+            </li>
+            <li class="list-group-item"><strong>Signature
+                Accommodations</strong>(1480m)
+            </li>
+            <li class="list-group-item"><strong>Signature
+                Accommodations</strong>(1480m)
+            </li>
+        </ul>
+    </div>
 
       <label>Production (%) :</label><br>
       <progress id="file" max="100" [value]="70"> 70% </progress><br>

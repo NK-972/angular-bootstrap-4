@@ -14,7 +14,7 @@ export class ProduitsComponent{
   json_produits: JSON;
   key_product: string[];
   produit: Product;
-  panel_produits: Product[] = [];
+  panel_produits: JSON;
 
 
   createProduct(name: string){
@@ -38,6 +38,7 @@ export class ProduitsComponent{
   }
 
   constructor() {
+    var JSONQury = {};
     this.json_produits = this.utilitaire.StringToTable(this.string_produits);
     console.log("Affichage JSON produit"+this.json_produits);
     console.log("Test getData "+this.utilitaire.getData(this.json_produits, "Bouteille d'eau 21811", "_"+this.turn, 'Recette'));
@@ -48,8 +49,12 @@ export class ProduitsComponent{
     for (var i = 0; i < product_turn.length; i++) {
       console.log(product_turn[i]);
       console.log(this.createProduct(product_turn[i].split('_')[0]));
-      this.panel_produits.push(this.createProduct(product_turn[i].split('_')[0]));
+      //this.panel_produits.push(this.createProduct(product_turn[i].split('_')[0]));
+      JSONQury[product_turn[i].split('_')[0]] = this.createProduct(product_turn[i].split('_')[0]);
     }
+    this.panel_produits = JSONQury as JSON;
+    console.log(this.panel_produits);
+
    }
 
 
