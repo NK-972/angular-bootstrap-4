@@ -13,12 +13,11 @@ export class ProduitComponent implements OnInit{
   utilitaire: Utilitaire = new Utilitaire();
   prod: Product;
 
-  constructor(private dataService: CenterService) {
+  constructor() {
   }
 
   ngOnInit(){
     this.data = this.data as Product;
-    console.log('mydata '+this.data);
   }
 
 }

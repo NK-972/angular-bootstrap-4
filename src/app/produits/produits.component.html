@@ -1,21 +1,6 @@
-<!---->
-<ul>
-  <ng-container *ngFor="let key of key_product">
-    <ng-container *ngIf="json_produits[key]">
-        <li>{{ json_produits[key] }}</li>
-    </ng-container>
-  </ng-container>
-  <ng-container *ngFor="let key of key_panel_produits">
-    <ng-container *ngIf="key">
-        <li>{{ panel_produits[key].RD }}</li>
-    </ng-container>
-  </ng-container>
-</ul>
+<!--
 
-
-<div *ngFor="let key of key_panel_produits"> 
+-->
+<div *ngFor="let key of key_panel_produits;"> 
   <app-produit  [data]=panel_produits[key]></app-produit>
 </div>
-
-
-<p> {{ panel_produits["Bouteille d'eau 21811"].RD }}</p>

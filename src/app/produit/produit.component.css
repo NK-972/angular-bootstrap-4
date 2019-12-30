@@ -2,6 +2,6 @@
     max-height: 100px;
     margin-bottom: 10px;
     max-width: 15em;
-    overflow:scroll;
+    overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
 }

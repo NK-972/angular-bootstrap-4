@@ -3,9 +3,9 @@
   <div class="mypanel row"> 
     <div class="descision col-sm-6">
       <label>Prix : </label><br>
-      <input type="nummber" id="name" [value]=data.Prix name="name" required minlength="1" maxlength="8" size="10"><br>
+      <input type="nummber" id="name" [value]=data.Prix name="name" (input)="data.Prix = $event.target.value" required minlength="1" maxlength="8" size="10"><br>
       <label>R&D :</label><br>
-      <input type="nummber" id="name" [value]=data.RD name="name" required minlength="1" maxlength="10" size="10"><br>
+      <input type="nummber" id="name" [value]=data.RD name="name"  (input)="data.Prix = $event.target.value"  required minlength="1" maxlength="10" size="10"><br>
       <label>Installations :</label><br>
       <div class="panel panel-primary" id="result_panel">
     <div class="panel-heading"><h3 class="panel-title">Result List</h3></div>
@@ -24,7 +24,7 @@
       <label>Production :</label><br>
       <input type="nummber" id="name" name="name" [value]=20 required minlength="1" maxlength="6" size="10"><br>
       <label>Production totale :</label><br>
-      <input type="nummber" id="name" name="name" [value]=data.Production required minlength="1" maxlength="8" size="10"><br>
+      <input type="nummber" id="name" name="name" [value]=data.Productionrequired minlength="1" maxlength="8" size="10"><br>
     </div>
 
     <div class="information col-sm-5">
@@ -50,3 +50,4 @@
   </div>
 </div>
 
+<p> {{ data.Prix }} </p>
