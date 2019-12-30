@@ -1,6 +1,6 @@
 import { Component, } from '@angular/core';
 import { Utilitaire } from '../../utilitaire';
-import { Product } from '../Interfaces/product'
+import { Product } from '../Interfaces/product';
 
 @Component({
   selector: 'app-produits',
@@ -38,6 +38,10 @@ export class ProduitsComponent{
     return prod;
   }
 
+  show(){
+    console.log(this.panel_produits[this.key_panel_produits[0]]);
+  }
+
   constructor() {
     var JSONQury = {};
     this.json_produits = this.utilitaire.StringToTable(this.string_produits);
@@ -56,7 +60,7 @@ export class ProduitsComponent{
     this.panel_produits = JSONQury as JSON;
     this.key_panel_produits = Object.keys(this.panel_produits);
     console.log(this.panel_produits);
-
+    this.show();
    }
 
 

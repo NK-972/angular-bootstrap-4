@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Utilitaire } from '../../utilitaire';
 import { Product } from '../Interfaces/product';
+import { CenterService } from '../Services/center.service';
 
 @Component({
   selector: 'app-produit',
@@ -12,7 +13,7 @@ export class ProduitComponent implements OnInit{
   utilitaire: Utilitaire = new Utilitaire();
   prod: Product;
 
-  constructor() {
+  constructor(private dataService: CenterService) {
   }
 
   ngOnInit(){
