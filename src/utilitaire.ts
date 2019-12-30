@@ -12,13 +12,13 @@ export class Utilitaire {
     return JSONQury as JSON;
   }
 
-  public getData(json: JSON, key:String, turn:Number, columns:string): string{
+  public getData(json: JSON, key:String, turn:string, columns:string): string{
     let sortie: Array<string> = Object.keys(json) as Array<string>;
     let index: Number = json['JSON'].indexOf(columns);
-    let bool: Boolean = (key+' '+turn) in json;
+    let bool: Boolean = (key+turn) in json;
     console.log("getData "+key+" "+turn+" "+columns+" "+bool);
-    if(key+' '+turn in json){
-          return json[key+' '+turn][index];
+    if(key+turn in json){
+          return json[key+turn][index];
       }
     return null;
   }
