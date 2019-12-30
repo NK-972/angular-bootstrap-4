@@ -20,6 +20,19 @@ export class ProduitsComponent{
   createProduct(name: string){
     let prod: Product = {
       id: name
+      , Prix : Number(this.utilitaire.getData(this.json_produits, name, "_"+this.turn, 'Prix'))
+      , RD : Number(this.utilitaire.getData(this.json_produits, name, "_"+this.turn, 'R&D'))
+      , Installations: this.utilitaire.getData(this.json_produits, name, "_"+this.turn, 'Installation').split(',')
+      , InstallationSelected: ''
+      , Production: Number(this.utilitaire.getData(this.json_produits, name, "_"+this.turn, 'Productio'))
+      , Qualite: Number(this.utilitaire.getData(this.json_produits, name, "_"+this.turn, 'Qualité'))
+      , IP: Number(this.utilitaire.getData(this.json_produits, name, "_"+this.turn, 'Indice prix'))
+      , IT: Number(this.utilitaire.getData(this.json_produits, name, "_"+this.turn, 'Indice technique'))
+      , Notoriete: Number(this.utilitaire.getData(this.json_produits, name, "_"+this.turn, 'Notoriété'))
+      , Demande: Number(this.utilitaire.getData(this.json_produits, name, "_"+this.turn, 'Demande'))
+      , Stock: Number(this.utilitaire.getData(this.json_produits, name, "_"+this.turn, 'Stock'))
+      , MB: Number(this.utilitaire.getData(this.json_produits, name, "_"+this.turn, 'Marge brute'))
+      , TMB: Number(this.utilitaire.getData(this.json_produits, name, "_"+this.turn, 'taux de marge brute')) 
     }
     return prod;
   }
@@ -30,13 +43,13 @@ export class ProduitsComponent{
     console.log("Test getData "+this.utilitaire.getData(this.json_produits, "Bouteille d'eau 21811", "_"+this.turn, 'Recette'));
     this.key_product = Object.keys(this.json_produits);
     console.log("Product key "+this.key_product);
-    console.log("Product get produit tour "+this.utilitaire.getAllOcc(this.key_product, ' '+this.turn));
-    let product_turn: string[] = this.utilitaire.getAllOcc(this.key_product, ' '+this.turn); 
+    console.log("Product get produit tour "+this.utilitaire.getAllOcc(this.key_product, '_'+this.turn));
+    let product_turn: string[] = this.utilitaire.getAllOcc(this.key_product, '_'+this.turn); 
     for (var i = 0; i < product_turn.length; i++) {
       console.log(product_turn[i]);
       console.log(this.createProduct(product_turn[i].split('_')[0]));
+      this.panel_produits.push(this.createProduct(product_turn[i].split('_')[0]));
     }
-    console.log();
    }
 
 

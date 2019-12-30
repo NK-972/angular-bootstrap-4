@@ -1,3 +1,14 @@
-<p>
-produits works!
-</p>
+<!--
+<ul>
+  <ng-container *ngFor="let key of key_product">
+    <ng-container *ngIf="json_produits[key]">
+        <li>{{ json_produits[key] }}</li>
+    </ng-container>
+  </ng-container>
+</ul>
+-->
+<app-produit  [data]='test'></app-produit>
+
+<div *ngFor="let key of panel_produit"> 
+  <app-produit  [data]='test'></app-produit>
+</div>
