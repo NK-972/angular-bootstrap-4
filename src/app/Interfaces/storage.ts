@@ -6,7 +6,7 @@ export interface Storage {
   , TP : string[]
   , cout : Number
   , moral: Number
-  , region: Number
+  , region: string
   , IT: Number
   , FD: Number
   , Stock: Number

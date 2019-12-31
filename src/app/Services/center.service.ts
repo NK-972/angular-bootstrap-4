@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Utilitaire } from '../../utilitaire';
 import { Product } from '../Interfaces/product';
 import { Factory } from '../Interfaces/factory';
+import { Storage } from '../Interfaces/storage';
 
 @Injectable()
 export class CenterService {
@@ -14,12 +15,19 @@ export class CenterService {
   panel_produits: JSON;
   key_panel_produits: string[];
   /* Installations - Usine */
-  string_usines: string = "[[JSON, Tour, Nom de l'installation, N° Installation joueur, Taille, Région, Entretien, Indice salaire, Nombre d'employés, Nombre d'employés max, Production, Production possible, indice technique, Consommation énergétique, Moral, Situation, Durée ammortissement, Temps avant utilisation, Valeur, Production max], [Usine n°1_0, 0, Usine n°1(U), 1, C, xxx, 0, 1.00, 0, 0, 0, 0, 0.00, 0, 0, fonctionnelle, 0, 0, 0, 0], [Usine n°1_1, 1, Usine n°1(U), 1, C, xxx, 40000, 1.00, 0, 0, 0, 0, 0.00, 0, 0, fonctionnelle, 0, 0, 0, 0], [Usine n°1_2, 2, Usine n°1(U), 1, C, xxx, 40000, 1.00, 0, 0, 2000, 0, 0.00, 0, 0, fonctionnelle, 0, 0, 0, 0], [Usine n°1_3, 3, Usine n°1(U), 1, C, xxx, 50000, 3.25, 0, 0, 0, 0, 0.00, 0, 0, fonctionnelle, 0, 0, 0, 0], [Usine n°1_4, 4, Usine n°1(U), 1, C, xxx, 50000, 3.25, 0, 0, 0, 0, 0.00, 0, 0, fonctionnelle, 0, 0, 0, 0]]";
+  string_usines: string = "[[JSON, Tour, Nom de l'installation, N° Installation joueur, Taille, Région, Entretien, Indice salaire, Nombre d'employés, Nombre d'employés max, Production, Production possible, Indice technique, Consommation énergétique, Moral, Situation, Durée ammortissement, Temps avant utilisation, Valeur, Production max], [Usine n°1_0, 0, Usine n°1(U), 1, C, xxx, 0, 1.00, 0, 0, 0, 0, 0.00, 0, 0, fonctionnelle, 0, 0, 0, 0], [Usine n°1_1, 1, Usine n°1(U), 1, C, xxx, 40000, 1.00, 15, 0, 0, 0, 0.00, 0, 8, fonctionnelle, 0, 0, 0, 0], [Usine n°1_2, 2, Usine n°1(U), 1, C, xxx, 40000, 1.00, 15, 0, 0, 0, 0.00, 0, 8, fonctionnelle, 0, 0, 0, 0], [Usine n°1_3, 3, Usine n°1(U), 1, C, xxx, 50000, 3.25, 15, 0, 0, 0, 0.00, 0, 8, fonctionnelle, 0, 0, 0, 0], [Usine n°1_4, 4, Usine n°1(U), 1, C, xxx, 50000, 3.25, 15, 0, 0, 0, 0.00, 0, 8, fonctionnelle, 0, 0, 0, 0]]";
   json_usines: JSON;
   key_factory: string[];
   usine: Factory;
   panel_factory: JSON;
   key_panel_factory: string[];
+  /* Installations - Entrepôt */
+  string_entrepot: string = "[[JSON, Tour, Nom de l'installation, N° Installation joueur, Taille, Région, Entretien, Indice salaire, Nombre d'employés, Nombre d'employés max, Production, Production possible, Indice technique, Consommation énergétique, Moral, Situation, Durée ammortissement, Temps avant utilisation, Valeur, Production max], [Usine n°1_0, 0, Usine n°1(U), 1, C, xxx, 0, 1.00, 0, 0, 0, 0, 0.00, 0, 0, fonctionnelle, 0, 0, 0, 0], [Usine n°1_1, 1, Usine n°1(U), 1, C, xxx, 40000, 1.00, 15, 0, 0, 0, 0.00, 0, 8, fonctionnelle, 0, 0, 0, 0], [Usine n°1_2, 2, Usine n°1(U), 1, C, xxx, 40000, 1.00, 15, 0, 0, 0, 0.00, 0, 8, fonctionnelle, 0, 0, 0, 0], [Usine n°1_3, 3, Usine n°1(U), 1, C, xxx, 50000, 3.25, 15, 0, 0, 0, 0.00, 0, 8, fonctionnelle, 0, 0, 0, 0], [Usine n°1_4, 4, Usine n°1(U), 1, C, xxx, 50000, 3.25, 15, 0, 0, 0, 0.00, 0, 8, fonctionnelle, 0, 0, 0, 0]]";
+  json_entrepot: JSON;
+  key_storage: string[];
+  entrepot: Factory;
+  panel_storage: JSON;
+  key_panel_storage: string[];
 
 
   constructor() {
@@ -29,42 +37,81 @@ export class CenterService {
     this.key_product = Object.keys(this.json_produits);
     let product_turn: string[] = this.utilitaire.getAllOcc(this.key_product, '_'+this.turn); 
     for (var i = 0; i < product_turn.length; i++) {
-      JSONQury[product_turn[i].split('_')[0]] = this.createProduct(product_turn[i].split('_')[0]);
+      JSONQury[product_turn[i].split('_')[0]] = this.createProduct(product_turn[i].split('_')[0], this.json_produits);
     }
     this.panel_produits = JSONQury as JSON;
     this.key_panel_produits = Object.keys(this.panel_produits);
     console.log(this.panel_produits);
-    /*
+    
+    JSONQury = {};
     this.json_usines = this.utilitaire.StringToTable(this.string_usines);
     this.key_factory = Object.keys(this.json_usines);
     let usine_turn: string[] = this.utilitaire.getAllOcc(this.key_factory, '_'+this.turn); 
     for (var i = 0; i < usine_turn.length; i++) {
-      JSONQury[usine_turn[i].split('_')[0]] = this.createProduct(usine_turn[i].split('_')[0]);
+      JSONQury[usine_turn[i].split('_')[0]] = this.createFactory(usine_turn[i].split('_')[0], this.json_usines);
     }
     this.panel_factory = JSONQury as JSON;
     this.key_panel_factory = Object.keys(this.panel_factory);
     console.log(this.panel_factory);
-    */
+    /**/
   }
 
-  createProduct(name: string){
+  createProduct(name: string, json:JSON): Product{
     let prod: Product = {
       id: name
-      , Prix : Number(this.utilitaire.getData(this.json_produits, name, "_"+this.turn, 'Prix'))
-      , RD : Number(this.utilitaire.getData(this.json_produits, name, "_"+this.turn, 'R&D'))
-      , Installations: this.utilitaire.getData(this.json_produits, name, "_"+this.turn, 'Installation').split(',')
+      , Prix : Number(this.utilitaire.getData(json, name, "_"+this.turn, 'Prix'))
+      , RD : Number(this.utilitaire.getData(json, name, "_"+this.turn, 'R&D'))
+      , Installations: this.utilitaire.getData(json, name, "_"+this.turn, 'Installation').split(',')
       , InstallationSelected: ''
-      , Production: Number(this.utilitaire.getData(this.json_produits, name, "_"+this.turn, 'Productio'))
-      , Qualite: Number(this.utilitaire.getData(this.json_produits, name, "_"+this.turn, 'Qualité'))
-      , IP: Number(this.utilitaire.getData(this.json_produits, name, "_"+this.turn, 'Indice prix'))
-      , IT: Number(this.utilitaire.getData(this.json_produits, name, "_"+this.turn, 'Indice technique'))
-      , Notoriete: Number(this.utilitaire.getData(this.json_produits, name, "_"+this.turn, 'Notoriété'))
-      , Demande: Number(this.utilitaire.getData(this.json_produits, name, "_"+this.turn, 'Demande'))
-      , Stock: Number(this.utilitaire.getData(this.json_produits, name, "_"+this.turn, 'Stock'))
-      , MB: Number(this.utilitaire.getData(this.json_produits, name, "_"+this.turn, 'Marge brute'))
-      , TMB: Number(this.utilitaire.getData(this.json_produits, name, "_"+this.turn, 'taux de marge brute')) 
+      , Production: Number(this.utilitaire.getData(json, name, "_"+this.turn, 'Productio'))
+      , Qualite: Number(this.utilitaire.getData(json, name, "_"+this.turn, 'Qualité'))
+      , IP: Number(this.utilitaire.getData(json, name, "_"+this.turn, 'Indice prix'))
+      , IT: Number(this.utilitaire.getData(json, name, "_"+this.turn, 'Indice technique'))
+      , Notoriete: Number(this.utilitaire.getData(json, name, "_"+this.turn, 'Notoriété'))
+      , Demande: Number(this.utilitaire.getData(json, name, "_"+this.turn, 'Demande'))
+      , Stock: Number(this.utilitaire.getData(json, name, "_"+this.turn, 'Stock'))
+      , MB: Number(this.utilitaire.getData(json, name, "_"+this.turn, 'Marge brute'))
+      , TMB: Number(this.utilitaire.getData(json, name, "_"+this.turn, 'taux de marge brute'))
     }
     return prod;
+  }
+
+  createFactory(name: string, json:JSON): Factory{
+    let factory: Factory = {
+      id: name
+      , entretien: Number(this.utilitaire.getData(json, name, "_"+this.turn, 'Entretien'))
+      , nbrEmployes: Number(this.utilitaire.getData(json, name, "_"+this.turn, "Nombre d'employés"))
+      , IS : Number(this.utilitaire.getData(json, name, "_"+this.turn, "Indice salaire"))
+      , TP : ['']
+      , cout : Number(0)
+      , moral: Number(this.utilitaire.getData(json, name, "_"+this.turn, "Moral"))
+      , region: this.utilitaire.getData(json, name, "_"+this.turn, "Région")
+      , IT: Number(this.utilitaire.getData(json, name, "_"+this.turn, "Indice technique"))
+      , FD: Number(this.utilitaire.getData(json, name, "_"+this.turn, "Frais divers"))
+      , Production: Number(this.utilitaire.getData(json, name, "_"+this.turn, "Production"))
+      , PL: Number(this.utilitaire.getData(json, name, "_"+this.turn, "Production max"))
+      , Prod: Number(0)
+    }
+    return factory;
+  }
+
+  createStorage(name: string, json:JSON): Storage{
+    let storage: Storage = {
+      id: name
+      , entretien: Number(this.utilitaire.getData(json, name, "_"+this.turn, 'Entretien'))
+      , nbrEmployes: Number(this.utilitaire.getData(json, name, "_"+this.turn, "Nombre d'employés"))
+      , IS : Number(this.utilitaire.getData(json, name, "_"+this.turn, "Indice salaire"))
+      , TP : ['']
+      , cout : Number(0)
+      , moral: Number(this.utilitaire.getData(json, name, "_"+this.turn, "Moral"))
+      , region: this.utilitaire.getData(json, name, "_"+this.turn, "Région")
+      , IT: Number(this.utilitaire.getData(json, name, "_"+this.turn, "Indice technique"))
+      , FD: Number(this.utilitaire.getData(json, name, "_"+this.turn, "Frais divers"))
+      , Stock: Number(this.utilitaire.getData(json, name, "_"+this.turn, "Production"))
+      , SL: Number(this.utilitaire.getData(json, name, "_"+this.turn, "Production max"))
+      , S: Number(0)
+    }
+    return storage;
   }
 
 

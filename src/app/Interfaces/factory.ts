@@ -6,7 +6,7 @@ export interface Factory {
   , TP : string[]
   , cout : Number
   , moral: Number
-  , region: Number
+  , region: string
   , IT: Number
   , FD: Number
   , Production: Number
