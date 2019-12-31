@@ -1,4 +1,4 @@
-export interface Factory {
+export interface Storage {
   id: string
   , entretien: Number
   , nbrEmployes: Number
@@ -9,7 +9,7 @@ export interface Factory {
   , region: Number
   , IT: Number
   , FD: Number
-  , Production: Number
-  , PL: Number
-  , Prod: Number
+  , Stock: Number
+  , SL: Number
+  , S: Number
 }

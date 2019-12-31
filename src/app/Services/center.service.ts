@@ -23,7 +23,7 @@ export class CenterService {
 
 
   constructor() {
-    /*
+    
     var JSONQury = {};
     this.json_produits = this.utilitaire.StringToTable(this.string_produits);
     this.key_product = Object.keys(this.json_produits);
@@ -34,7 +34,7 @@ export class CenterService {
     this.panel_produits = JSONQury as JSON;
     this.key_panel_produits = Object.keys(this.panel_produits);
     console.log(this.panel_produits);
-    
+    /*
     this.json_usines = this.utilitaire.StringToTable(this.string_usines);
     this.key_factory = Object.keys(this.json_usines);
     let usine_turn: string[] = this.utilitaire.getAllOcc(this.key_factory, '_'+this.turn); 
