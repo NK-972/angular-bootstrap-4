@@ -8,14 +8,13 @@ import { ProduitsComponent } from './produits/produits.component';
 import { ProduitComponent } from './produit/produit.component';
 import { CenterService } from './Services/center.service';
 import { InstallationsComponent } from './installations/installations.component';
-import { UsineComponent } from './usine/usine.component';
 import { InstallationUsineComponent } from './installation-usine/installation-usine.component';
 import { InstallationEntrepotComponent } from './installation-entrepot/installation-entrepot.component';
 import { ServeurComponent } from './serveur/serveur.component';
 
 @NgModule({
   imports: [BrowserModule, FormsModule],
-  declarations: [AppComponent, HeaderComponent, ProduitsComponent, ProduitComponent, InstallationsComponent, UsineComponent, InstallationUsineComponent, InstallationEntrepotComponent, ServeurComponent],
+  declarations: [AppComponent, HeaderComponent, ProduitsComponent, ProduitComponent, InstallationsComponent, InstallationUsineComponent, InstallationEntrepotComponent, ServeurComponent],
   bootstrap: [AppComponent],
   providers: [CenterService]
 })
