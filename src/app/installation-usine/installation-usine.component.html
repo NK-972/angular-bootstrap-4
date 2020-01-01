@@ -1,3 +1,21 @@
+<HTML>
+<head>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <link rel="stylesheet" href="node_modules/mdbootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="node_modules/mdbootstrap/css/mdb.min.css">
+  <link rel="stylesheet" href="node_modules/mdbootstrap/css/style.css">
+</head> 
+<body>
+
+  <script type="text/javascript" src="node_modules/mdbootstrap/js/jquery.min.js"></script>
+  <script type="text/javascript" src="node_modules/mdbootstrap/js/popper.min.js"></script>
+  <script type="text/javascript" src="node_modules/mdbootstrap/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="node_modules/mdbootstrap/js/mdb.min.js"></script>
+
 <div class="produit panel panel-default">
   <div class="panel-body container">{{ data.id }}
   <div class="mypanel row"> 
@@ -13,19 +31,19 @@
 
     <div class="information col-sm-5">
       <label>Moral :</label><br>
-      <input type="nummber" size="10" [value]=data.Qualite disabled><br>
+      <input type="nummber" size="10" [value]=data.Moral disabled><br>
       <label>Région :</label><br>
-      <input type="nummber" size="10" [value]=data.IP disabled><br>
+      <input type="nummber" size="10" [value]=data.Region disabled><br>
       <label>Indice Technique : </label><br>
       <input type="nummber" size="10" [value]=data.IT disabled><br>
       <label>Frais divers :</label><br>
-      <input type="nummber" size="10" [value]=data.Notoriete disabled><br>
+      <input type="nummber" size="10" [value]=data.FD disabled><br>
       <label>Production :</label><br>
-      <input type="nummber" size="10" [value]=data.Demande disabled><br>
+      <input type="nummber" size="10" [value]=data.Production disabled><br>
       <label>Production limite :</label><br>
-      <input type="nummber" size="10" [value]=data.Stock disabled><br>
+      <input type="nummber" size="10" [value]=data.PL disabled><br>
       <label>Production : </label><br>
-      <input type="nummber" size="10" [value]=data.MB disabled><br>
+      <input type="nummber" size="10" [value]=data.P disabled><br>
     </div>
 
   </div>
@@ -33,3 +51,9 @@
 </div>
 
 <p> {{ data.Prix }} </p>
+</body>
+
+<footer>
+
+</footer>
+</HTML>

@@ -13,7 +13,7 @@ export class ProduitComponent implements OnInit{
   utilitaire: Utilitaire = new Utilitaire();
   prod: Product;
 
-  constructor() {
+  constructor(private centerService: CenterService) {
   }
 
   ngOnInit(){

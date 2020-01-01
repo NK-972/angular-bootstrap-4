@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Utilitaire } from '../../utilitaire';
+import { Storage } from '../Interfaces/storage';
+import { CenterService } from '../Services/center.service';
 
 @Component({
   selector: 'app-installation-entrepot',
@@ -6,10 +9,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./installation-entrepot.component.css']
 })
 export class InstallationEntrepotComponent implements OnInit {
-
-  constructor() { }
+  @Input() data: Storage;
+  utilitaire: Utilitaire = new Utilitaire();
+  constructor(private centerService: CenterService) { }
 
   ngOnInit() {
+    this.data  = this.data as Storage;
   }
 
 }

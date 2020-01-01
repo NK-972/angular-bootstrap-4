@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Utilitaire } from '../../utilitaire';
+import { Factory } from '../Interfaces/factory';
+import { CenterService } from '../Services/center.service';
 
 @Component({
   selector: 'app-installation-usine',
@@ -6,10 +9,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./installation-usine.component.css']
 })
 export class InstallationUsineComponent implements OnInit {
-
-  constructor() { }
+  @Input() data: Factory;
+  utilitaire: Utilitaire = new Utilitaire();
+  prod: Factory;
+  constructor(private centerService: CenterService) { }
 
   ngOnInit() {
+    this.data = this.data as JSON;
   }
 
 }

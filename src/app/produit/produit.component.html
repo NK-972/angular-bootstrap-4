@@ -1,3 +1,22 @@
+<HTML>
+<head>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <link rel="stylesheet" href="node_modules/mdbootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="node_modules/mdbootstrap/css/mdb.min.css">
+  <link rel="stylesheet" href="node_modules/mdbootstrap/css/style.css">
+</head> 
+<body>
+
+  <script type="text/javascript" src="node_modules/mdbootstrap/js/jquery.min.js"></script>
+  <script type="text/javascript" src="node_modules/mdbootstrap/js/popper.min.js"></script>
+  <script type="text/javascript" src="node_modules/mdbootstrap/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="node_modules/mdbootstrap/js/mdb.min.js"></script>
+
+
 <div class="produit panel panel-default">
   <div class="panel-body container">{{ data.id }}
   <div class="mypanel row"> 
@@ -7,17 +26,13 @@
       <label>R&D :</label><br>
       <input type="nummber" id="name" [value]=data.RD name="name"  (input)="data.Prix = $event.target.value"  required minlength="1" maxlength="10" size="10"><br>
       <label>Installations :</label><br>
-      <div class="panel panel-primary" id="result_panel">
-    <div class="panel-body">
-        <ul class="list-group">
-          <ng-container *ngFor='let x of data.Installations'>
-            <ng-container *ngIf="x != 0">
-              <li class="list-group-item"><strong>{{x}}</strong></li>
-            </ng-container>
+      <select id='test' class="browser-default custom-select">
+        <ng-container *ngFor='let x of data.Installations'>
+          <ng-container *ngIf="x != 0">
+            <option value={{x}}>{{x}}</option>
           </ng-container>
-        </ul>
-    </div>
-    </div>
+        </ng-container>
+      </select><br>
       <label>Production (%) :</label><br>
       <progress id="file" max="100" [value]="70"> 70% </progress><br>
       <label>Production :</label><br>
@@ -50,3 +65,12 @@
 </div>
 
 <p> {{ data.Prix }} </p>
+
+
+  
+</body>
+
+<footer>
+
+</footer>
+</HTML>
