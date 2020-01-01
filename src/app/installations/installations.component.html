@@ -1,9 +1,9 @@
 <!--
 
 -->
-<div *ngFor="let key of key_panel_usines;"> 
-  <app-produit  [data]=panel_usines[key]></app-produit>
+<div *ngFor="let key of key_panel_factory;"> 
+  <app-installation-usine  [data]=panel_factory[key]></app-installation-usine>
 </div>
-<div *ngFor="let key of key_panel_entrepot;"> 
-  <app-produit  [data]=panel_entrepots[key]></app-produit>
+<div *ngFor="let key of key_panel_storage;"> 
+  <app-installation-entrepot  [data]=panel_storage[key]></app-installation-entrepot>
 </div>
