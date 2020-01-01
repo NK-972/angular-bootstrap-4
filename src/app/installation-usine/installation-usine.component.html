@@ -1,0 +1,35 @@
+<div class="produit panel panel-default">
+  <div class="panel-body container">{{ data.id }}
+  <div class="mypanel row"> 
+    <div class="descision col-sm-6">
+      <label>Entretien : </label><br>
+      <input type="nummber" id="name" [value]=data.Prix name="name" (input)="data.Prix = $event.target.value" required minlength="1" maxlength="8" size="10"><br>
+      <label>Indice salaire :</label><br>
+      <input type="nummber" id="name" [value]=data.RD name="name"  (input)="data.Prix = $event.target.value"  required minlength="1" maxlength="10" size="10"><br>
+      <label>Nombre de d'employés :</label><br>
+      <input type="nummber" id="name" [value]=data.RD name="name"  (input)="data.Prix = $event.target.value"  required minlength="1" maxlength="10" size="10"><br>
+      
+    </div>
+
+    <div class="information col-sm-5">
+      <label>Moral :</label><br>
+      <input type="nummber" size="10" [value]=data.Qualite disabled><br>
+      <label>Région :</label><br>
+      <input type="nummber" size="10" [value]=data.IP disabled><br>
+      <label>Indice Technique : </label><br>
+      <input type="nummber" size="10" [value]=data.IT disabled><br>
+      <label>Frais divers :</label><br>
+      <input type="nummber" size="10" [value]=data.Notoriete disabled><br>
+      <label>Production :</label><br>
+      <input type="nummber" size="10" [value]=data.Demande disabled><br>
+      <label>Production limite :</label><br>
+      <input type="nummber" size="10" [value]=data.Stock disabled><br>
+      <label>Production : </label><br>
+      <input type="nummber" size="10" [value]=data.MB disabled><br>
+    </div>
+
+  </div>
+  </div>
+</div>
+
+<p> {{ data.Prix }} </p>
