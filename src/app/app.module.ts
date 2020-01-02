@@ -11,11 +11,12 @@ import { InstallationsComponent } from './installations/installations.component'
 import { InstallationUsineComponent } from './installation-usine/installation-usine.component';
 import { InstallationEntrepotComponent } from './installation-entrepot/installation-entrepot.component';
 import { ServeurComponent } from './serveur/serveur.component';
+import { InitService } from './Services/init.service';
 
 @NgModule({
   imports: [BrowserModule, FormsModule],
   declarations: [AppComponent, HeaderComponent, ProduitsComponent, ProduitComponent, InstallationsComponent, InstallationUsineComponent, InstallationEntrepotComponent, ServeurComponent],
   bootstrap: [AppComponent],
-  providers: [CenterService]
+  providers: [CenterService, InitService]
 })
 export class AppModule { }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InitService } from '../Services/init.service'
 
 @Component({
   selector: 'app-serveur',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./serveur.component.css']
 })
 export class ServeurComponent implements OnInit {
-
-  constructor() { }
+  server_json: JSON;
+  constructor(private initServer: InitService) { }
 
   ngOnInit() {
+    this.initServer
   }
 
 }

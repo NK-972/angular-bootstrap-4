@@ -1,6 +1,7 @@
 export interface Factory {
   id: string
   , entretien: Number
+  , nIns: Number
   , nbrEmployes: Number
   , IS : Number
   , TP : string[]
@@ -12,4 +13,5 @@ export interface Factory {
   , Production: Number
   , PL: Number
   , Prod: Number
+  , sayHi: ()=>string
 }

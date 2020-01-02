@@ -2,6 +2,7 @@ export interface Storage {
   id: string
   , entretien: Number
   , nbrEmployes: Number
+  , nIns: Number
   , IS : Number
   , TP : string[]
   , cout : Number
