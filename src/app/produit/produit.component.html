@@ -17,9 +17,9 @@
       <label>Production (%) :</label><br>
       <progress id="file" max="100" [value]="70"> 70% </progress><br>
       <label>Production :</label><br>
-      <input type="nummber" id="name" name="name" [value]=20 required minlength="1" maxlength="6" size="10"><br>
+      <input type="nummber" id="name" name="name" [value]=centerService.panel_produits[key].ProductionbyFactory required minlength="1" maxlength="6" size="10"><br>
       <label>Production totale :</label><br>
-      <input type="nummber" id="name" name="name" [value]=centerService.panel_produits[key].Productionrequired minlength="1" maxlength="8" size="10" disabled><br>
+      <input type="nummber" id="name" name="name" [value]=centerService.panel_produits[key].Production required minlength="1" maxlength="8" size="10" disabled><br>
     </div>
 
     <div class="information col-sm-5">

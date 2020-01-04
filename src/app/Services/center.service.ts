@@ -6,10 +6,10 @@ import { Storage } from '../Interfaces/storage';
 
 @Injectable()
 export class CenterService {
-  turn: Number = 1;
+  turn: Number = 4;
   utilitaire: Utilitaire = new Utilitaire();
   /* Products */
-  string_produits: string = "[[JSON, Tour, Nom du produit, Recette, Prix, R&D, Production, Prod° par instal, Installation, Actif, Qualité, Indice technique, Image prix, Marge brute, Taux de marge brute, Demande, Stock, Prix de mp, Notoriété, Indice R&D, Brevet, Nbr de produit vendu, Frais de transport], [Bouteille d'eau 21811_0, 0, Bouteille d'eau, 21811, 0, 0, 0, ,0,0,, ,0,1,, 0, 0, 0.000000, 1.00, 0, 0.00, 0, 0, null, 0.00, 1.00, 0, 0, 0], [Bouteille d'eau 21811_1, 1, Bouteille d'eau, 21811, 30, 30000, 0, ,0,0,, ,0,1,, 1, 0, 0.000000, 1.00, 24, 4.00, 11200, 0, null, 0.00, 1.60, 0, 0, 0], [Bouteille d'eau 21811_2, 2, Bouteille d'eau, 21811, 30, 30000, 2000, ,0,2000,, ,0,1,, 1, 0, 0.000000, 1.00, 19, 1.73, 9200, 0, null, 0.00, 1.60, 0, 2000, 8000], [Bouteille d'eau 21811_3, 3, Bouteille d'eau, 21811, 30, 30000, 0, ,0,0,, ,0,1,, 1, 0, 0.000000, 1.00, 9, 0.43, 11200, 0, null, 0.00, 1.60, 0, 0, 0], [Bouteille d'eau 21811_4, 4, Bouteille d'eau, 21811, 30, 30000, null, ,0,0,, ,0,1,, 1, 0, null, null, null, null, null, null, null, null, null, 0, null, null]]";
+  string_produits: string = "[[JSON, Tour, Nom du produit, Recette, Prix, R&D, Production, Prod° par instal, Installation, Actif, Qualité, Indice technique, Image prix, Marge brute, Taux de marge brute, Demande, Stock, Prix de mp, Notoriété, Indice R&D, Brevet, Nbr de produit vendu, Frais de transport], [Bouteille d'eau 21811_0, 0, Bouteille d'eau, 21811, 0, 0, 0, 0, 1, 0, 0, 0.000000, 1.00, 0, 0.00, 0, 0, null, 0.00, 1.00, 0, 0, 0], [Bouteille d'eau 21811_1, 1, Bouteille d'eau, 21811, 30, 30000, 3600, 3600, 1, 1, 0, 0.400000, 1.00, 19, 1.73, 13200, 0, null, 0.00, 1.60, 0, 3600, 14400], [Bouteille d'eau 21811_2, 2, Bouteille d'eau, 21811, 30, 30000, 5000, 5000, 1, 1, 0, 0.470000, 1.00, 11, 0.58, 11800, 0, null, 0.00, 1.60, 0, 5000, 20000], [Bouteille d'eau 21811_3, 3, Bouteille d'eau, 21811, 30, 30000, 3600, 3600, 1, 1, 0, 0.670000, 1.00, 6, 0.25, 13200, 0, null, 0.00, 1.60, 0, 3600, 14400]]";
   json_produits: JSON;
   key_product: string[];
   panel_produits: JSON;
@@ -58,40 +58,45 @@ export class CenterService {
     JSONQury = {};
     this.json_produits = this.utilitaire.StringToTable(this.string_produits);
     this.key_product = Object.keys(this.json_produits);
-    let product_turn: string[] = this.utilitaire.getAllOcc(this.key_product, '_'+this.turn); 
+    let product_turn: string[] = this.utilitaire.getAllOcc(this.key_product, '_'+(this.turn-1)); 
     for (var i = 0; i < product_turn.length; i++) {
       JSONQury[product_turn[i].split('_')[0]] = this.createProduct(product_turn[i].split('_')[0], this.json_produits);
     }
     this.panel_produits = JSONQury as JSON;
     this.key_panel_produits = Object.keys(this.panel_produits);
     console.log(this.panel_produits);
-
-   
+    console.log(this.getProductionProduitbyUsine("Bouteille d'eau 21811", "Usine n°1", null));
+    ;
   }
 
   createProduct(name: string, json:JSON): Product{
-    /*let arrIns: string[];
-    var arr = this.utilitaire.getData(json, name, "_"+this.turn, "Installation").split(',');
+    var arrIns = new Array();
+    var turn_prod = Number(this.turn)-1;
+    var arr = this.utilitaire.getData(json, name, "_"+turn_prod, "Installation").split(',');
     for (var value of arr){
       console.log(this.iDInstallationToName(value));
-      //arrIns.push(this.iDInstallationToName(value));
-    }*/
+      arrIns.push(this.iDInstallationToName(value));
+    }
+    
     let prod: Product = {
       id: name
-      , Prix : Number(this.utilitaire.getData(json, name, "_"+this.turn, 'Prix'))
-      , RD : Number(this.utilitaire.getData(json, name, "_"+this.turn, 'R&D'))
-      , Installations: this.utilitaire.getData(json, name, "_"+this.turn, 'Installation').split(',')
-      , InstallationSelected: ''
-      , Production: Number(this.utilitaire.getData(json, name, "_"+this.turn, 'Productio'))
-      , Qualite: Number(this.utilitaire.getData(json, name, "_"+this.turn, 'Qualité'))
-      , IP: Number(this.utilitaire.getData(json, name, "_"+this.turn, 'Indice prix'))
-      , IT: Number(this.utilitaire.getData(json, name, "_"+this.turn, 'Indice technique'))
-      , Notoriete: Number(this.utilitaire.getData(json, name, "_"+this.turn, 'Notoriété'))
-      , Demande: Number(this.utilitaire.getData(json, name, "_"+this.turn, 'Demande'))
-      , Stock: Number(this.utilitaire.getData(json, name, "_"+this.turn, 'Stock'))
-      , MB: Number(this.utilitaire.getData(json, name, "_"+this.turn, 'Marge brute'))
-      , TMB: Number(this.utilitaire.getData(json, name, "_"+this.turn, 'taux de marge brute'))
+      , Prix : Number(this.utilitaire.getData(json, name, "_"+turn_prod, 'Prix'))
+      , RD : Number(this.utilitaire.getData(json, name, "_"+turn_prod, 'R&D'))
+      , Installations: arrIns
+      , InstallationSelected: arrIns[0]
+      //, ProductionbyFactory: this.getProductionProduitbyUsine(name, arrIns[0])
+      , Production: Number(this.utilitaire.getData(json, name, "_"+turn_prod, 'Production'))
+      , Productions: this.utilitaire.getData(json, name, "_"+turn_prod, 'Prod° par instal').split(',')
+      , Qualite: Number(this.utilitaire.getData(json, name, "_"+turn_prod, 'Qualité'))
+      , IP: Number(this.utilitaire.getData(json, name, "_"+turn_prod, 'Indice prix'))
+      , IT: Number(this.utilitaire.getData(json, name, "_"+turn_prod, 'Indice technique'))
+      , Notoriete: Number(this.utilitaire.getData(json, name, "_"+turn_prod, 'Notoriété'))
+      , Demande: Number(this.utilitaire.getData(json, name, "_"+turn_prod, 'Demande'))
+      , Stock: Number(this.utilitaire.getData(json, name, "_"+turn_prod, 'Stock'))
+      , MB: Number(this.utilitaire.getData(json, name, "_"+turn_prod, 'Marge brute'))
+      , TMB: Number(this.utilitaire.getData(json, name, "_"+turn_prod, 'taux de marge brute'))
     }
+    prod.ProductionbyFactory = this.getProductionProduitbyUsine(name, arrIns[0], prod);
     return prod;
   }
 
@@ -141,5 +146,15 @@ export class CenterService {
           return this.panel_factory[key].id
         }
     }
+  }
+
+  getProductionProduitbyUsine(key_prod: string, key_ins: string, myproduct: Product): Number{
+    if (myproduct==null){return this.panel_produits[key_prod].Productions[this.panel_produits[key_prod].Installations.indexOf(key_ins)];}
+    else{return myproduct.Productions[myproduct.Installations.indexOf(key_ins)]};
+  }
+
+  actualiserValeurProduit(key_prod: string, key_ins: string, attribue: string, data:any){
+    if(key_ins==""){this.panel_produits[key_prod].attribue = 0;}
+    else{this.panel_produits[key_prod].attribue = 0;}  
   }
 }

@@ -4,7 +4,9 @@ export interface Product {
   , RD : Number
   , Installations: string[]
   , InstallationSelected: string
+  , ProductionbyFactory?: Number
   , Production: Number
+  , Productions: Number[]
   , Qualite: Number
   , IP: Number
   , IT: Number
