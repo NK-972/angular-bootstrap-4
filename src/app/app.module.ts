@@ -12,10 +12,11 @@ import { InstallationUsineComponent } from './installation-usine/installation-us
 import { InstallationEntrepotComponent } from './installation-entrepot/installation-entrepot.component';
 import { ServeurComponent } from './serveur/serveur.component';
 import { InitService } from './Services/init.service';
+import { ServeursComponent } from './serveurs/serveurs.component';
 
 @NgModule({
   imports: [BrowserModule, FormsModule],
-  declarations: [AppComponent, HeaderComponent, ProduitsComponent, ProduitComponent, InstallationsComponent, InstallationUsineComponent, InstallationEntrepotComponent, ServeurComponent],
+  declarations: [AppComponent, HeaderComponent, ProduitsComponent, ProduitComponent, InstallationsComponent, InstallationUsineComponent, InstallationEntrepotComponent, ServeurComponent, ServeursComponent],
   bootstrap: [AppComponent],
   providers: [CenterService, InitService]
 })

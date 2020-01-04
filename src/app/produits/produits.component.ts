@@ -1,6 +1,5 @@
 import { Component, OnInit} from '@angular/core';
 import { Utilitaire } from '../../utilitaire';
-import { Product } from '../Interfaces/product';
 import { CenterService } from '../Services/center.service';
 
 @Component({

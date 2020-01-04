@@ -66,23 +66,16 @@ export class CenterService {
     this.key_panel_produits = Object.keys(this.panel_produits);
     console.log(this.panel_produits);
 
-    this.iDInstallationToName(1);
-    console.log(this.utilitaire.getData(this.json_produits, "Bouteille d'eau 21811", "_"+this.turn, "Installation").split(','));
-    var arr = this.utilitaire.getData(this.json_produits, "Bouteille d'eau 21811", "_"+this.turn, "Installation").split(',');
-    for (var value of arr){
-      console.log(this.iDInstallationToName(value));
-    }
-    console.log(arr);
-    this.utilitaire.getData(this.json_produits, "Bouteille d'eau 21811", "_"+this.turn, "Installation").split(',');
+   
   }
 
   createProduct(name: string, json:JSON): Product{
-    let arrIns: string[];
+    /*let arrIns: string[];
     var arr = this.utilitaire.getData(json, name, "_"+this.turn, "Installation").split(',');
     for (var value of arr){
       console.log(this.iDInstallationToName(value));
       //arrIns.push(this.iDInstallationToName(value));
-    }
+    }*/
     let prod: Product = {
       id: name
       , Prix : Number(this.utilitaire.getData(json, name, "_"+this.turn, 'Prix'))
@@ -108,7 +101,7 @@ export class CenterService {
       , entretien: Number(this.utilitaire.getData(json, name, "_"+this.turn, 'Entretien'))
       , nbrEmployes: Number(this.utilitaire.getData(json, name, "_"+this.turn, "Nombre d'employés"))
       , IS : Number(this.utilitaire.getData(json, name, "_"+this.turn, "Indice salaire"))
-      , nIns: this.utilitaire.getData(json, name, "_"+this.turn, "N° Installation joueur")
+      , nIns: Number(this.utilitaire.getData(json, name, "_"+this.turn, "N° Installation joueur"))
       , TP : ['']
       , cout : Number(0)
       , moral: Number(this.utilitaire.getData(json, name, "_"+this.turn, "Moral"))
@@ -117,7 +110,7 @@ export class CenterService {
       , FD: Number(this.utilitaire.getData(json, name, "_"+this.turn, "Frais divers"))
       , Production: Number(this.utilitaire.getData(json, name, "_"+this.turn, "Production"))
       , PL: Number(this.utilitaire.getData(json, name, "_"+this.turn, "Production max"))
-      , Prod: Number(0) 
+      , Prod: Number(0)
     }
     return factory;
   }

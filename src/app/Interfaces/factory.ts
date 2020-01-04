@@ -13,5 +13,4 @@ export interface Factory {
   , Production: Number
   , PL: Number
   , Prod: Number
-  , sayHi: ()=>string
 }
