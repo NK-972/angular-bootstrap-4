@@ -1,10 +1,10 @@
 <!--
 
 -->
-<div *ngFor="let key of key_panel_storage;"> 
-  <app-installation-entrepot  [data]=panel_storage[key]></app-installation-entrepot>
+<div *ngFor="let key of centerService.key_panel_storage;"> 
+  <app-installation-entrepot  [key]=key></app-installation-entrepot>
 </div>
-<div *ngFor="let key of key_panel_factory;"> 
-  <app-installation-usine  [data]=panel_factory[key]></app-installation-usine>
+<div *ngFor="let key of centerService.key_panel_factory;"> 
+  <app-installation-usine  [key]=key></app-installation-usine>
 </div>
 

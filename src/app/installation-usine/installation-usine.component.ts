@@ -9,13 +9,12 @@ import { CenterService } from '../Services/center.service';
   styleUrls: ['./installation-usine.component.css']
 })
 export class InstallationUsineComponent implements OnInit {
-  @Input() data: Factory;
+  @Input() key: Factory;
   utilitaire: Utilitaire = new Utilitaire();
   prod: Factory;
   constructor(private centerService: CenterService) { }
 
   ngOnInit() {
-    this.data = this.data as JSON;
   }
 
 }

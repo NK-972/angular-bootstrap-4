@@ -9,12 +9,11 @@ import { CenterService } from '../Services/center.service';
   styleUrls: ['./installation-entrepot.component.css']
 })
 export class InstallationEntrepotComponent implements OnInit {
-  @Input() data: Storage;
+  @Input() key: Storage;
   utilitaire: Utilitaire = new Utilitaire();
   constructor(private centerService: CenterService) { }
 
   ngOnInit() {
-    this.data  = this.data as Storage;
   }
 
 }

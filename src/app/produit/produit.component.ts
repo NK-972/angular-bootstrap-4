@@ -9,7 +9,7 @@ import { CenterService } from '../Services/center.service';
   styleUrls: ['./produit.component.css']
 })
 export class ProduitComponent implements OnInit{
-  @Input() data: Product;
+  @Input() key: Product;
   utilitaire: Utilitaire = new Utilitaire();
   prod: Product;
 
@@ -17,7 +17,6 @@ export class ProduitComponent implements OnInit{
   }
 
   ngOnInit(){
-    this.data = this.data as Product;
   }
 
 }

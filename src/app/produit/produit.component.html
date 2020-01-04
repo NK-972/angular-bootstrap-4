@@ -1,14 +1,14 @@
 <div class="produit panel panel-default">
-  <div class="panel-body container">{{ data.id }}
+  <div class="panel-body container">{{ centerService.panel_produits[key].id }}
   <div class="mypanel row"> 
     <div class="descision col-sm-6">
       <label>Prix : </label><br>
-      <input type="nummber" id="name" [value]=data.Prix name="name" (input)="data.Prix = $event.target.value" required minlength="1" maxlength="8" size="10"><br>
+      <input type="nummber" id="name" [value]=centerService.panel_produits[key].Prix name="name" (input)="centerService.panel_produits[key].Prix = $event.target.value" required minlength="1" maxlength="8" size="10"><br>
       <label>R&D :</label><br>
-      <input type="nummber" id="name" [value]=data.RD name="name"  (input)="data.Prix = $event.target.value"  required minlength="1" maxlength="10" size="10"><br>
+      <input type="nummber" id="name" [value]=centerService.panel_produits[key].RD name="name"  (input)="centerService.panel_produits[key].Prix = $event.target.value"  required minlength="1" maxlength="10" size="10"><br>
       <label>Installations :</label><br>
       <select id='test' class="browser-default custom-select">
-        <ng-container *ngFor='let x of data.Installations'>
+        <ng-container *ngFor='let x of centerService.panel_produits[key].Installations'>
           <ng-container *ngIf="x != 0">
             <option value={{x}}>{{x}}</option>
           </ng-container>
@@ -19,31 +19,31 @@
       <label>Production :</label><br>
       <input type="nummber" id="name" name="name" [value]=20 required minlength="1" maxlength="6" size="10"><br>
       <label>Production totale :</label><br>
-      <input type="nummber" id="name" name="name" [value]=data.Productionrequired minlength="1" maxlength="8" size="10" disabled><br>
+      <input type="nummber" id="name" name="name" [value]=centerService.panel_produits[key].Productionrequired minlength="1" maxlength="8" size="10" disabled><br>
     </div>
 
     <div class="information col-sm-5">
       <label>Qualité :</label><br>
-      <input type="nummber" size="10" [value]=data.Qualite disabled><br>
+      <input type="nummber" size="10" [value]=centerService.panel_produits[key].Qualite disabled><br>
       <label>Image Prix :</label><br>
-      <input type="nummber" size="10" [value]=data.IP disabled><br>
+      <input type="nummber" size="10" [value]=centerService.panel_produits[key].IP disabled><br>
       <label>Indice Technique : </label><br>
-      <input type="nummber" size="10" [value]=data.IT disabled><br>
+      <input type="nummber" size="10" [value]=centerService.panel_produits[key].IT disabled><br>
       <label>Notoriété :</label><br>
-      <input type="nummber" size="10" [value]=data.Notoriete disabled><br>
+      <input type="nummber" size="10" [value]=centerService.panel_produits[key].Notoriete disabled><br>
       <label>Demande :</label><br>
-      <input type="nummber" size="10" [value]=data.Demande disabled><br>
+      <input type="nummber" size="10" [value]=centerService.panel_produits[key].Demande disabled><br>
       <label>En stock :</label><br>
-      <input type="nummber" size="10" [value]=data.Stock disabled><br>
+      <input type="nummber" size="10" [value]=centerService.panel_produits[key].Stock disabled><br>
       <label>Marge brute : </label><br>
-      <input type="nummber" size="10" [value]=data.MB disabled><br>
+      <input type="nummber" size="10" [value]=centerService.panel_produits[key].MB disabled><br>
       <label>Taux de marge brute : </label><br>
-      <input type="nummber" size="10" [value]=data.TMB disabled><br>
+      <input type="nummber" size="10" [value]=centerService.panel_produits[key].TMB disabled><br>
     </div>
 
   </div>
   </div>
 </div>
 
-<p> {{ data.Prix }} </p>
+<p> {{ centerService.panel_produits[key].Prix }} </p>
 
