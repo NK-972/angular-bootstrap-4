@@ -3,42 +3,42 @@
   <div class="mypanel row"> 
     <div class="descision col-sm-6">
       <label>Prix : </label><br>
-      <input type="nummber" id="name" [value]=centerService.panel_produits[key].Prix name="name" (input)="centerService.panel_produits[key].Prix = $event.target.value" required minlength="1" maxlength="8" size="10"><br>
+      <input type="nummber" id="name" [value]=centerService.panel_produits[key].prix name="name" (input)="centerService.panel_produits[key].Prix = $event.target.value" required minlength="1" maxlength="8" size="10"><br>
       <label>R&D :</label><br>
-      <input type="nummber" id="name" [value]=centerService.panel_produits[key].RD name="name"  (input)="centerService.panel_produits[key].Prix = $event.target.value"  required minlength="1" maxlength="10" size="10"><br>
+      <input type="nummber" id="name" [value]=centerService.panel_produits[key].rd name="name"  (input)="centerService.panel_produits[key].rd = $event.target.value"  required minlength="1" maxlength="10" size="10"><br>
       <label>Installations :</label><br>
       <select id='test' class="browser-default custom-select">
-        <ng-container *ngFor='let x of centerService.panel_produits[key].Installations'>
+        <ng-container *ngFor='let x of centerService.panel_produits[key].installations'>
           <ng-container *ngIf="x != 0">
             <option value={{x}}>{{x}}</option>
           </ng-container>
         </ng-container>
       </select><br>
       <label>Production (%) :</label><br>
-      <progress id="file" max="100" [value]="70"> 70% </progress><br>
+      <progress id="file" max="100" [value]=centerService.panel_produits[key].pourcentageProduction*100></progress><br>
       <label>Production :</label><br>
-      <input type="nummber" id="name" name="name" [value]=centerService.panel_produits[key].ProductionbyFactory required minlength="1" maxlength="6" size="10"><br>
+      <input type="nummber" id="name" name="name" [value]=centerService.panel_produits[key].productionbyFactory required minlength="1" maxlength="6" size="10"><br>
       <label>Production totale :</label><br>
-      <input type="nummber" id="name" name="name" [value]=centerService.panel_produits[key].Production required minlength="1" maxlength="8" size="10" disabled><br>
+      <input type="nummber" id="name" name="name" [value]=centerService.panel_produits[key].production required minlength="1" maxlength="8" size="10" disabled><br>
     </div>
 
     <div class="information col-sm-5">
       <label>Qualité :</label><br>
-      <input type="nummber" size="10" [value]=centerService.panel_produits[key].Qualite disabled><br>
+      <input type="nummber" size="10" [value]=centerService.panel_produits[key].qualite disabled><br>
       <label>Image Prix :</label><br>
-      <input type="nummber" size="10" [value]=centerService.panel_produits[key].IP disabled><br>
+      <input type="nummber" size="10" [value]=centerService.panel_produits[key].ip disabled><br>
       <label>Indice Technique : </label><br>
-      <input type="nummber" size="10" [value]=centerService.panel_produits[key].IT disabled><br>
+      <input type="nummber" size="10" [value]=centerService.panel_produits[key].it disabled><br>
       <label>Notoriété :</label><br>
-      <input type="nummber" size="10" [value]=centerService.panel_produits[key].Notoriete disabled><br>
+      <input type="nummber" size="10" [value]=centerService.panel_produits[key].notoriete disabled><br>
       <label>Demande :</label><br>
-      <input type="nummber" size="10" [value]=centerService.panel_produits[key].Demande disabled><br>
+      <input type="nummber" size="10" [value]=centerService.panel_produits[key].demande disabled><br>
       <label>En stock :</label><br>
-      <input type="nummber" size="10" [value]=centerService.panel_produits[key].Stock disabled><br>
+      <input type="nummber" size="10" [value]=centerService.panel_produits[key].stock disabled><br>
       <label>Marge brute : </label><br>
-      <input type="nummber" size="10" [value]=centerService.panel_produits[key].MB disabled><br>
+      <input type="nummber" size="10" [value]=centerService.panel_produits[key].mb disabled><br>
       <label>Taux de marge brute : </label><br>
-      <input type="nummber" size="10" [value]=centerService.panel_produits[key].TMB disabled><br>
+      <input type="nummber" size="10" [value]=centerService.panel_produits[key].tmb disabled><br>
     </div>
 
   </div>

@@ -3,14 +3,14 @@ export interface Storage {
   , entretien: Number
   , nbrEmployes: Number
   , nIns: Number
-  , IS : Number
-  , TP : string[]
+  , indS : Number
+  , tp : string[]
   , cout : Number
   , moral: Number
   , region: string
-  , IT: Number
-  , FD: Number
-  , Stock: Number
-  , SL: Number
-  , S: Number
+  , it: Number
+  , fd: Number
+  , stock: Number
+  , sl: Number
+  , s: Number
 }

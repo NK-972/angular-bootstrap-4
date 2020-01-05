@@ -3,14 +3,16 @@ export interface Factory {
   , entretien: Number
   , nIns: Number
   , nbrEmployes: Number
-  , IS : Number
-  , TP : string[]
+  , indS : Number
+  , tp : string[]
   , cout : Number
   , moral: Number
   , region: string
-  , IT: Number
-  , FD: Number
-  , Production: Number
-  , PL: Number
-  , Prod: Number
+  , it: Number
+  , fd: Number
+  , production: Number
+  , productionPossible: Number
+  , pourcentageProduction?: Number
+  , pl: Number
+  , prod: Number
 }

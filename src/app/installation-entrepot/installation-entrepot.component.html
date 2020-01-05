@@ -5,10 +5,9 @@
       <label>Entretien : </label><br>
       <input type="nummber" id="name" [value]=centerService.panel_storage[key].entretien name="name" (input)="centerService.panel_storage[key].Prix = $event.target.value" required minlength="1" maxlength="8" size="10"><br>
       <label>Indice salaire :</label><br>
-      <input type="nummber" id="name" [value]=centerService.panel_storage[key].IS name="name"  (input)="centerService.panel_storage[key].Prix = $event.target.value"  required minlength="1" maxlength="10" size="10"><br>
+      <input type="nummber" id="name" [value]=centerService.panel_storage[key].indS name="name"  (input)="centerService.panel_storage[key].Prix = $event.target.value"  required minlength="1" maxlength="10" size="10"><br>
       <label>Nombre de d'employés :</label><br>
-      <input type="nummber" id="name" [value]=centerService.panel_storage[key].nbrEmployes name="name"  (input)="centerService.panel_storage[key].Prix = $event.target.value"  required minlength="1" maxlength="10" size="10"><br>
-      
+      <input type="nummber" id="name" [value]=centerService.panel_storage[key].nbrEmployes name="name" disabled required minlength="1" maxlength="10" size="10"><br>
     </div>
 
     <div class="information col-sm-5">
@@ -17,15 +16,15 @@
       <label>Région :</label><br>
       <input type="nummber" size="10" [value]=centerService.panel_storage[key].region disabled><br>
       <label>Indice Technique : </label><br>
-      <input type="nummber" size="10" [value]=centerService.panel_storage[key].IT disabled><br>
+      <input type="nummber" size="10" [value]=centerService.panel_storage[key].it disabled><br>
       <label>Frais divers :</label><br>
-      <input type="nummber" size="10" [value]=centerService.panel_storage[key].FD disabled><br>
+      <input type="nummber" size="10" [value]=centerService.panel_storage[key].fd disabled><br>
       <label>Stock :</label><br>
-      <input type="nummber" size="10" [value]=centerService.panel_storage[key].Stock disabled><br>
+      <input type="nummber" size="10" [value]=centerService.panel_storage[key].stock disabled><br>
       <label>Stock limite :</label><br>
-      <input type="nummber" size="10" [value]=centerService.panel_storage[key].SL disabled><br>
+      <input type="nummber" size="10" [value]=centerService.panel_storage[key].sl disabled><br>
       <label>Stock : </label><br>
-      <input type="nummber" size="10" [value]=centerService.panel_storage[key].S disabled><br>
+      <input type="nummber" size="10" [value]=centerService.panel_storage[key].s disabled><br>
     </div>
 
   </div>
