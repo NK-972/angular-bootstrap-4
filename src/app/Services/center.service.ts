@@ -58,7 +58,8 @@ export class CenterService {
     JSONQury = {};
     this.json_produits = this.utilitaire.StringToTable(this.string_produits);
     this.key_product = Object.keys(this.json_produits);
-    let product_turn: string[] = this.utilitaire.getAllOcc(this.key_product, '_'+(this.turn-1)); 
+    let turn_: Number = this.turn-1;
+    let product_turn: string[] = this.utilitaire.getAllOcc(this.key_product, '_'+turn_); 
     for (var i = 0; i < product_turn.length; i++) {
       JSONQury[product_turn[i].split('_')[0]] = this.createProduct(product_turn[i].split('_')[0], this.json_produits);
     }
@@ -66,7 +67,7 @@ export class CenterService {
     this.key_panel_produits = Object.keys(this.panel_produits);
     console.log(this.panel_produits);
     console.log(this.getProductionProduitbyUsine("Bouteille d'eau 21811", "Usine n°1", null));
-    this.actuliserPoucentageProduction("Usine n°1", 3600);
+    //this.actuliserPoucentageProduction("Usine n°1", 3600);
   }
 
   createProduct(name: string, json:JSON): Product{
@@ -163,7 +164,8 @@ export class CenterService {
     else if(attribue == 2){this.panel_produits[key_prod].installationSelected = 0;}
     else{
       attribue = data - this.panel_produits[key_prod];
-      this.panel_produits[key_prod].attribue = 0;
+      this.panel_produits[key_prod]. = 0;
+      this.actuliserPoucentageProduction("Usine n°1", 3600);
       }  
   }
   actuliserPoucentageProduction(key: string, variation:Number){
