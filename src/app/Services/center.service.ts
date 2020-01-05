@@ -66,7 +66,7 @@ export class CenterService {
     this.key_panel_produits = Object.keys(this.panel_produits);
     console.log(this.panel_produits);
     console.log(this.getProductionProduitbyUsine("Bouteille d'eau 21811", "Usine n°1", null));
-    //this.actuliserPoucentageProduction("Usine n°1", 3600);
+    this.actuliserPoucentageProduction("Usine n°1", 3600);
   }
 
   createProduct(name: string, json:JSON): Product{
@@ -115,11 +115,11 @@ export class CenterService {
       , it: Number(this.utilitaire.getData(json, name, "_"+this.turn, "Indice technique"))
       , fd: Number(this.utilitaire.getData(json, name, "_"+this.turn, "Frais divers"))
       , production: Number(this.utilitaire.getData(json, name, "_"+this.turn, "Production"))
-      , pourcentageProduction: Number(this.utilitaire.getData(json, name, "_"+this.turn, "Production possible"))
+      , productionPossible: Number(this.utilitaire.getData(json, name, "_"+this.turn, "Production possible"))
       , pl: Number(this.utilitaire.getData(json, name, "_"+this.turn, "Production max"))
       , prod: Number(0)
     }
-    factory.pourcentageProduction = factory.production / factory.pourcentageProduction;
+    factory.pourcentageProduction = factory.production / factory.productionPossible;
     
     return factory;
   }
@@ -168,7 +168,7 @@ export class CenterService {
   }
   actuliserPoucentageProduction(key: string, variation:Number){
     this.panel_factory[key].production = this.panel_factory[key].production + variation;
-    this.panel_factory[key].pourcentageProduction = Math.round(this.panel_factory[key].production / this.panel_factory[key].productionPossible);
+    this.panel_factory[key].pourcentageProduction = this.panel_factory[key].production / this.panel_factory[key].productionPossible;
     for (var k in this.panel_produits){
       if (this.panel_produits[k].installationSelected == key){
         this.panel_produits[k].pourcentageProduction = this.panel_factory[key].pourcentageProduction;
