@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatInputModule, MatButtonModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {HttpModule} from '@angular/http';
@@ -53,6 +52,8 @@ import { ServeurComponent } from './serveur/serveur.component';
 import { InitService } from './Services/init.service';
 import { ServeursComponent } from './serveurs/serveurs.component';
 import { FinanceComponent } from './finance/finance.component';
+import { TableColumnsComponent } from './table-columns/table-columns.component';
+import { TableRowsComponent } from './table-rows/table-rows.component';
 
 @NgModule({
   exports: [
@@ -94,7 +95,7 @@ export class DemoMaterialModule {}
 
 @NgModule({
   imports: [BrowserModule, FormsModule, MatInputModule, MatButtonModule, MatTableModule,BrowserAnimationsModule, DemoMaterialModule],
-  declarations: [AppComponent, HeaderComponent, ProduitsComponent, ProduitComponent, InstallationsComponent, InstallationUsineComponent, InstallationEntrepotComponent, ServeurComponent, ServeursComponent, FinanceComponent],
+  declarations: [AppComponent, HeaderComponent, ProduitsComponent, ProduitComponent, InstallationsComponent, InstallationUsineComponent, InstallationEntrepotComponent, ServeurComponent, ServeursComponent, FinanceComponent, TableColumnsComponent, TableRowsComponent],
   bootstrap: [AppComponent],
   providers: [CenterService, InitService]
 })
