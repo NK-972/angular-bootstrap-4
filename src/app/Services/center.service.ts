@@ -58,8 +58,7 @@ export class CenterService {
     JSONQury = {};
     this.json_produits = this.utilitaire.StringToTable(this.string_produits);
     this.key_product = Object.keys(this.json_produits);
-    let turn_: Number = this.turn-1;
-    let product_turn: string[] = this.utilitaire.getAllOcc(this.key_product, '_'+turn_); 
+    let product_turn: string[] = this.utilitaire.getAllOcc(this.key_product, '_'+(this.turn-1)); 
     for (var i = 0; i < product_turn.length; i++) {
       JSONQury[product_turn[i].split('_')[0]] = this.createProduct(product_turn[i].split('_')[0], this.json_produits);
     }
@@ -159,13 +158,14 @@ export class CenterService {
   }
 
   actualiserValeurProduit(key_prod: string, attribue: number, data:any){
-    if(attribue == 0){this.panel_produits[key_prod].prix = 0;}
-    else if(attribue == 1){this.panel_produits[key_prod].rd = 0;}
-    else if(attribue == 2){this.panel_produits[key_prod].installationSelected = 0;}
+    if(attribue == 0){this.panel_produits[key_prod].prix = data;}
+    else if(attribue == 1){this.panel_produits[key_prod].rd = data;}
+    else if(attribue == 2){this.panel_produits[key_prod].installationSelected = data;}
     else{
       attribue = data - this.panel_produits[key_prod];
-      this.panel_produits[key_prod]. = 0;
-      this.actuliserPoucentageProduction("Usine n°1", 3600);
+      this.panel_produits[key_prod].productionbyFactory = data;
+      this.panel_produits[key_prod].production += attribue; 
+      this.actuliserPoucentageProduction("Usine n°1", attribue);
       }  
   }
   actuliserPoucentageProduction(key: string, variation:Number){
