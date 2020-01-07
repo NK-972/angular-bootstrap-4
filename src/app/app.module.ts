@@ -55,6 +55,7 @@ import { FinanceComponent } from './finance/finance.component';
 import { TableColumnsComponent } from './table-columns/table-columns.component';
 import { TableRowsComponent } from './table-rows/table-rows.component';
 import { TableSelectComponent } from './table-select/table-select.component';
+import { TableInputComponent } from './table-input/table-input.component';
 
 @NgModule({
   exports: [
@@ -96,7 +97,7 @@ export class DemoMaterialModule {}
 
 @NgModule({
   imports: [BrowserModule, FormsModule, MatInputModule, MatButtonModule, MatTableModule,BrowserAnimationsModule, DemoMaterialModule],
-  declarations: [AppComponent, HeaderComponent, ProduitsComponent, ProduitComponent, InstallationsComponent, InstallationUsineComponent, InstallationEntrepotComponent, ServeurComponent, ServeursComponent, FinanceComponent, TableColumnsComponent, TableRowsComponent, TableSelectComponent],
+  declarations: [AppComponent, HeaderComponent, ProduitsComponent, ProduitComponent, InstallationsComponent, InstallationUsineComponent, InstallationEntrepotComponent, ServeurComponent, ServeursComponent, FinanceComponent, TableColumnsComponent, TableRowsComponent, TableSelectComponent, TableInputComponent],
   bootstrap: [AppComponent],
   providers: [CenterService, InitService]
 })

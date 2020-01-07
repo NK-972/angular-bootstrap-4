@@ -11,6 +11,7 @@ export class TableRowsComponent implements OnInit{
   @Input() table : [];
   displayedColumns: string[]; // = ['position', 'name', 'weight', 'symbol'];
   dataSource: any;
+  boolMethod: boolean;
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
 
   @ViewChild(MatPaginator, { static: false })
@@ -36,13 +37,24 @@ export class TableRowsComponent implements OnInit{
     }
     return list;
   }
-  actionOnRow(key: string, row: string): any{
+  actionOnRow(key: string): string{
+    if(key.includes('$eL$')){
+      return 'select';
+    }else if(key.includes('$eN$')){
+      return 'inputNumber';
+    }
+    return 'string';
+  }
+  dataInCell(key: string, row: string): any{
     let s: any;
     s = row;
     if(key.includes('$eL$')){
-      s = row.split(',');
+      return row.split(',');
     }
     return s;
+  }//str: string
+  compareEgalite(str: string): boolean{
+    return str=='string' ? true : false;
   }
   ngOnInit(){
     console.log(this.table);

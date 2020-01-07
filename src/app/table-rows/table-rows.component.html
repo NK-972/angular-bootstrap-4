@@ -9,7 +9,19 @@
 
       <ng-container *ngFor="let x of getDisplayedColumns()" matColumnDef={{x}}>
         <mat-header-cell *matHeaderCellDef> {{x}} </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{actionOnRow(x, row[x])}} </mat-cell>
+        <ng-container *ngIf="actionOnRow(x)=='string' ? true : false">
+          <mat-cell  *matCellDef="let row"> {{row[x]}} </mat-cell>
+        </ng-container>
+        <ng-container *ngIf="actionOnRow(x)=='select' ? true : false">
+          <mat-cell  *matCellDef="let row">
+            <app-table-select [data]="dataInCell(x, row[x])"></app-table-select>
+          </mat-cell>
+        </ng-container>
+        <ng-container *ngIf="actionOnRow(x)=='inputNumber' ? true : false">
+          <mat-cell  *matCellDef="let row">
+            <app-table-input [data]=row[x]></app-table-input>
+          </mat-cell>
+        </ng-container>
       </ng-container>
 
       <mat-header-row *matHeaderRowDef="getDisplayedColumns()"></mat-header-row>
