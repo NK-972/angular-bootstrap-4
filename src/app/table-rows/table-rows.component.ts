@@ -27,16 +27,30 @@ export class TableRowsComponent implements OnInit{
       this.dataSource.sort = value;
     }
   }
-
+  getDisplayedColumns(): string[]{
+    let list : string[] = [];
+    for(var value of this.displayedColumns){
+      if(!value.includes('-$nc$')){
+        list.push(value);
+      }
+    }
+    return list;
+  }
+  actionOnRow(key: string, row: string): any{
+    let s: any;
+    s = row;
+    if(key.includes('$eL$')){
+      s = row.split(',');
+    }
+    return s;
+  }
   ngOnInit(){
     console.log(this.table);
-    //this.displayedColumns = this.table[this.table.length -1]['headers'];
-    //console.log(this.displayedColumns);
-    const index = this.table.indexOf('headers', 0);
-    if (index > -1) {
-      this.table.splice(index, 1);
-    }
-    this.dataSource = new MatTableDataSource(ELEMENT_DATA);
+    this.displayedColumns = this.table[this.table.length -1]['headers'];
+    console.log(this.displayedColumns);
+    this.table.splice(this.table.length -1, 1);
+    console.log(this.table);
+    this.dataSource = new MatTableDataSource(this.table);
   }
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();

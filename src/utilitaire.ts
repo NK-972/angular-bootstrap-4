@@ -45,7 +45,7 @@ export class Utilitaire {
     table.forEach(function(row){
       json = {};
       headers.forEach((header, i)=>{
-        json[header] = row[i];
+        json[header] = (row[i] == 'null') ? '' : row[i];
       })
       table_.push(json); 
     })

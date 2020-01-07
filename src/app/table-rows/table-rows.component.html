@@ -7,13 +7,13 @@
   <div class="example-container mat-elevation-z8">
     <mat-table #table [dataSource]="dataSource">
 
-      <ng-container *ngFor="let x of displayedColumns" matColumnDef={{x}}>
+      <ng-container *ngFor="let x of getDisplayedColumns()" matColumnDef={{x}}>
         <mat-header-cell *matHeaderCellDef> {{x}} </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row[x]}} </mat-cell>
+        <mat-cell *matCellDef="let row"> {{actionOnRow(x, row[x])}} </mat-cell>
       </ng-container>
 
-      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      <mat-header-row *matHeaderRowDef="getDisplayedColumns()"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: getDisplayedColumns();"></mat-row>
     </mat-table>
 
     <mat-paginator #paginator
