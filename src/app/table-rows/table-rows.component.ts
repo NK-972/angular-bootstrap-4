@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, Input, OnInit } from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 
 @Component({
@@ -7,15 +7,42 @@ import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
   styleUrls: ['./table-rows.component.css']
 })
 
-export class TableRowsComponent{
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+export class TableRowsComponent implements OnInit{
+  @Input() table : [];
+  displayedColumns: string[]; // = ['position', 'name', 'weight', 'symbol'];
+  dataSource: any;
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
+
+  @ViewChild(MatPaginator, { static: false })
+  set setpaginator(value: MatPaginator) {
+    if(this.displayedColumns){
+      this.dataSource.paginator = value;
+    }
+    
+  }
+
+  @ViewChild(MatSort, { static: false })
+  set setsort(value: MatSort){
+    if(this.displayedColumns){
+      this.dataSource.sort = value;
+    }
+  }
+
+  ngOnInit(){
+    console.log(this.table);
+    //this.displayedColumns = this.table[this.table.length -1]['headers'];
+    //console.log(this.displayedColumns);
+    const index = this.table.indexOf('headers', 0);
+    if (index > -1) {
+      this.table.splice(index, 1);
+    }
+    this.dataSource = new MatTableDataSource(ELEMENT_DATA);
+  }
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
+    //this.dataSource.paginator = this.paginator;
   }
 }
 

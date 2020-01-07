@@ -32,4 +32,26 @@ export class Utilitaire {
     return l;
   }
 
+  public createTableRow(str: string): string[]{
+    let sortie: string[] = str.replace("[[", "").replace("]]", "").split("], [");
+    let table: string[] = [];
+    let table_ = [];
+    let json = {};
+    sortie.forEach(function (value) {
+      table.push(value.split(", "));
+    })
+    let headers: string[] = table[0];
+    table.splice(0, 1);
+    table.forEach(function(row){
+      json = {};
+      headers.forEach((header, i)=>{
+        json[header] = row[i];
+      })
+      table_.push(json); 
+    })
+    json = {};
+    json['headers'] = headers;
+    table_.push(json);
+    return table_;
+  }
 }

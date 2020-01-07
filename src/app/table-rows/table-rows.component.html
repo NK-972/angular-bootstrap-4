@@ -1,42 +1,25 @@
 
-<mat-form-field>
-  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-</mat-form-field>
+<div *ngIf='displayedColumns'>
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
 
-<div class="example-container mat-elevation-z8">
-  <mat-table #table [dataSource]="dataSource">
+  <div class="example-container mat-elevation-z8">
+    <mat-table #table [dataSource]="dataSource">
 
-    <!-- Position Column -->
-    <ng-container *ngFor="let x of displayedColumns" matColumnDef={{x}}>
-      <mat-header-cell *matHeaderCellDef> {{x}} </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element[x]}} </mat-cell>
-    </ng-container>
+      <ng-container *ngFor="let x of displayedColumns" matColumnDef={{x}}>
+        <mat-header-cell *matHeaderCellDef> {{x}} </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row[x]}} </mat-cell>
+      </ng-container>
 
-    
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table>
-
-  <mat-paginator #paginator
-                 [pageSize]="10"
-                 [pageSizeOptions]="[5, 10, 20]"
-                 [showFirstLastButtons]="true">
-  </mat-paginator>
-</div>
-
-<div *ngIf="table">
-    <table class="table table-bordered table-hover">
-        <caption>List of users</caption>
-        <thead>
-            <tr>
-                <th *ngFor="let x of tableHeaders"> {{ x }} </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let x of table" >
-                <td *ngFor="let y of tableHeaders">{{ x[y] }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <mat-paginator #paginator
+                  [pageSize]="10"
+                  [pageSizeOptions]="[5, 10, 20]"
+                  [showFirstLastButtons]="true">
+    </mat-paginator>
+  </div>
 </div>
