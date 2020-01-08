@@ -51,12 +51,13 @@ export class TableColumnsComponent implements OnInit {
 
   ngOnInit() {
     console.log('mytable'+this.table);
+    console.log('mytable '+Object.keys(this.table));
     this.displayedColumns = this.table[this.table.length -1]['headers'];
     this.displayedColumns.splice(this.displayedColumns.length -1, 1);
     console.log(this.displayedColumns);
     this.table.splice(this.table.length -1, 1);
     this.dataSource = new MatTableDataSource(this.table);
-    console.log('mytable'+this.table[0]as JSON);
+    console.log('mytable '+Object.keys(this.table[0]));
   }
 
 }
