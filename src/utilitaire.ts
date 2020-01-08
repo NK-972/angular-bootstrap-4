@@ -60,29 +60,30 @@ export class Utilitaire {
     let table: string[] = [];
     let table_ = [];
     let json = {};
-    let headers: string[];
-    /*sortie.forEach(function (value) {
+    let headers: string[]= [];
+    sortie.forEach(function (value) {
       table.push(value.split(", "));
-    })*/
-    while(turn>-1){
-      headers.push('Saison n°'+turn);
+    })
+    while(turn>-2){
+      if(turn==-1){
+        headers.push('');
+      }
+      else{
+        headers.push('Saison n°'+turn); 
+      }
       turn -= 1;
     }
-    
-    console.log('my test '+headers);
-    return [''];
-    /*table.splice(0, 1);
-    table.forEach(function(row){
-      json = {};
-      headers.forEach((header, i)=>{
-        json[header] = (row[i] == 'null') ? '' : row[i];
+    headers.forEach((header)=>{
+      var col = table.pop();
+      col.forEach(function(cell, i){
+        json = {};
+        json[header+' -'+i] = (cell == 'null') ? '' : cell;
+        console.log('my test '+json[header+' -'+i]);
       })
       table_.push(json); 
     })
-    json = {};
-    json['headers'] = headers;
-    table_.push(json);
-    return table_;*/
+    console.log('my test '+table_[0]);
+    return [''];
   }
 
 }

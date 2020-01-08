@@ -74,7 +74,7 @@ export class CenterService {
     /* */
     this.table_marche = this.utilitaire.createTableRow(this.string_marche);
     /* */
-    ///this.utilitaire.createTableColumns(this.string_finances, this.turn);
+    this.utilitaire.createTableColumns(this.string_finances, this.turn);
   }
 
   createProduct(name: string, json:JSON): Product{
