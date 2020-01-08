@@ -66,8 +66,8 @@ export class Utilitaire {
     sortie.forEach(function (value) {
       table.push(value.split(", "));
     })
-    while(index_turn<turn){
-      if(turn==-1){
+    while(index_turn<=turn){
+      if(index_turn==-1){
         headers.push(' ');
       }
       else{
@@ -75,18 +75,17 @@ export class Utilitaire {
       }
       index_turn += 1;
     }
-    headers.forEach((header)=>{
-      col = table.pop();
-      json = {};
-      col.forEach(function(cell, i){
-        json[header+' -'+i] = (cell == 'null') ? '' : cell;
-        //console.log(json);
-      })
+    //console.log(table[1]);
+    headers.forEach((header, ncol)=>{
+      table[ncol].forEach((cell, i)=>{
+          json[header+' -'+i] = (cell == 'null') ? '' : cell;
+        })
       //console.log('finaly '+Object.keys(json));
-      table_.push(json); 
+      table_.push(json);
+      json = {};
     })
     json = {}; json['headers'] = headers; table_.push(json);
-    //console.log('table_ '+Object.keys(table_[0]));
+    //console.log('table_ '+Object.keys(table_[1]));
     return table_;
   }
 
