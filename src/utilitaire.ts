@@ -61,6 +61,7 @@ export class Utilitaire {
     let table_ = [];
     let json = {};
     let headers: string[]= [];
+    let col: string[]= [];
     sortie.forEach(function (value) {
       table.push(value.split(", "));
     })
@@ -74,16 +75,18 @@ export class Utilitaire {
       turn -= 1;
     }
     headers.forEach((header)=>{
-      var col = table.pop();
+      col = table.pop();
       col.forEach(function(cell, i){
         json = {};
         json[header+' -'+i] = (cell == 'null') ? '' : cell;
-        console.log('my test '+json[header+' -'+i]);
+        //console.log(json);
       })
+      console.log('finaly '+json);
       table_.push(json); 
     })
-    console.log('my test '+table_[0]);
-    return [''];
+    json = {}; json['headers'] = headers; table_.push(json as JSON);
+    console.log('table_ '+table_[0]);
+    return table_;
   }
 
 }

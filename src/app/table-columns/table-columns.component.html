@@ -1,0 +1,37 @@
+<div *ngIf='displayedColumns'>
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+
+  <div class="example-container mat-elevation-z8">
+    <mat-table #table [dataSource]="dataSource">
+
+      <ng-container *ngFor="let x of getDisplayedColumns()" matColumnDef={{x}}>
+        <mat-header-cell *matHeaderCellDef> {{x}} </mat-header-cell>
+        <ng-container >
+          <mat-cell  *matCellDef="let row;let i = index"> {{row[formateKey(x, i)]}} </mat-cell>
+        </ng-container>
+        <!-- <ng-container *ngIf="actionOnRow(x)=='select' ? true : false"> 
+          *ngIf="actionOnRow(x)=='string' ? true : false" 
+          <mat-cell  *matCellDef="let row">
+            <app-table-select [data]="dataInCell(x, row[x])"></app-table-select>
+          </mat-cell>
+        </ng-container>
+        <ng-container *ngIf="actionOnRow(x)=='inputNumber' ? true : false">
+          <mat-cell  *matCellDef="let row">
+            <app-table-input [data]=row[x]></app-table-input>
+          </mat-cell>
+        </ng-container>-->
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="getDisplayedColumns()"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: getDisplayedColumns();"></mat-row>
+    </mat-table>
+
+    <mat-paginator #paginator
+                  [pageSize]="10"
+                  [pageSizeOptions]="[5, 10, 20]"
+                  [showFirstLastButtons]="true">
+    </mat-paginator>
+  </div>
+</div>

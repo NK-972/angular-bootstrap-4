@@ -33,6 +33,7 @@ export class CenterService {
   table_marche = [];
   /* */
   string_finances="[[Tour, nombre de produit vendu, chiffre d'affaire, total produit, dépense en matière première, salaire & charge, coût des structures, frais de distribution, budget commercial, budget publicité, budget recherche, amortissement, intérêt des emprunts, total charge, déficit, impôt sur le revenu, exedent brute d'exploitation, résultat d'exploitation, résultat net], [0, 0.0, 0.0, 0.0, 0.0, 0.0, 10000, 0.0, 0, 0, 0, 0, 0, 10000.0, -10000.0, 0.0, 0, 0, 0], [1, 3600.0, 108000.0, 108000.0, 39600.0, 20250.0, 10000, 14400.0, 0, 0, 0, 0, 0, 84250.0, 23750.0, 9025.0, 0, 0, 0], [2, 5000.0, 150000.0, 150000.0, 65000.0, 20250.0, 10000, 20000.0, 0, 0, 0, 0, 0, 115250.0, 34750.0, 13205.0, 0, 0, 0], [3, 3600.0, 108000.0, 108000.0, 50400.0, 65812.0, 10000, 14400.0, 0, 0, 0, 0, 0, 140612.0, -32612.0, 0.0, 0, 0, 0], [4, 0.0, 0.0, 0.0, 0.0, 65812.0, 10000, 0.0, 0, 0, 0, 0, 0, 0.0, 0.0, 0.0, 0, 0, 0]]";
+  table_finances: [];
 
   constructor() {
     var JSONQury;
@@ -74,7 +75,8 @@ export class CenterService {
     /* */
     this.table_marche = this.utilitaire.createTableRow(this.string_marche);
     /* */
-    this.utilitaire.createTableColumns(this.string_finances, this.turn);
+    this.table_finances = this.utilitaire.createTableColumns(this.string_finances, this.turn);
+    console.log('center '+this.table_finances);
   }
 
   createProduct(name: string, json:JSON): Product{
