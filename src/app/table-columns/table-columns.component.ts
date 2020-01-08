@@ -56,7 +56,7 @@ export class TableColumnsComponent implements OnInit {
     console.log(this.displayedColumns);
     this.table.splice(this.table.length -1, 1);
     this.dataSource = new MatTableDataSource(this.table);
-    console.log('mytable'+this.table);
+    console.log('mytable'+this.table[0]as JSON);
   }
 
 }
