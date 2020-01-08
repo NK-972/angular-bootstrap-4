@@ -54,4 +54,35 @@ export class Utilitaire {
     table_.push(json);
     return table_;
   }
+
+  public createTableColumns(str: string, turn:number): string[]{
+    let sortie: string[] = str.replace("[[", "").replace("]]", "").split("], [");
+    let table: string[] = [];
+    let table_ = [];
+    let json = {};
+    let headers: string[];
+    /*sortie.forEach(function (value) {
+      table.push(value.split(", "));
+    })*/
+    while(turn>-1){
+      headers.push('Saison n°'+turn);
+      turn -= 1;
+    }
+    
+    console.log('my test '+headers);
+    return [''];
+    /*table.splice(0, 1);
+    table.forEach(function(row){
+      json = {};
+      headers.forEach((header, i)=>{
+        json[header] = (row[i] == 'null') ? '' : row[i];
+      })
+      table_.push(json); 
+    })
+    json = {};
+    json['headers'] = headers;
+    table_.push(json);
+    return table_;*/
+  }
+
 }
