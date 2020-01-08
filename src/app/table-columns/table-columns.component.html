@@ -6,10 +6,10 @@
   <div class="example-container mat-elevation-z8">
     <mat-table #table [dataSource]="dataSource">
 
-      <ng-container *ngFor="let x of getDisplayedColumns(); let col = index" matColumnDef={{x}}>
+      <ng-container *ngFor="let x of getDisplayedColumns(); let col = index;" matColumnDef={{x}}>
         <mat-header-cell *matHeaderCellDef> {{x}} </mat-header-cell>
         <ng-container >
-          <mat-cell  *matCellDef="let row;let i = index"> {{col}} </mat-cell>
+          <mat-cell  *matCellDef="let row;let i = index"> {{formateKey(col, x, i)}} </mat-cell>
         </ng-container>
         <!-- <ng-container *ngIf="actionOnRow(x)=='select' ? true : false"> 
           *ngIf="actionOnRow(x)=='string' ? true : false" 

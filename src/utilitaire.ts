@@ -62,30 +62,31 @@ export class Utilitaire {
     let json = {};
     let headers: string[]= [];
     let col: string[]= [];
+    let index_turn: number = -1;
     sortie.forEach(function (value) {
       table.push(value.split(", "));
     })
-    while(turn>-2){
+    while(index_turn<turn){
       if(turn==-1){
-        headers.push('');
+        headers.push(' ');
       }
       else{
-        headers.push('Saison n°'+turn); 
+        headers.push('Saison n°'+index_turn); 
       }
-      turn -= 1;
+      index_turn += 1;
     }
     headers.forEach((header)=>{
       col = table.pop();
+      json = {};
       col.forEach(function(cell, i){
-        json = {};
         json[header+' -'+i] = (cell == 'null') ? '' : cell;
         //console.log(json);
       })
-      console.log('finaly '+json);
+      //console.log('finaly '+Object.keys(json));
       table_.push(json); 
     })
-    json = {}; json['headers'] = headers; table_.push(json as JSON);
-    console.log('table_ '+table_[0]);
+    json = {}; json['headers'] = headers; table_.push(json);
+    //console.log('table_ '+Object.keys(table_[0]));
     return table_;
   }
 
