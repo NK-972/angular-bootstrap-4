@@ -60,6 +60,7 @@ import { TableSelectComponent } from './table-select/table-select.component';
 import { TableInputComponent } from './table-input/table-input.component';
 import { ConnectionComponent } from './connection/connection.component';
 import { MenuLatComponent } from './menu-lat/menu-lat.component';
+import { AuthGuardService } from './Services/auth-guard.service';
 
 
 
@@ -112,6 +113,6 @@ export class DemoMaterialModule {}
   imports: [BrowserModule, FormsModule, MatInputModule, MatButtonModule, MatTableModule,BrowserAnimationsModule, DemoMaterialModule, RouterModule.forRoot(appRoutes)],
   declarations: [AppComponent, HeaderComponent, ProduitsComponent, ProduitComponent, InstallationsComponent, InstallationUsineComponent, InstallationEntrepotComponent, ServeurComponent, ServeursComponent, FinanceComponent, TableColumnsComponent, TableRowsComponent, TableSelectComponent, TableInputComponent, ConnectionComponent, MenuLatComponent],
   bootstrap: [AppComponent],
-  providers: [CenterService, InitService]
+  providers: [CenterService, InitService, AuthGuardService]
 })
 export class AppModule { }

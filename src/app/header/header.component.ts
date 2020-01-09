@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { categories } from './categories.mock';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +7,6 @@ import { categories } from './categories.mock';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  categories: any[] = categories;
   isCollapsed = false;
   constructor() { }
 
