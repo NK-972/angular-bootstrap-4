@@ -11,7 +11,10 @@ import { InitService } from '../Services/init.service.ts'
 export class ConnectionComponent implements OnInit {
 
   constructor(private initService: InitService, private router: Router) { }
-  onSignIn(form: NgForm) {
+  onSubmit(form: NgForm) {
+    console.log(form.value);
+}
+  onSubrmit(form: NgForm) {
     console.log(form.value);
     this.initService.signIn().then(
       () => {
