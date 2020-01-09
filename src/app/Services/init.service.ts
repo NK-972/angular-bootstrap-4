@@ -4,6 +4,7 @@ import { Utilitaire } from '../../utilitaire';
 
 @Injectable()
 export class InitService {
+  isAuth = false;
   server_string : string ="[[JSON, Nom du serveur, Début, Nbr de tour, D des tours, Fin, Nombre de joueur, Etat], [astro, astro, null, 0, 0, null, 3, 1]]";
   json_server: JSON;
   panel_server: JSON;
@@ -22,8 +23,25 @@ export class InitService {
     this.panel_server = JSONQury as JSON;
     this.key_server = Object.keys(this.panel_server);
     console.log(this.panel_server);
-   }
-  
+  }
+
+
+  signIn() {
+    return new Promise(
+      (resolve, reject) => {
+        setTimeout(
+          () => {
+            this.isAuth = true;
+            resolve(true);
+          }, 2000
+        );
+      }
+    );
+  }
+
+  signOut() {
+    this.isAuth = false;
+  }
 
   createServer(name: string, json:JSON): Server{
     let server: Server = {

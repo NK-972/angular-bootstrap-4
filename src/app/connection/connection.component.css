@@ -1,4 +1,7 @@
 .connection{
-  margin-left: 10%;
+  position: absolute;
+  margin-top: 15%;
+  margin-left: 50%;
   width: 20em;
+
 }
