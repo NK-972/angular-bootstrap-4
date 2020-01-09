@@ -1,1 +1,19 @@
+.wrapper{
+  float: left;
+  position: absolute;
+  width: 25%;
+  height: 100%;
+  border-right: 6px solid red;
+}
 
+#sidebar{
+  position: absolute;
+  margin-top: 75%;
+}
+
+li{
+  border: 1px solid black;
+  margin-bottom: 3%;
+  margin-left: 3%;
+  text-align: center;
+}
