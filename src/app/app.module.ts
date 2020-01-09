@@ -2,10 +2,11 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { Routes, RouterModule } from '@angular/router';
 import {HttpModule} from '@angular/http';
 import {HttpClientModule} from '@angular/common/http';
 import {CdkTableModule} from '@angular/cdk/table';
+
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -57,6 +58,16 @@ import { TableColumnsComponent } from './table-columns/table-columns.component';
 import { TableRowsComponent } from './table-rows/table-rows.component';
 import { TableSelectComponent } from './table-select/table-select.component';
 import { TableInputComponent } from './table-input/table-input.component';
+import { ConnectionComponent } from './connection/connection.component';
+
+
+
+
+const appRoutes: Routes = [
+  { path: 'serveurs', component: ConnectionComponent },
+  { path: 'auth', component: ConnectionComponent },
+  { path: '', component:  ConnectionComponent}
+];
 
 @NgModule({
   exports: [
@@ -97,8 +108,8 @@ import { TableInputComponent } from './table-input/table-input.component';
 export class DemoMaterialModule {}
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, MatInputModule, MatButtonModule, MatTableModule,BrowserAnimationsModule, DemoMaterialModule],
-  declarations: [AppComponent, HeaderComponent, ProduitsComponent, ProduitComponent, InstallationsComponent, InstallationUsineComponent, InstallationEntrepotComponent, ServeurComponent, ServeursComponent, FinanceComponent, TableColumnsComponent, TableRowsComponent, TableSelectComponent, TableInputComponent],
+  imports: [BrowserModule, FormsModule, MatInputModule, MatButtonModule, MatTableModule,BrowserAnimationsModule, DemoMaterialModule, RouterModule.forRoot(appRoutes)],
+  declarations: [AppComponent, HeaderComponent, ProduitsComponent, ProduitComponent, InstallationsComponent, InstallationUsineComponent, InstallationEntrepotComponent, ServeurComponent, ServeursComponent, FinanceComponent, TableColumnsComponent, TableRowsComponent, TableSelectComponent, TableInputComponent, ConnectionComponent],
   bootstrap: [AppComponent],
   providers: [CenterService, InitService]
 })
