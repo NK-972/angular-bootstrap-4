@@ -1,5 +1,7 @@
 .produit{
-  width: 50em;
+  margin-top: 1em;
+  margin-left: 1em;
+  width: 25em;
 }
 
 .list-group{
@@ -12,4 +14,13 @@
 
 #test{
   width: 50%;
+}
+
+#heading{
+  border-bottom: 10px line;
+  background-color: red;
+}
+
+h4{
+  text-align: center;
 }

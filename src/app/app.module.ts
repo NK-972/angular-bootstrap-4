@@ -61,6 +61,7 @@ import { TableInputComponent } from './table-input/table-input.component';
 import { ConnectionComponent } from './connection/connection.component';
 import { MenuLatComponent } from './menu-lat/menu-lat.component';
 import { AuthGuardService } from './Services/auth-guard.service';
+import { BodyViewComponent } from './body-view/body-view.component';
 
 
 
@@ -71,6 +72,8 @@ const appRoutes: Routes = [
   , { path: 'serveurs', component: ConnectionComponent }
   , { path: 'presentation', canActivate: [AuthGuardService], component:  ProduitsComponent}
   , { path: 'produits', canActivate: [AuthGuardService], component:  ProduitsComponent}
+  , { path: 'installations', canActivate: [AuthGuardService], component:  InstallationsComponent}
+  , { path: 'finance', canActivate: [AuthGuardService], component:  FinanceComponent}
 ];
 
 @NgModule({
@@ -113,7 +116,7 @@ export class DemoMaterialModule {}
 
 @NgModule({
   imports: [BrowserModule, FormsModule, MatInputModule, MatButtonModule, MatTableModule,BrowserAnimationsModule, DemoMaterialModule, RouterModule.forRoot(appRoutes)],
-  declarations: [AppComponent, HeaderComponent, ProduitsComponent, ProduitComponent, InstallationsComponent, InstallationUsineComponent, InstallationEntrepotComponent, ServeurComponent, ServeursComponent, FinanceComponent, TableColumnsComponent, TableRowsComponent, TableSelectComponent, TableInputComponent, ConnectionComponent, MenuLatComponent],
+  declarations: [AppComponent, HeaderComponent, ProduitsComponent, ProduitComponent, InstallationsComponent, InstallationUsineComponent, InstallationEntrepotComponent, ServeurComponent, ServeursComponent, FinanceComponent, TableColumnsComponent, TableRowsComponent, TableSelectComponent, TableInputComponent, ConnectionComponent, MenuLatComponent, BodyViewComponent],
   bootstrap: [AppComponent],
   providers: [CenterService, InitService, AuthGuardService]
 })

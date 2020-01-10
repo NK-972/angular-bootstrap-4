@@ -33,7 +33,7 @@ export class InitService {
           () => {
             this.isAuth = true;
             resolve(true);
-          }, 2000
+          }, 10
         );
       }
     );

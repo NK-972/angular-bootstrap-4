@@ -1,7 +1,8 @@
 <div class="produit panel panel-default">
-  <div class="panel-body container">{{ centerService.panel_produits[key].id }}
+  <div class='panel-heading' id='heading'><h4><strong>{{ centerService.panel_produits[key].id }}</strong></h4></div>
+  <div class="panel-body container">
   <div class="mypanel row"> 
-    <div class="descision col-sm-6">
+    <div class="descision col-sm-2">
       <label>Prix : </label><br>
       <input type="nummber" id="name" [value]=centerService.panel_produits[key].prix name="name" (input)="centerService.panel_produits[key].Prix = $event.target.value" required minlength="1" maxlength="8" size="10"><br>
       <label>R&D :</label><br>
@@ -22,7 +23,7 @@
       <input type="nummber" id="name" name="name" [value]=centerService.panel_produits[key].production required minlength="1" maxlength="8" size="10" disabled><br>
     </div>
 
-    <div class="information col-sm-5">
+    <div class="information col-sm-2">
       <label>Qualité :</label><br>
       <input type="nummber" size="10" [value]=centerService.panel_produits[key].qualite disabled><br>
       <label>Image Prix :</label><br>
@@ -37,7 +38,7 @@
       <input type="nummber" size="10" [value]=centerService.panel_produits[key].stock disabled><br>
       <label>Marge brute : </label><br>
       <input type="nummber" size="10" [value]=centerService.panel_produits[key].mb disabled><br>
-      <label>Taux de marge brute : </label><br>
+      <label>Marge brute (%): </label><br>
       <input type="nummber" size="10" [value]=centerService.panel_produits[key].tmb disabled><br>
     </div>
 

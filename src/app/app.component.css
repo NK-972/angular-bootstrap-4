@@ -1,0 +1,43 @@
+#lat ul {
+  float: left;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  padding-top: 10em;
+  width: 10em;
+  background-color: #f1f1f1;
+  height: 100%; /* Full height */
+  position: fixed; /* Make it stick, even on scroll */
+  overflow: auto; /* Enable scrolling if the sidenav has too much content */
+}
+
+
+#lat li a {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color on hover */
+#lat li a:hover {
+  background-color: #555;
+  color: white;
+}
+
+.header {
+  float: left;
+  width:100%;
+  
+  background-color: bisque;
+}
+.header h1{
+  padding-left: 47%;
+}
+
+.body {
+  float: left;
+  width:100%;
+  height: 100%;
+  background-color: blue;
+}
