@@ -1,3 +1,8 @@
-div{
-  margin-left: 10em;
+.flex-container {
+    display: flex;           /* establish flex container */
+    flex-direction: row;  /* make main axis vertical */
+    flex-wrap: wrap;
+    justify-content: center; /* center items vertically, in this case */
+    align-items: center;     /* center items horizontally, in this case */
+    height: 100%;
 }
