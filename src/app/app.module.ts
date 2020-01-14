@@ -68,8 +68,8 @@ import { InformationComponent } from './information/information.component';
 
 
 const appRoutes: Routes = [
-  { path: '', component:  ConnectionComponent}
-  , { path: 'auth', component: ConnectionComponent }
+  { path: '', component:  FinanceComponent}
+  , { path: 'auth', component: FinanceComponent }
   , { path: 'serveurs', component: ConnectionComponent }
   , { path: 'presentation', canActivate: [AuthGuardService], component:  ProduitsComponent}
   , { path: 'produits', canActivate: [AuthGuardService], component:  ProduitsComponent}

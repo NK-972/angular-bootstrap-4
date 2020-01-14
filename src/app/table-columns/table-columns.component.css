@@ -1,0 +1,7 @@
+.myTableColumns{
+  padding: 10vh 0 0 0;
+}
+
+mat-table{  
+  width: 25vw
+}
