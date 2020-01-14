@@ -11,10 +11,12 @@ body {
     background-attachment: fixed;  
     background-size: cover;
     height: 100vh;
-    min-height: 100%;
 }
 
 
 .flex-container{
   display: flex;
+  height: 100vh;
+  flex-direction: row; /* direction d'affichage verticale */
+  justify-content: center; /* alignement vertical */
 }

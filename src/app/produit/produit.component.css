@@ -12,9 +12,10 @@
     -webkit-overflow-scrolling: touch;
 }
 
-#test{
-  width: 50%;
+#installations-list, #production-progress-bar{
+  width: 80%;
 }
+
 
 #heading{
   border-bottom: 10px line;

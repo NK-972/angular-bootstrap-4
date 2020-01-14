@@ -8,7 +8,7 @@
       <label>R&D :</label><br>
       <input type="nummber" id="name" [value]=centerService.panel_produits[key].rd name="name"  (input)="centerService.panel_produits[key].rd = $event.target.value"  required minlength="1" maxlength="10" size="10"><br>
       <label>Installations :</label><br>
-      <select id='test' class="browser-default custom-select">
+      <select id='installations-list' class="browser-default custom-select">
         <ng-container *ngFor='let x of centerService.panel_produits[key].installations'>
           <ng-container *ngIf="x != 0">
             <option value={{x}}>{{x}}</option>
@@ -16,7 +16,7 @@
         </ng-container>
       </select><br>
       <label>Production (%) :</label><br>
-      <progress id="file" max="100" [value]=centerService.panel_produits[key].pourcentageProduction*100></progress><br>
+      <progress class="production-progress-bar" max="100" [value]=centerService.panel_produits[key].pourcentageProduction*100></progress><br>
       <label>Production :</label><br>
       <input type="nummber" id="name" name="name" [value]=centerService.panel_produits[key].productionbyFactory required minlength="1" maxlength="6" size="10"><br>
       <label>Production totale :</label><br>
