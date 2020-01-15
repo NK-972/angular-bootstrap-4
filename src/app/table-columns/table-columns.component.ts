@@ -6,10 +6,11 @@ import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
   styleUrls: ['./table-columns.component.css']
 })
 export class TableColumnsComponent implements OnInit {
-  @Input() table : any;
+  @Input() table : any[];
   displayedColumns: string[]; // = ['position', 'name', 'weight', 'symbol'];
   dataSource: any;
   boolMethod: boolean;
+  len: number[];
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
 
   @ViewChild(MatPaginator, { static: false })
@@ -25,6 +26,7 @@ export class TableColumnsComponent implements OnInit {
     }
   }
   formateKey(col: string, str: string, num: number){
+    return col+' '+str+' '+num
     return this.table[col][str+' -'+num];
   }
   getDisplayedColumns(): string[]{
@@ -53,6 +55,12 @@ export class TableColumnsComponent implements OnInit {
     this.displayedColumns = this.table[this.table.length -1]['headers'];
     this.table.splice(this.table.length -1, 1);
     this.dataSource = new MatTableDataSource(this.table);
+    this.table.forEach((col, ncol)=>{
+      console.log(col);
+    });
+    console.log('test '+Object.keys(this.table[0]));
+    this.len = Array(Object.keys(this.table[0]).length).fill().map((x,i)=>i);
+    console.log();
   }
 
 }

@@ -8,10 +8,10 @@
 
       <ng-container *ngFor="let x of getDisplayedColumns(); let col = index;" matColumnDef={{x}}>
         <mat-header-cell *matHeaderCellDef> {{x}} </mat-header-cell>
-        <ng-container >
-          <mat-cell  *matCellDef="let row;let i = index"> {{formateKey(col, x, i)}} </mat-cell>
+        <ng-container *ngFor="let i of len;">
+          <mat-cell *matCellDef> {{formateKey(col, x, i)}} </mat-cell> 
         </ng-container>
-        <!-- <ng-container *ngIf="actionOnRow(x)=='select' ? true : false"> 
+        <!-- <ng-container *ngIf="actionOnRow(x)=='select' ? true : false">  
           *ngIf="actionOnRow(x)=='string' ? true : false" 
           <mat-cell  *matCellDef="let row">
             <app-table-select [data]="dataInCell(x, row[x])"></app-table-select>
