@@ -1,19 +1,30 @@
 .myTableColumns{
   padding: 1vh 0 0 0;
+
   
 }
 
-mat-table{  
-  width: 50vw;
+.example-container {
+  width: 75vw;
   height: 50vh;
   overflow: auto;
 }
 
-.columns{
+table.mytable{  
+  width: 75vw;
+}
+
+
+tr.example-element-row {
   text-align: center;
 }
 
-ng-container p{
-  text-align: center;
-  text-decoration-color: red;
+tr.example-element-row:not(.example-expanded-row):hover {
+  background: #777;
+  
+}
+
+.mat-table-sticky:first-child {
+  border-right: 1px solid #e0e0e0;
+  width: 0vw;
 }
