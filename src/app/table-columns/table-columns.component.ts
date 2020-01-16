@@ -13,18 +13,8 @@ export class TableColumnsComponent implements OnInit {
   len: number;
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
 
-  @ViewChild(MatPaginator, { static: false })
-  set setpaginator(value: MatPaginator) {
-    if(this.displayedColumns){
-      this.dataSource.paginator = value;
-    }
-  }
-  @ViewChild(MatSort, { static: false })
-  set setsort(value: MatSort){
-    if(this.displayedColumns){
-      this.dataSource.sort = value;
-    }
-  }
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
+
   formateKey(row: string, ncol: string, nrow: number){
     return row[nrow+''+ncol];
   }
@@ -60,7 +50,8 @@ export class TableColumnsComponent implements OnInit {
     this.displayedColumns = this.table[this.table.length -1]['headers'];
     this.table.splice(this.table.length -1, 1);
     this.dataSource = new MatTableDataSource(this.table);
-    this.len = this.table.length;
+    this.dataSource.sort = this.sort;
+
   }
 
 }

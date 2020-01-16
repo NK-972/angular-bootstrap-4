@@ -63,6 +63,7 @@ import { MenuLatComponent } from './menu-lat/menu-lat.component';
 import { AuthGuardService } from './Services/auth-guard.service';
 import { BodyViewComponent } from './body-view/body-view.component';
 import { InformationComponent } from './information/information.component';
+import { HeaderTablePipe } from './Pipes/header-table.pipe';
 
 
 
@@ -117,7 +118,7 @@ export class DemoMaterialModule {}
 
 @NgModule({
   imports: [BrowserModule, FormsModule, MatInputModule, MatButtonModule, MatTableModule,BrowserAnimationsModule, DemoMaterialModule, RouterModule.forRoot(appRoutes)],
-  declarations: [AppComponent, HeaderComponent, ProduitsComponent, ProduitComponent, InstallationsComponent, InstallationUsineComponent, InstallationEntrepotComponent, ServeurComponent, ServeursComponent, FinanceComponent, TableColumnsComponent, TableRowsComponent, TableSelectComponent, TableInputComponent, ConnectionComponent, MenuLatComponent, BodyViewComponent, InformationComponent],
+  declarations: [AppComponent, HeaderComponent, ProduitsComponent, ProduitComponent, InstallationsComponent, InstallationUsineComponent, InstallationEntrepotComponent, ServeurComponent, ServeursComponent, FinanceComponent, TableColumnsComponent, TableRowsComponent, TableSelectComponent, TableInputComponent, ConnectionComponent, MenuLatComponent, BodyViewComponent, InformationComponent, HeaderTablePipe],
   bootstrap: [AppComponent],
   providers: [CenterService, InitService, AuthGuardService]
 })
