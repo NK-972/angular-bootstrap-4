@@ -64,12 +64,13 @@ import { AuthGuardService } from './Services/auth-guard.service';
 import { BodyViewComponent } from './body-view/body-view.component';
 import { InformationComponent } from './information/information.component';
 import { HeaderTablePipe } from './Pipes/header-table.pipe';
+import { MarcheDuTravailComponent } from './marche-du-travail/marche-du-travail.component';
 
 
 
 
 const appRoutes: Routes = [
-  { path: '', component:  FinanceComponent}
+  { path: '', component:  MarcheDuTravailComponent}
   , { path: 'auth', component: FinanceComponent }
   , { path: 'serveurs', component: ConnectionComponent }
   , { path: 'presentation', canActivate: [AuthGuardService], component:  ProduitsComponent}
@@ -118,7 +119,7 @@ export class DemoMaterialModule {}
 
 @NgModule({
   imports: [BrowserModule, FormsModule, MatInputModule, MatButtonModule, MatTableModule,BrowserAnimationsModule, DemoMaterialModule, RouterModule.forRoot(appRoutes)],
-  declarations: [AppComponent, HeaderComponent, ProduitsComponent, ProduitComponent, InstallationsComponent, InstallationUsineComponent, InstallationEntrepotComponent, ServeurComponent, ServeursComponent, FinanceComponent, TableColumnsComponent, TableRowsComponent, TableSelectComponent, TableInputComponent, ConnectionComponent, MenuLatComponent, BodyViewComponent, InformationComponent, HeaderTablePipe],
+  declarations: [AppComponent, HeaderComponent, ProduitsComponent, ProduitComponent, InstallationsComponent, InstallationUsineComponent, InstallationEntrepotComponent, ServeurComponent, ServeursComponent, FinanceComponent, TableColumnsComponent, TableRowsComponent, TableSelectComponent, TableInputComponent, ConnectionComponent, MenuLatComponent, BodyViewComponent, InformationComponent, HeaderTablePipe, MarcheDuTravailComponent],
   bootstrap: [AppComponent],
   providers: [CenterService, InitService, AuthGuardService]
 })

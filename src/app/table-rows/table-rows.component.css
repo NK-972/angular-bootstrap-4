@@ -1,10 +1,36 @@
-.example-container {
-  display: flex;
-  flex-direction: column;
-  min-width: 300px;
+.myTableColumns{
+  padding: 1vh 0 0 0;
+
+  
 }
 
-.mat-table {
+.example-container {
+  width: 75vw;
+  height: 50vh;
   overflow: auto;
-  max-height: 500px;
+}
+
+table.mytable{  
+  width: 75vw;
+}
+
+th, td, tr{
+  padding-left: 8px;
+  text-align: center;
+}
+
+#test{
+  text-align: center;
+  color: black;
+  justify-content: center;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+  background: #777;
+  
+}
+
+.mat-table-sticky:first-child {
+  border-right: 1px solid #e0e0e0;
+  width: 10vw;
 }
