@@ -10,7 +10,7 @@ export class TableColumnsComponent implements OnInit {
   displayedColumns: string[]; // = ['position', 'name', 'weight', 'symbol'];
   dataSource: any;
   boolMethod: boolean;
-  len: number[];
+  len: number;
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
 
   @ViewChild(MatPaginator, { static: false })
@@ -25,9 +25,8 @@ export class TableColumnsComponent implements OnInit {
       this.dataSource.sort = value;
     }
   }
-  formateKey(col: string, str: string, num: number){
-    return col+' '+str+' '+num
-    return this.table[col][str+' -'+num];
+  formateKey(row: string, ncol: string, nrow: number){
+    return row[nrow+''+ncol];
   }
   getDisplayedColumns(): string[]{
     let list : string[] = [];
@@ -46,6 +45,12 @@ export class TableColumnsComponent implements OnInit {
     }
     return 'string';
   }
+  isSticky(value: string): boolean{
+    if(value ==' '){
+      return true;
+    }
+    return false;
+  }
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
@@ -55,12 +60,7 @@ export class TableColumnsComponent implements OnInit {
     this.displayedColumns = this.table[this.table.length -1]['headers'];
     this.table.splice(this.table.length -1, 1);
     this.dataSource = new MatTableDataSource(this.table);
-    this.table.forEach((col, ncol)=>{
-      console.log(col);
-    });
-    console.log('test '+Object.keys(this.table[0]));
-    this.len = Array(Object.keys(this.table[0]).length).fill().map((x,i)=>i);
-    console.log();
+    this.len = this.table.length;
   }
 
 }

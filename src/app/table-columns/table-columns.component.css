@@ -1,7 +1,19 @@
 .myTableColumns{
-  padding: 10vh 0 0 0;
+  padding: 1vh 0 0 0;
+  
 }
 
 mat-table{  
-  width: 75vw
+  width: 50vw;
+  height: 50vh;
+  overflow: auto;
+}
+
+.columns{
+  text-align: center;
+}
+
+ng-container p{
+  text-align: center;
+  text-decoration-color: red;
 }

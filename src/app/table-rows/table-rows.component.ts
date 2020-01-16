@@ -63,6 +63,10 @@ export class TableRowsComponent implements OnInit{
     this.table.splice(this.table.length -1, 1);
     console.log(this.table);
     this.dataSource = new MatTableDataSource(this.table);
+    this.table.forEach((col, ncol)=>{
+      console.log(col);
+    })
+
   }
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();

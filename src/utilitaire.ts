@@ -57,7 +57,7 @@ export class Utilitaire {
 
   public createTableColumns(str: string, turn:number): JSON[]{
     let sortie: string[] = str.replace("[[", "").replace("]]", "").split("], [");
-    let table: string[] = [];
+    let table: string[][] = [];
     let table_: JSON[] = [];
     let json = {};
     let headers: string[]= [];
@@ -75,18 +75,16 @@ export class Utilitaire {
       }
       index_turn += 1;
     }
-    //console.log(table[1]);
-    headers.forEach((header, ncol)=>{
-      table[ncol].forEach((cell, i)=>{
-          json[header+' -'+i] = (cell == 'null') ? '' : cell;
-        })
-      //console.log('finaly '+JSON.stringify(json));
-      table_.push(JSON.parse(JSON.stringify(json)));
-      json = {};
-    })
+    for (var c = 0; c < table[0].length; c++){
+      for (var r = 0; r < table.length; r++){
+        json[c+''+r] = table[r][c];
+      }
+      table_.push(json);json = {};
+    };
+    //console.log(table);
     json = {}; json['headers'] = headers; table_.push(JSON.parse(JSON.stringify(json)));
     //console.log('table_ '+Object.keys(table_));
-    console.log('table_ '+JSON.stringify(table_));
+    //console.log('table_ '+JSON.stringify(table_));
     return table_;
   }
 

@@ -1,10 +1,15 @@
-.header {
+.header{
+  top: 0;
+  width: 100%;
+}
+
+.title {
   width:100%;
   background-color: bisque;
   margin: 0 0 0 0;
   padding: 0 0 0 0;
 }
-.header h1{
+.title h1{
   text-align: center;
   margin: 0 0 0 0;
   padding: 0 0 0 0;
