@@ -7,8 +7,8 @@
   <div class="example-container mat-elevation-z8">
     <mat-table #table [dataSource]="dataSource">
 
-      <ng-container *ngFor="let x of getDisplayedColumns()" matColumnDef={{x | HeaderTablePipe}}>
-        <mat-header-cell *matHeaderCellDef> {{x | HeaderTablePipe}} </mat-header-cell>
+      <ng-container *ngFor="let x of getDisplayedColumns()" matColumnDef={{x}}>
+        <mat-header-cell *matHeaderCellDef> {{x | headerTable}} </mat-header-cell>
         <ng-container *ngIf="actionOnRow(x)=='string' ? true : false">
           <mat-cell  *matCellDef="let row"> {{row[x]}} </mat-cell>
         </ng-container>
