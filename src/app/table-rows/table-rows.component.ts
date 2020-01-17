@@ -9,9 +9,8 @@ import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 })
 
 export class TableRowsComponent implements OnInit{
-  @Input() table : [];
-  displayedColumns: string[]; // = ['position', 'name', 'weight', 'symbol'];
-  dataSource: any;
+  @Input() dataSource : MatTableDataSource<any>;
+  @Input() displayedColumns: string[]; // = ['position', 'name', 'weight', 'symbol'];
   boolMethod: boolean;
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: false}) sort: MatPaginator;
@@ -60,10 +59,6 @@ export class TableRowsComponent implements OnInit{
     return str=='string' ? true : false;
   }
   ngOnInit(){
-    this.displayedColumns = this.table[this.table.length -1]['headers'];
-    this.table.splice(this.table.length -1, 1);
-    this.dataSource = new MatTableDataSource(this.table);
-    
   }
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();

@@ -6,8 +6,8 @@ import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
   styleUrls: ['./table-columns.component.css']
 })
 export class TableColumnsComponent implements OnInit {
-  @Input() table : any[];
-  displayedColumns: string[]; // = ['position', 'name', 'weight', 'symbol'];
+  @Input() dataSource : any[];
+  @Input() displayedColumns: string[]; // = ['position', 'name', 'weight', 'symbol'];
   dataSource: any;
   boolMethod: boolean;
   len: number;
@@ -44,13 +44,10 @@ export class TableColumnsComponent implements OnInit {
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
-    this.displayedColumns = this.table[this.table.length -1]['headers'];
-    this.table.splice(this.table.length -1, 1);
-    this.dataSource = new MatTableDataSource(this.table);
-    this.dataSource.sort = this.sort;
+    
 
   }
 

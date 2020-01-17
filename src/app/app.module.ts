@@ -72,14 +72,15 @@ import { TresorerieComponent } from './tresorerie/tresorerie.component';
 
 
 const appRoutes: Routes = [
-  { path: '', component:  MarcheDuTravailComponent}
-  , { path: 'auth', component: FinanceComponent }
+  { path: '', component:  ConnectionComponent}
+  , { path: 'auth', component: ConnectionComponent }
   , { path: 'serveurs', component: ConnectionComponent }
   , { path: 'presentation', canActivate: [AuthGuardService], component: ProduitsComponent}
   , { path: 'produits', canActivate: [AuthGuardService], component: ProduitsComponent}
   , { path: 'installations', canActivate: [AuthGuardService], component: InstallationsComponent}
   , { path: 'finance', canActivate: [AuthGuardService], component:  FinanceComponent}
   //, { path: 'finance', canActivate: [AuthGuardService], component: TresorerieComponent}
+  , { path: 'marche', canActivate: [AuthGuardService], component: MarcheDuTravailComponent}
   , { path: 'laboratoire', canActivate: [AuthGuardService], component: LaboratoireComponent}
 ];
 
