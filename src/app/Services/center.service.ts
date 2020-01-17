@@ -93,7 +93,7 @@ export class CenterService {
     this.columns_salaries = this.table_salaries[this.table_salaries.length -1]['headers'];
     this.table_salaries.splice(this.table_salaries.length -1, 1);
     /* */
-    this.table_finances = this.utilitaire.createTableColumns(this.string_finances, this.turn);
+    this.table_finances = this.utilitaire.createTableColumns(this.string_finances, this.turn-1);
     this.columns_finances = this.table_finances[this.table_finances.length -1]['headers'];
     this.table_finances.splice(this.table_finances.length -1, 1);
     //console.log('center '+Object.keys(this.table_finances[0]));
