@@ -1,12 +1,11 @@
-.myTableColumns{
+.Myss{
   padding: 1vh 0 0 0;
-
-  
+ 
 }
 
 .example-container {
   width: 75vw;
-  height: 50vh;
+  height: 30vh;
   overflow: auto;
 }
 
@@ -14,20 +13,26 @@ table.mytable{
   width: 75vw;
 }
 
-th, td, tr{
-  padding: 0 10px 0 10px;
-  text-align: center;
-  width:10px;
+
+.mat-row:hover {
+  background: #777;
+  
 }
 
-#test{
+.mat-header-cell{
   text-align: center;
   color: black;
   justify-content: center;
 }
 
-tr.example-element-row:not(.example-expanded-row):hover {
-  background: #777;
-  
+.mat-cell {
+  padding: 0 0 0 10px;
+  margin: 0 0 0 0;
+  text-align: center;
+  width:10px;
+  height: 50px;
 }
 
+.my-mat-cell, .my-mat-header-cell {
+  flex: 0 0 10%;
+}

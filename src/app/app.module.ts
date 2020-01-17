@@ -65,6 +65,8 @@ import { BodyViewComponent } from './body-view/body-view.component';
 import { InformationComponent } from './information/information.component';
 import { HeaderTablePipe } from './Pipes/header-table.pipe';
 import { MarcheDuTravailComponent } from './marche-du-travail/marche-du-travail.component';
+import { LaboratoireComponent } from './laboratoire/laboratoire.component';
+import { TresorerieComponent } from './tresorerie/tresorerie.component';
 
 
 
@@ -73,10 +75,12 @@ const appRoutes: Routes = [
   { path: '', component:  MarcheDuTravailComponent}
   , { path: 'auth', component: FinanceComponent }
   , { path: 'serveurs', component: ConnectionComponent }
-  , { path: 'presentation', canActivate: [AuthGuardService], component:  ProduitsComponent}
-  , { path: 'produits', canActivate: [AuthGuardService], component:  ProduitsComponent}
-  , { path: 'installations', canActivate: [AuthGuardService], component:  InstallationsComponent}
+  , { path: 'presentation', canActivate: [AuthGuardService], component: ProduitsComponent}
+  , { path: 'produits', canActivate: [AuthGuardService], component: ProduitsComponent}
+  , { path: 'installations', canActivate: [AuthGuardService], component: InstallationsComponent}
   , { path: 'finance', canActivate: [AuthGuardService], component:  FinanceComponent}
+  //, { path: 'finance', canActivate: [AuthGuardService], component: TresorerieComponent}
+  , { path: 'laboratoire', canActivate: [AuthGuardService], component: LaboratoireComponent}
 ];
 
 @NgModule({
@@ -119,7 +123,7 @@ export class DemoMaterialModule {}
 
 @NgModule({
   imports: [BrowserModule, FormsModule, MatInputModule, MatButtonModule, MatTableModule,BrowserAnimationsModule, DemoMaterialModule, RouterModule.forRoot(appRoutes)],
-  declarations: [AppComponent, HeaderComponent, ProduitsComponent, ProduitComponent, InstallationsComponent, InstallationUsineComponent, InstallationEntrepotComponent, ServeurComponent, ServeursComponent, FinanceComponent, TableColumnsComponent, TableRowsComponent, TableSelectComponent, TableInputComponent, ConnectionComponent, MenuLatComponent, BodyViewComponent, InformationComponent, HeaderTablePipe, MarcheDuTravailComponent],
+  declarations: [AppComponent, HeaderComponent, ProduitsComponent, ProduitComponent, InstallationsComponent, InstallationUsineComponent, InstallationEntrepotComponent, ServeurComponent, ServeursComponent, FinanceComponent, TableColumnsComponent, TableRowsComponent, TableSelectComponent, TableInputComponent, ConnectionComponent, MenuLatComponent, BodyViewComponent, InformationComponent, HeaderTablePipe, MarcheDuTravailComponent, LaboratoireComponent, TresorerieComponent],
   bootstrap: [AppComponent],
   providers: [CenterService, InitService, AuthGuardService]
 })
