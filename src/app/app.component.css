@@ -1,8 +1,9 @@
 html, body {
   margin: 0;
-  height: 100%;
   width: 100%;
-  overflow: auto;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: auto;
 }
 body {
     margin: 0;
@@ -10,13 +11,12 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;  
     background-size: cover;
-    height: 100vh;
 }
 
 
 .flex-container{
   display: flex;
-  height: 100vh;
+  height: fit-content;
   flex-direction: row; /* direction d'affichage verticale */
   justify-content: center; /* alignement vertical */
 }
