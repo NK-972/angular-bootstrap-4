@@ -3,17 +3,6 @@
  
 }
 
-.example-container {
-  width: 75vw;
-  height: 30vh;
-  overflow: auto;
-}
-
-table.mytable{  
-  width: 75vw;
-}
-
-
 .mat-row:hover {
   background: #777;
   

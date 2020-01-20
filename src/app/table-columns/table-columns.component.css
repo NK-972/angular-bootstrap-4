@@ -3,14 +3,14 @@
 }
 
 .example-container {
-  width: 75vw;
-  height: fit-content;
+  width: 70vw;
+  height: 50vh;
   overflow: auto;
 }
 
 table.mytable{  
-  width: 75vw;
-  height: fit-content;
+  width: 70vw;
+  height: 50vh;
 }
 
 th, td, tr{

@@ -56,8 +56,6 @@ import { ServeursComponent } from './serveurs/serveurs.component';
 import { FinanceComponent } from './finance/finance.component';
 import { TableColumnsComponent } from './table-columns/table-columns.component';
 import { TableRowsComponent } from './table-rows/table-rows.component';
-import { TableSelectComponent } from './table-select/table-select.component';
-import { TableInputComponent } from './table-input/table-input.component';
 import { ConnectionComponent } from './connection/connection.component';
 import { MenuLatComponent } from './menu-lat/menu-lat.component';
 import { AuthGuardService } from './Services/auth-guard.service';
@@ -124,7 +122,7 @@ export class DemoMaterialModule {}
 
 @NgModule({
   imports: [BrowserModule, FormsModule, MatInputModule, MatButtonModule, MatTableModule,BrowserAnimationsModule, DemoMaterialModule, RouterModule.forRoot(appRoutes)],
-  declarations: [AppComponent, HeaderComponent, ProduitsComponent, ProduitComponent, InstallationsComponent, InstallationUsineComponent, InstallationEntrepotComponent, ServeurComponent, ServeursComponent, FinanceComponent, TableColumnsComponent, TableRowsComponent, TableSelectComponent, TableInputComponent, ConnectionComponent, MenuLatComponent, BodyViewComponent, InformationComponent, HeaderTablePipe, MarcheDuTravailComponent, LaboratoireComponent, TresorerieComponent],
+  declarations: [AppComponent, HeaderComponent, ProduitsComponent, ProduitComponent, InstallationsComponent, InstallationUsineComponent, InstallationEntrepotComponent, ServeurComponent, ServeursComponent, FinanceComponent, TableColumnsComponent, TableRowsComponent, ConnectionComponent, MenuLatComponent, BodyViewComponent, InformationComponent, HeaderTablePipe, MarcheDuTravailComponent, LaboratoireComponent, TresorerieComponent],
   bootstrap: [AppComponent],
   providers: [CenterService, InitService, AuthGuardService]
 })
