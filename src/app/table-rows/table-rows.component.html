@@ -8,7 +8,7 @@
     <table mat-table #table [dataSource]="dataSource">
 
       <ng-container *ngFor="let x of getDisplayedColumns()" matColumnDef={{x}} width ="0%">
-        <ng-container *ngIf="x.includes('$iC$'); then thenBlock else elseBlock">
+        <ng-container *ngIf="x.includes('$iC$'); then thenBlock else elseBlock"><
           <th #thenBlock mat-header-cell *matHeaderCellDef [ngStyle]="{'width':'350px','text-align': 'center', 'justify-content': 'center', 'font-weight': 'bold'}"> {{x | headerTable}} </th>
           <th #elseBlock mat-header-cell *matHeaderCellDef [ngStyle]="{'width':'350px', 'text-align': 'center', 'justify-content': 'center', 'font-weight': 'bold'}">
               <mat-checkbox (change)="$event ? masterToggle() : null"
