@@ -8,11 +8,13 @@ import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 export class TableColumnsComponent implements OnInit {
   @Input() dataSource : any[];
   @Input() displayedColumns: string[]; // = ['position', 'name', 'weight', 'symbol'];
-  dataSource: any;
+  @Input() height: string = '50vh';
+
+  boolPag: boolean = true;
   boolMethod: boolean;
   len: number;
-  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
 
+  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
   formateKey(row: string, ncol: string, nrow: number){
@@ -47,8 +49,7 @@ export class TableColumnsComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    
-
+    this.dataSource.paginator = this.paginator;
   }
 
 }

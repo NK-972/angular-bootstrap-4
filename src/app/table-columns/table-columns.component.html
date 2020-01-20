@@ -18,17 +18,16 @@
           </mat-cell>
         </ng-container>-->
       </ng-container>
-
-      
-
       <tr mat-header-row class='columns' *matHeaderRowDef="getDisplayedColumns(), sticky: true"></tr>
       <tr mat-row class="example-element-row" *matRowDef="let row; columns: getDisplayedColumns();"></tr>
     </table>
 
-    <!--<mat-paginator #paginator
+    
+  </div>
+  <mat-paginator *ngIf='boolPag' #paginator
                   [pageSize]='len'
                   [pageSizeOptions]="[len, 5, 10, 20]"
                   [showFirstLastButtons]="true">
-    </mat-paginator>-->
-  </div>
+    </mat-paginator>
+  <mat-button-toggle (change)='boolPag = !boolPag'>{{ boolPag }}</mat-button-toggle>
 </div>

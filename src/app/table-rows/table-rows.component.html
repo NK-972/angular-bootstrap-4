@@ -4,8 +4,8 @@
     <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
   </mat-form-field>
 
-  <div class="example-container mat-elevation-z8" [ngStyle]="{'width': '75vw','height': height,'overflow': 'auto'}">
-    <table mat-table #table [dataSource]="dataSource">
+  <div class="example-container mat-elevation-z8" [ngStyle]="{'width': '75vw','height': fit-content,'max-height': height, 'overflow': 'auto'}">
+    <table mat-table #table [dataSource]="dataSource" [ngStyle]="{'width': '75vw','max-height': height}">
 
       <ng-container *ngFor="let x of getDisplayedColumns()" matColumnDef={{x}} width ="0%">
         <ng-container *ngIf="x.includes('$iC$'); then thenBlock else elseBlock"></ng-container>
@@ -55,6 +55,10 @@
       <tr mat-header-row *matHeaderRowDef="getDisplayedColumns(), sticky: true"></tr>
       <tr mat-row *matRowDef="let row; columns: getDisplayedColumns();" (click)="selection.toggle(row)"></tr>
     </table>
-
   </div>
+  <mat-paginator *ngIf='boolPag' #paginator
+                  [pageSize]='10'
+                  [pageSizeOptions]="[len, 5, 10, 20]"
+                  [showFirstLastButtons]="true">
+    </mat-paginator>
 </ng-container>

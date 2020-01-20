@@ -12,6 +12,7 @@ export class TableRowsComponent implements OnInit{
   @Input() dataSource : MatTableDataSource<any>;
   @Input() displayedColumns: string[]; // = ['position', 'name', 'weight', 'symbol'];
   @Input() height: string = '20vh';
+  boolPag: boolean = true;
   boolMethod: boolean;
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: false}) sort: MatPaginator;
