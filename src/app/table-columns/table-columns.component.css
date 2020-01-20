@@ -1,17 +1,16 @@
 .myTableColumns{
   padding: 1vh 0 0 0;
-
-  
 }
 
 .example-container {
   width: 75vw;
-  height: 50vh;
+  height: fit-content;
   overflow: auto;
 }
 
 table.mytable{  
   width: 75vw;
+  height: fit-content;
 }
 
 th, td, tr{
