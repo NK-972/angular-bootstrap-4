@@ -1,2 +1,32 @@
-<app-table-rows [dataSource]=centerService.table_marche [displayedColumns]=centerService.columns_marche></app-table-rows>
-<app-table-rows [dataSource]=centerService.table_salaries [displayedColumns]=centerService.columns_salaries></app-table-rows>
+
+
+
+
+<mat-accordion>
+  <mat-expansion-panel [expanded]="step == 0">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Salariés
+      </mat-panel-title>
+      <mat-panel-description>
+        Tableau qui contient les informations de vos salariés.
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <app-table-rows [dataSource]=centerService.table_salaries [displayedColumns]=centerService.columns_salaries height='60vh'></app-table-rows>
+
+  </mat-expansion-panel>
+  <mat-expansion-panel [expanded]="step == 1">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Marché du travail
+      </mat-panel-title>
+      <mat-panel-description>
+        Tableau qui contient les informations de personnes qui recherchent un emploi.
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    
+    <app-table-rows [dataSource]=centerService.table_marche [displayedColumns]=centerService.columns_marche height='60vh'></app-table-rows>
+    
+  </mat-expansion-panel>
+</mat-accordion>

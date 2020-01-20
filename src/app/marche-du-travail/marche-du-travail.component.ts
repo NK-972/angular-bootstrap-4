@@ -7,7 +7,7 @@ import { CenterService } from '../Services/center.service';
   styleUrls: ['./marche-du-travail.component.css']
 })
 export class MarcheDuTravailComponent implements OnInit {
-
+  step: number = 1;
   constructor(private centerService: CenterService) { }
 
   ngOnInit() {
