@@ -2,22 +2,6 @@
   padding: 1vh 0 0 0;
 }
 
-.example-container {
-  width: 70vw;
-  height: 50vh;
-  overflow: auto;
-}
-
-table.mytable{  
-  width: 70vw;
-  height: 50vh;
-}
-
-th, td, tr{
-  padding-left: 8px;
-  text-align: center;
-}
-
 #test{
   text-align: center;
   color: black;

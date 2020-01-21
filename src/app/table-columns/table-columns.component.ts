@@ -17,7 +17,7 @@ export class TableColumnsComponent implements OnInit {
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-  formateKey(row: string, ncol: string, nrow: number){
+  formateKey(row: string, ncol: string, nrow: number): string{
     return row[nrow+''+ncol];
   }
   getDisplayedColumns(): string[]{

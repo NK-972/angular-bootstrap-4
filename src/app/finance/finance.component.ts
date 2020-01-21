@@ -10,6 +10,6 @@ import { CenterService } from '../Services/center.service';
   styleUrls: ['./finance.component.css']
 })
 export class FinanceComponent{
-
+  
   constructor(private centerService: CenterService ){}
 }

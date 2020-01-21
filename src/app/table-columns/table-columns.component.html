@@ -1,33 +1,21 @@
 <div class='myTableColumns'*ngIf='displayedColumns'>
-  <div class="example-container mat-elevation-z10">
-    <table mat-table class="mytable" [dataSource]="dataSource">
+  <div class="example-container mat-elevation-z10" [ngStyle]="{'width':'70vw','height':height,'overflow':'auto'}">
+    <table mat-table class="mytable" [dataSource]="dataSource" [ngStyle]="{'width':'65vw','overflow':'auto'}">
       <ng-container *ngFor="let x of getDisplayedColumns(); let col = index;" matColumnDef={{x}}  [sticky]='isSticky(x)'>
-        <th id='test'  mat-header-cell *matHeaderCellDef > {{x | headerTable}} </th>
-        <ng-container >
-          <td mat-cell *matCellDef="let row;let r = index;"> {{formateKey(row, col, r)}}</td> 
+        <th mat-header-cell *matHeaderCellDef [ngStyle]="{'text-align':'center','color': 'black'}" > {{x | headerTable}} </th>
+        <ng-container>
+          <td mat-cell [ngStyle]="{'height':'fit-content'}" *matCellDef="let row;let r = index;" > 
+            <p [matTooltip]="formateKey(row, col, r) | headerTable | descriptionData:1" [ngStyle]="{'font-weight':formateKey(row, 0, r).includes('$sG$') ? 'bold' : 'italic', 'padding':'0 0 0 0'}">{{formateKey(row, col, r) | headerTable | descriptionData:0 }}</p></td> 
         </ng-container>
-        <!-- <ng-container *ngIf="actionOnRow(x)=='select' ? true : false">  
-          *ngIf="actionOnRow(x)=='string' ? true : false" 
-          <mat-cell  *matCellDef="let row">
-            <app-table-select [data]="dataInCell(x, row[x])"></app-table-select>
-          </mat-cell>
-        </ng-container>
-        <ng-container *ngIf="actionOnRow(x)=='inputNumber' ? true : false">
-          <mat-cell  *matCellDef="let row">
-            <app-table-input [data]=row[x]></app-table-input>
-          </mat-cell>
-        </ng-container>-->
       </ng-container>
       <tr mat-header-row class='columns' *matHeaderRowDef="getDisplayedColumns(), sticky: true"></tr>
-      <tr mat-row class="example-element-row" *matRowDef="let row; columns: getDisplayedColumns();"></tr>
+      <tr mat-row [ngStyle]="{'text-align':'center','color': 'black'}" class="example-element-row" *matRowDef="let row; columns: getDisplayedColumns();"></tr>
     </table>
-
-    
   </div>
-  <mat-paginator *ngIf='boolPag' #paginator
+  <!--<mat-paginator *ngIf='boolPag' #paginator
                   [pageSize]='len'
                   [pageSizeOptions]="[len, 5, 10, 20]"
                   [showFirstLastButtons]="true">
     </mat-paginator>
-  <mat-button-toggle (change)='boolPag = !boolPag'>{{ boolPag }}</mat-button-toggle>
+  <mat-button-toggle (change)='boolPag = !boolPag'>{{ boolPag }}</mat-button-toggle>-->
 </div>

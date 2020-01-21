@@ -1,8 +1,13 @@
-/* Structure */
-table {
-  width: 100%;
+
+div{
+  display: inline-block;
 }
 
-.example-full-width{
-  padding : 10px 0 0 50px; 
+mat-form-field{
+  padding: 1vh 0.5vw 0 0.5vw;
+  width: 30%;
+}
+
+mat-tab{
+  height: 1em;
 }
