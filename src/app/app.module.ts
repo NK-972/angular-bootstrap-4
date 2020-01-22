@@ -66,6 +66,7 @@ import { MarcheDuTravailComponent } from './marche-du-travail/marche-du-travail.
 import { LaboratoireComponent } from './laboratoire/laboratoire.component';
 import { TresorerieComponent } from './tresorerie/tresorerie.component';
 import { DescriptionDataPipe } from './Pipes/description-data.pipe';
+import { InstallationAchatComponent } from './installation-achat/installation-achat.component';
 
 
 
@@ -123,7 +124,7 @@ export class DemoMaterialModule {}
 
 @NgModule({
   imports: [BrowserModule, FormsModule, MatInputModule, MatButtonModule, MatTableModule,BrowserAnimationsModule, DemoMaterialModule, RouterModule.forRoot(appRoutes)],
-  declarations: [AppComponent, HeaderComponent, ProduitsComponent, ProduitComponent, InstallationsComponent, InstallationUsineComponent, InstallationEntrepotComponent, ServeurComponent, ServeursComponent, FinanceComponent, TableColumnsComponent, TableRowsComponent, ConnectionComponent, MenuLatComponent, BodyViewComponent, InformationComponent, HeaderTablePipe, MarcheDuTravailComponent, LaboratoireComponent, TresorerieComponent, DescriptionDataPipe],
+  declarations: [AppComponent, HeaderComponent, ProduitsComponent, ProduitComponent, InstallationsComponent, InstallationUsineComponent, InstallationEntrepotComponent, ServeurComponent, ServeursComponent, FinanceComponent, TableColumnsComponent, TableRowsComponent, ConnectionComponent, MenuLatComponent, BodyViewComponent, InformationComponent, HeaderTablePipe, MarcheDuTravailComponent, LaboratoireComponent, TresorerieComponent, DescriptionDataPipe, InstallationAchatComponent],
   bootstrap: [AppComponent],
   providers: [CenterService, InitService, AuthGuardService]
 })

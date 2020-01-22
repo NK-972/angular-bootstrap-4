@@ -43,7 +43,39 @@
       </mat-panel-description>
     </mat-expansion-panel-header>
   
-    <app-table-columns [dataSource]=centerService.table_finances [displayedColumns]=centerService.columns_finances
+    <app-table-columns [dataSource]=centerService.table_tresorerie [displayedColumns]=centerService.columns_tresorerie
       height='70vh'></app-table-columns>
   </mat-expansion-panel>
+
+
+  <mat-expansion-panel [expanded]="false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Bilan actif
+      </mat-panel-title>
+      <mat-panel-description>
+        Tableau .
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+  
+    <app-table-columns [dataSource]=centerService.table_bilan_actif [displayedColumns]=centerService.columns_bilan_actif
+      height='70vh'></app-table-columns>
+  </mat-expansion-panel>
+
+
+
+  <mat-expansion-panel [expanded]="false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Bilan passif
+      </mat-panel-title>
+      <mat-panel-description>
+        Tableau .
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+  
+    <app-table-columns [dataSource]=centerService.table_bilan_passif [displayedColumns]=centerService.columns_bilan_passif
+      height='70vh'></app-table-columns>
+  </mat-expansion-panel>
+
 </mat-accordion>

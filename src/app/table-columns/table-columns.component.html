@@ -1,6 +1,6 @@
 <div class='myTableColumns'*ngIf='displayedColumns'>
-  <div class="example-container mat-elevation-z10" [ngStyle]="{'width':'70vw','height':height,'overflow':'auto'}">
-    <table mat-table class="mytable" [dataSource]="dataSource" [ngStyle]="{'width':'65vw','overflow':'auto'}">
+  <div class="example-container mat-elevation-z10" [ngStyle]="{'width':'70vw'}">
+    <table mat-table class="mytable" [dataSource]="dataSource" [ngStyle]="{'width':'65vw'}">
       <ng-container *ngFor="let x of getDisplayedColumns(); let col = index;" matColumnDef={{x}}  [sticky]='isSticky(x)'>
         <th mat-header-cell *matHeaderCellDef [ngStyle]="{'text-align':'center','color': 'black'}" > {{x | headerTable}} </th>
         <ng-container>
@@ -12,7 +12,7 @@
       <tr mat-row [ngStyle]="{'text-align':'center','color': 'black'}" class="example-element-row" *matRowDef="let row; columns: getDisplayedColumns();"></tr>
     </table>
   </div>
-  <!--<mat-paginator *ngIf='boolPag' #paginator
+  <!--<mat-paginator *ngIf='boolPag' #paginator 'height':height,'overflow':'auto'
                   [pageSize]='len'
                   [pageSizeOptions]="[len, 5, 10, 20]"
                   [showFirstLastButtons]="true">
