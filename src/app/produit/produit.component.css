@@ -1,19 +1,8 @@
 .produit{
   margin-top: 1em;
   margin-left: 1em;
-  width: 25em;
-}
+  width: 20em;
 
-.list-group{
-    max-height: 100px;
-    margin-bottom: 10px;
-    max-width: 15em;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
-}
-
-#installations-list, #production-progress-bar{
-  width: 80%;
 }
 
 #heading{
@@ -24,3 +13,14 @@
 h4{
   text-align: center;
 }
+
+#installations-list, progress, input, label{
+  margin: 0 0 0 10%;
+  width: 80%;
+}
+
+input, label{
+
+}
+
+

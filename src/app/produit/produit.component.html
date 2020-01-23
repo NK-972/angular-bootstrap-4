@@ -1,48 +1,47 @@
 <div class="produit panel panel-default">
   <div class='panel-heading' id='heading'><h4><strong>{{ centerService.panel_produits[key].id }}</strong></h4></div>
-  <div class="panel-body container">
-  <div class="mypanel row"> 
-    <div class="descision col-sm-2">
-      <label>Prix : </label><br>
-      <input type="nummber" id="name" [value]=centerService.panel_produits[key].prix name="name" (input)="centerService.panel_produits[key].Prix = $event.target.value" required minlength="1" maxlength="8" size="10"><br>
-      <label>R&D :</label><br>
-      <input type="nummber" id="name" [value]=centerService.panel_produits[key].rd name="name"  (input)="centerService.panel_produits[key].rd = $event.target.value"  required minlength="1" maxlength="10" size="10"><br>
-      <label>Installations :</label><br>
-      <select id='installations-list' class="browser-default custom-select">
-        <ng-container *ngFor='let x of centerService.panel_produits[key].installations'>
-          <ng-container *ngIf="x != 0">
-            <option value={{x}}>{{x}}</option>
+  <div class="panel-body panel-body">
+    <div id="body">
+      <div id='test' class="descision">
+        <label>Prix : </label><br>
+        <input type="nummber" [value]=centerService.panel_produits[key].prix name="name" (input)="centerService.panel_produits[key].Prix = $event.target.value" required minlength="1" maxlength="8" size="10"><br>
+        <label>R&D :</label><br>
+        <input type="nummber" [value]=centerService.panel_produits[key].rd name="name"  (input)="centerService.panel_produits[key].rd = $event.target.value"  required minlength="1" maxlength="10" size="10"><br>
+        <label>Installations :</label><br>
+        <select id='installations-list' class="browser-default custom-select">
+          <ng-container *ngFor='let x of centerService.panel_produits[key].installations'>
+            <ng-container *ngIf="x != 0">
+              <option value={{x}}>{{x}}</option>
+            </ng-container>
           </ng-container>
-        </ng-container>
-      </select><br>
-      <label>Production (%) :</label><br>
-      <progress class="production-progress-bar" max="100" [value]=centerService.panel_produits[key].pourcentageProduction*100></progress><br>
-      <label>Production :</label><br>
-      <input type="nummber" id="name" name="name" [value]=centerService.panel_produits[key].productionbyFactory required minlength="1" maxlength="6" size="10"><br>
-      <label>Production totale :</label><br>
-      <input type="nummber" id="name" name="name" [value]=centerService.panel_produits[key].production required minlength="1" maxlength="8" size="10" disabled><br>
-    </div>
+        </select><br>
+        <label>Production (%) :</label><br>
+        <progress max="100" [value]=centerService.panel_produits[key].pourcentageProduction*100></progress><br>
+        <label>Production :</label><br>
+        <input type="nummber" name="name" [value]=centerService.panel_produits[key].productionbyFactory required minlength="1" maxlength="6" size="10"><br>
+        <label>Production totale :</label><br>
+        <input type="nummber" name="name" [value]=centerService.panel_produits[key].production required minlength="1" maxlength="8" size="10" disabled><br>
+      </div>
 
-    <div class="information col-sm-2">
-      <label>Qualité :</label><br>
-      <input type="nummber" size="10" [value]=centerService.panel_produits[key].qualite disabled><br>
-      <label>Image Prix :</label><br>
-      <input type="nummber" size="10" [value]=centerService.panel_produits[key].ip disabled><br>
-      <label>Indice Technique : </label><br>
-      <input type="nummber" size="10" [value]=centerService.panel_produits[key].it disabled><br>
-      <label>Notoriété :</label><br>
-      <input type="nummber" size="10" [value]=centerService.panel_produits[key].notoriete disabled><br>
-      <label>Demande :</label><br>
-      <input type="nummber" size="10" [value]=centerService.panel_produits[key].demande disabled><br>
-      <label>En stock :</label><br>
-      <input type="nummber" size="10" [value]=centerService.panel_produits[key].stock disabled><br>
-      <label>Marge brute : </label><br>
-      <input type="nummber" size="10" [value]=centerService.panel_produits[key].mb disabled><br>
-      <label>Marge brute (%): </label><br>
-      <input type="nummber" size="10" [value]=centerService.panel_produits[key].tmb disabled><br>
+      <div class="information">
+        <label>Qualité :</label><br>
+        <input type="nummber" size="10" [value]=centerService.panel_produits[key].qualite disabled><br>
+        <label>Image Prix :</label><br>
+        <input type="nummber" size="10" [value]=centerService.panel_produits[key].ip disabled><br>
+        <label>Indice Technique : </label><br>
+        <input type="nummber" size="10" [value]=centerService.panel_produits[key].it disabled><br>
+        <label>Notoriété :</label><br>
+        <input type="nummber" size="10" [value]=centerService.panel_produits[key].notoriete disabled><br>
+        <label>Demande :</label><br>
+        <input type="nummber" size="10" [value]=centerService.panel_produits[key].demande disabled><br>
+        <label>En stock :</label><br>
+        <input type="nummber" size="10" [value]=centerService.panel_produits[key].stock disabled><br>
+        <label>Marge brute : </label><br>
+        <input type="nummber" size="10" [value]=centerService.panel_produits[key].mb disabled><br>
+        <label>Marge brute (%): </label><br>
+        <input type="nummber" size="10" [value]=centerService.panel_produits[key].tmb disabled><br>
+      </div>
     </div>
-
-  </div>
   </div>
 </div>
 
