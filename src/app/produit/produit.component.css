@@ -14,13 +14,9 @@ h4{
   text-align: center;
 }
 
-#installations-list, progress, input, label{
+progress, input, label, mat-slider, mat-form-field{
   margin: 0 0 0 10%;
   width: 80%;
-}
-
-input, label{
-
 }
 
 

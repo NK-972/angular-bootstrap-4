@@ -4,21 +4,20 @@
     <div id="body">
       <div id='test' class="descision">
         <label>Prix : </label><br>
-        <input type="nummber" [value]=centerService.panel_produits[key].prix name="name" (input)="centerService.panel_produits[key].Prix = $event.target.value" required minlength="1" maxlength="8" size="10"><br>
+        <input type="nummber" [value]=centerService.panel_produits[key].prix autocomplete="false" (input)="centerService.actualiserValeurProduit(key, 1, $event.target.value)" required minlength="1" maxlength="8" size="10"><br>
         <label>R&D :</label><br>
-        <input type="nummber" [value]=centerService.panel_produits[key].rd name="name"  (input)="centerService.panel_produits[key].rd = $event.target.value"  required minlength="1" maxlength="10" size="10"><br>
+        <input type="nummber" [value]=centerService.panel_produits[key].rd autocomplete="false" (input)="centerService.actualiserValeurProduit(key, 2, $event.target.value)"  required minlength="1" maxlength="10" size="10"><br>
         <label>Installations :</label><br>
-        <select id='installations-list' class="browser-default custom-select">
-          <ng-container *ngFor='let x of centerService.panel_produits[key].installations'>
-            <ng-container *ngIf="x != 0">
-              <option value={{x}}>{{x}}</option>
-            </ng-container>
-          </ng-container>
-        </select><br>
+        <mat-form-field>
+          <mat-select [(value)]="selectedInstallation">
+              <mat-option *ngFor='let x of centerService.panel_produits[key].installations' value={{x}}>{{x}}</mat-option>
+          </mat-select><br>
+        </mat-form-field>
         <label>Production (%) :</label><br>
         <progress max="100" [value]=centerService.panel_produits[key].pourcentageProduction*100></progress><br>
         <label>Production :</label><br>
-        <input type="nummber" name="name" [value]=centerService.panel_produits[key].productionbyFactory required minlength="1" maxlength="6" size="10"><br>
+        <mat-slider [min]="1" [max]="5" step="0.5" [value]="1.5"></mat-slider>
+        <input type="nummber" name="name" [value]=centerService.panel_produits[key].productionbyFactory (input)="centerService.actualiserValeurProduit(key, 4, $event.target.value)" required minlength="1" maxlength="6" size="10"><br>
         <label>Production totale :</label><br>
         <input type="nummber" name="name" [value]=centerService.panel_produits[key].production required minlength="1" maxlength="8" size="10" disabled><br>
       </div>

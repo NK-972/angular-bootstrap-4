@@ -31,34 +31,34 @@ export class CenterService {
   key_panel_storage: string[];
  /* Marché du travail */
   string_marche: string = "[[Id -$nc$, Prenom/nom, Salaire -$iN$E$, Prime -$iN$E$, Durée du contrat -$iN$E$, Temps restant, Recrutement -$iC$], [354, arleta paige, 1350, 0, 40, 18, false], [355, art coldwell, 1350, 0, 40, 18, false], [356, auguste domek, 1350, 0, 40, 18, false], [357, avrom di batista, 1350, 0, 40, 18, false], [358, baird blueman, 1350, 0, 40, 18, false], [359, beckie stockney, 1350, 0, 40, 18, false], [360, brad tacker, 1350, 0, 40, 18, false], [361, brear redfield, 1350, 0, 40, 18, false], [362, brittany piffe, 1350, 0, 40, 18, false], [363, britte garrud, 1350, 0, 40, 18, false], [364, brnaby dyzart, 1350, 0, 40, 18, false], [365, brock sumption, 1350, 0, 40, 18, false], [366, brody mcdaniel, 1350, 0, 40, 18, false], [367, burg imlaw, 1350, 0, 40, 18, false], [368, cahra killigrew, 1350, 0, 40, 18, false], [369, camila rawkesby, 1350, 0, 40, 18, false], [370, catherine riley, 1350, 0, 40, 18, false], [371, charity jacobs, 1350, 0, 40, 18, false], [372, clark bentley, 1350, 0, 40, 18, false], [373, flavia strong, 1350, 0, 40, 18, false], [374, harper boyer, 1350, 0, 40, 18, false], [375, jasmine joyce, 1350, 0, 40, 18, false], [376, kadeem nixon, 1350, 0, 40, 18, false], [377, lacota snyder, 1350, 0, 40, 18, false], [378, mannix winters, 1350, 0, 40, 18, false], [379, miriam shaffer, 1350, 0, 40, 18, false], [380, mohammad marquez, 1350, 0, 40, 18, false], [381, murphy hansen, 1350, 0, 40, 18, false], [382, sacha irwin, 1350, 0, 40, 18, false], [383, sopoline neal, 1350, 0, 40, 18, false]]";
-  table_marche: any;
+  table_marche: JSON[];
   columns_marche =[];
   /* */
   string_salaries = "[[Id -$nc$, Prénom/nom, Installations  -$iL$E$, Salaire -$iN$D$, Prime -$iN$D$, Durée du contrat restant -$iN$D$], [384, abel remer, Usine n°1,Entrepôt n°1,Entrepôt n°2, 1350, 0, 36], [385, abramo attfield, Usine n°1,Entrepôt n°1,Entrepôt n°2, 1350, 0, 36], [386, adamo pauletti, Usine n°1,Entrepôt n°1,Entrepôt n°2, 1350, 0, 36], [387, adan coxen, Usine n°1,Entrepôt n°1,Entrepôt n°2, 1350, 0, 36], [388, addy belt, Usine n°1,Entrepôt n°1,Entrepôt n°2, 1350, 0, 36], [389, aeriela redmond, Usine n°1,Entrepôt n°1,Entrepôt n°2, 1350, 0, 36], [390, agnes raiston, Usine n°1,Entrepôt n°1,Entrepôt n°2, 1350, 0, 36], [391, ailey coucha, Usine n°1,Entrepôt n°1,Entrepôt n°2, 1350, 0, 36], [392, ainslee redmond, Usine n°1,Entrepôt n°1,Entrepôt n°2, 1350, 0, 36], [393, akim dews, Usine n°1,Entrepôt n°1,Entrepôt n°2, 1350, 0, 36], [394, alfonso willingale, Usine n°1,Entrepôt n°1,Entrepôt n°2, 1350, 0, 36], [395, alvina behnke, Usine n°1,Entrepôt n°1,Entrepôt n°2, 1350, 0, 36], [396, amalie pattisson, Usine n°1,Entrepôt n°1,Entrepôt n°2, 1350, 0, 36], [397, anatol fulks, Usine n°1,Entrepôt n°1,Entrepôt n°2, 1350, 0, 36], [398, andrew elcome, Usine n°1,Entrepôt n°1,Entrepôt n°2, 1350, 0, 36], [399, anita dwyer, Entrepôt n°1,Usine n°1,Entrepôt n°2, 1350, 0, 36], [400, aretha hooper, Entrepôt n°1,Usine n°1,Entrepôt n°2, 1350, 0, 36], [401, arlan falco, Entrepôt n°1,Usine n°1,Entrepôt n°2, 1350, 0, 36], [402, arne pettipher, Entrepôt n°1,Usine n°1,Entrepôt n°2, 1350, 0, 36], [403, arri leaf, Entrepôt n°1,Usine n°1,Entrepôt n°2, 1350, 0, 36]]";
-  table_salaries: [];
+  table_salaries: JSON[];
   columns_salaries = [];
   /* */
   string_finances="[[Nombre de ventes, Chiffre d'affaire, Total produit -$sG$, Dépense de Production, Frais de distribution, Charge social, Coût des structure, Budgets, Intérêt des emprunts, Total charge -$sG$, Déficit -$sC$, Impôt sur les revenu, Exedent brute d'exploitation, Résultat  d'exploitation, Résultat net -$sG$], [0, 0, 0, 0, 0, 0, 10000¤Entretien:10000Amortissement:0, 0¤Commerciale: 0Publicité: 0Recherche: 0, 0, 10000, -10000, 0, 0, 0, 0], [3600, 108000, 108000, 39600, 14400, 20250, 10000¤Entretien:10000Amortissement:0, 0¤Commerciale: 0Publicité: 0Recherche: 0, 0, 84250, 23750, 9025, 0, 0, 0], [5000, 150000, 150000, 65000, 20000, 20250, 10000¤Entretien:10000Amortissement:0, 0¤Commerciale: 0Publicité: 0Recherche: 0, 0, 115250, 34750, 13205, 0, 0, 0], [3600, 108000, 108000, 50400, 14400, 65812, 10000¤Entretien:10000Amortissement:0, 0¤Commerciale: 0Publicité: 0Recherche: 0, 0, 140612, -32612, 0, 0, 0, 0]]";
-  table_finances: [];
+  table_finances: JSON[];
   columns_finances: [];
    /* */
   string_bilan_actif="[[Actif immobilisé coporel, Actif immobilisé incorporel, Actif immobilisé financier, Amortissement, Stock de produit finis, Créance clients, Disponibilité], [450000, 0, 0, 625000, 0, 0, 500000], [450000, 0, 0, 625000, 0, 0, 250000], [450000, 0, 0, 625000, 0, 0, 221175], [450000, 0, 0, 625000, 0, 0, 175470]]";
-  table_bilan_actif: [];
+  table_bilan_actif: JSON[];
   columns_bilan_actif= [];
    /* */
   string_bilan_passif="[[Capital social, Réserve, Report à nouveau, Situation nette, Dette financière, Dette fournisseur, Bilan découvet, Total passif], [500000, 0, 0, 500000, 0, 0, -10000, 0], [500000, 0, 0, 500000, 0, 0, 0, 0], [500000, 0, 0, 500000, 0, 0, 0, 0], [500000, 0, 0, 500000, 0, 0, -32612, 0]]";
   table_bilan_passif: [];
   columns_bilan_passif= [];
   string_tresorerie= "[[Trésorerie initiale, Vente Comptant, Encaissements, Achat comptant, Achat d'usine, Remboursement Anticipé de Prêt, Décaissement, Impôt sur les benéfices, Flux de tresorerie, Trésorerie, Capital social], [500000, 0, 0, 0, 250000, 0, 250000, 0, -250000, 250000, 500000], [250000, 108000, 108000, 39600, 0, 0, 39600, 9025, 59375, 309375, 500000], [221175, 150000, 150000, 65000, 0, 0, 65000, 13205, 71795, 292970, 500000], [175470, 108000, 108000, 50400, 0, 0, 50400, 0, 57600, 233070, 500000]]";
-  table_tresorerie: [];
-  columns_tresorerie= [];
+  table_tresorerie: JSON[];
+  columns_tresorerie = [];
   /* */
   string_log = "[[Tour, Info, Type], [0, bienvenue sur le serveur astro manmay man kontan wé zot !, 3], [0, l'achat de l'installation Usine n°1 confirmé !, 1], [0, l'achat de l'installation Entrepôt n°1 confirmé !, 1], [0, l'achat de l'installation Entrepôt n°2 confirmé !, 1], [0, vous avez débloquer le produit Bouteille d'eau ref :21811, 1]]";
-  table_log: [];
+  table_log: JSON[];
   columns_log= [];
   /* */
   string_produits_possibles = "[[Références, Nom du produit, Ingrétable_tresoreriedient 1, Ingrédient 2, Ingrédient 3, Ingrédient 4, Qualité, Valeur, Point de recherche, Mise sur le marché -$iC$E$, brevet -$iC$E$], [818191, boite de steak, boeuf(xxx), plastique(xxx), carton(xxx), , 3, 10, 2, false, false], [818501, boite de steak, boeuf(xxx), plastique(xxx), carton(yyy), , 5, 7, 2, false, false], [849191, boite de steak, boeuf(xxx), plastique(yyy), carton(xxx), , 5, 14, 2, false, false], [849501, boite de steak, boeuf(xxx), plastique(yyy), carton(yyy), , 7, 11, 2, false, false], [3818191, boite de steak, boeuf(yyy), plastique(xxx), carton(xxx), , 5, 11, 2, false, false], [3818501, boite de steak, boeuf(yyy), plastique(xxx), carton(yyy), , 7, 8, 2, false, false], [3849191, boite de steak, boeuf(yyy), plastique(yyy), carton(xxx), , 7, 15, 2, false, false], [3849501, boite de steak, boeuf(yyy), plastique(yyy), carton(yyy), , 9, 12, 2, false, false], [21811, bouteille d'eau, eau(xxx), plastique(xxx), , , 2, 14, 2, true, false], [24911, bouteille d'eau, eau(xxx), plastique(yyy), , , 4, 18, 2, false, false], [321811, bouteille d'eau, eau(yyy), plastique(xxx), , , 4, 13, 2, false, false], [324911, bouteille d'eau, eau(yyy), plastique(yyy), , , 6, 17, 2, false, false], [31911, briques de lait, lait(xxx), carton(xxx), , , 2, 15, 2, false, false], [35011, briques de lait, lait(xxx), carton(yyy), , , 4, 12, 2, false, false], [331911, briques de lait, lait(yyy), carton(xxx), , , 4, 14, 2, false, false], [335011, briques de lait, lait(yyy), carton(yyy), , , 6, 11, 2, false, false], [42181, jus de canne, canne(xxx), eau(xxx), plastique(xxx), , 3, 16, 2, false, false], [42491, jus de canne, canne(xxx), eau(xxx), plastique(yyy), , 5, 20, 2, false, false], [432181, jus de canne, canne(xxx), eau(yyy), plastique(xxx), , 5, 15, 2, false, false], [432491, jus de canne, canne(xxx), eau(yyy), plastique(yyy), , 7, 19, 2, false, false], [342181, jus de canne, canne(yyy), eau(xxx), plastique(xxx), , 5, 11, 2, false, false], [342491, jus de canne, canne(yyy), eau(xxx), plastique(yyy), , 7, 15, 2, false, false], [3432181, jus de canne, canne(yyy), eau(yyy), plastique(xxx), , 7, 10, 2, false, false], [3432491, jus de canne, canne(yyy), eau(yyy), plastique(yyy), , 9, 14, 2, false, false], [303201, pain, farine(xxx), lait(xxx), papier(xxx), , 5, 8, 2, false, false], [303511, pain, farine(xxx), lait(xxx), papier(yyy), , 7, 11, 2, false, false], [3033201, pain, farine(xxx), lait(yyy), papier(xxx), , 7, 7, 2, false, false], [3033511, pain, farine(xxx), lait(yyy), papier(yyy), , 9, 10, 2, false, false], [313201, pain, farine(yyy), lait(xxx), papier(xxx), , 5, 8, 2, false, false], [313511, pain, farine(yyy), lait(xxx), papier(yyy), , 7, 11, 2, false, false], [3133201, pain, farine(yyy), lait(yyy), papier(xxx), , 7, 7, 2, false, false], [3133511, pain, farine(yyy), lait(yyy), papier(yyy), , 9, 10, 2, false, false], [91811, sachet de poulet, poulet(xxx), plastique(xxx), , , 2, 12, 2, false, false], [94911, sachet de poulet, poulet(xxx), plastique(yyy), , , 4, 16, 2, false, false], [391811, sachet de poulet, poulet(yyy), plastique(xxx), , , 4, 17, 2, false, false], [394911, sachet de poulet, poulet(yyy), plastique(yyy), , , 6, 21, 2, false, false], [72181, soda, arome(xxx), eau(xxx), plastique(xxx), , 3, 10, 2, false, false], [72491, soda, arome(xxx), eau(xxx), plastique(yyy), , 5, 14, 2, false, false], [732181, soda, arome(xxx), eau(yyy), plastique(xxx), , 5, 9, 2, false, false], [732491, soda, arome(xxx), eau(yyy), plastique(yyy), , 7, 13, 2, false, false], [372181, soda, arome(yyy), eau(xxx), plastique(xxx), , 5, 16, 2, false, false], [372491, soda, arome(yyy), eau(xxx), plastique(yyy), , 7, 20, 2, false, false], [3732181, soda, arome(yyy), eau(yyy), plastique(xxx), , 7, 15, 2, false, false], [3732491, soda, arome(yyy), eau(yyy), plastique(yyy), , 9, 19, 2, false, false], [13111, t-shirt, coton(xxx), , , , 1, 15, 2, false, false], [43111, t-shirt, coton(yyy), , , , 3, 14, 2, false, false]]";
-  table_produits_possibles: any;
+  table_produits_possibles: JSON[];
   columns_produits_possibles: [];
 
   constructor() {
@@ -102,7 +102,6 @@ export class CenterService {
     this.table_marche = this.utilitaire.createTableRow(this.string_marche);
     this.columns_marche = this.table_marche[this.table_marche.length -1]['headers'];
     this.table_marche.splice(this.table_marche.length -1, 1);
-    this.table_marche = new MatTableDataSource(this.table_marche);
     /* */
     this.table_salaries = this.utilitaire.createTableRow(this.string_salaries);
     this.columns_salaries = this.table_salaries[this.table_salaries.length -1]['headers'];
@@ -131,7 +130,6 @@ export class CenterService {
     this.table_produits_possibles = this.utilitaire.createTableRow(this.string_produits_possibles, this.turn);
     this.columns_produits_possibles = this.table_produits_possibles[this.table_produits_possibles.length -1]['headers'];
     this.table_produits_possibles.splice(this.table_produits_possibles.length -1, 1);
-    this.table_produits_possibles = new MatTableDataSource(this.table_produits_possibles);
     /* */
   }
 
@@ -224,15 +222,16 @@ export class CenterService {
   }
 
   actualiserValeurProduit(key_prod: string, attribue: number, data:any){
-    if(attribue == 0){this.panel_produits[key_prod].prix = data;}
-    else if(attribue == 1){this.panel_produits[key_prod].rd = data;}
-    else if(attribue == 2){this.panel_produits[key_prod].installationSelected = data;}
+    if(attribue == 1){this.panel_produits[key_prod].prix = data;}
+    else if(attribue == 2){this.panel_produits[key_prod].rd = data;}
+    else if(attribue == 4){this.panel_produits[key_prod].installationSelected = data;}
     else{
       attribue = data - this.panel_produits[key_prod];
       this.panel_produits[key_prod].productionbyFactory = data;
       this.panel_produits[key_prod].production += attribue; 
-      this.actuliserPoucentageProduction("Usine n°1", attribue);
-      }  
+      this.actuliserPoucentageProduction(this.panel_produits[key_prod].installationSelected, attribue);
+      }
+    console.log("Prix : "+this.panel_produits[key_prod].prix+" R&D : "+this.panel_produits[key_prod].rd+" Selected : "+this.panel_produits[key_prod].installationSelected)
   }
   actuliserPoucentageProduction(key: string, variation:Number){
     this.panel_factory[key].production = this.panel_factory[key].production + variation;

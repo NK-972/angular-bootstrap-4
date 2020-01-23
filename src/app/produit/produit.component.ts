@@ -12,11 +12,13 @@ export class ProduitComponent implements OnInit{
   @Input() key: Product;
   utilitaire: Utilitaire = new Utilitaire();
   prod: Product;
+  selectedInstallation: string;
 
   constructor(private centerService: CenterService) {
   }
 
   ngOnInit(){
+    this.selectedInstallation = this.centerService.panel_produits[this.key].installations[0];
   }
 
 }
