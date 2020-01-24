@@ -74,6 +74,7 @@ export class CenterService {
     this.panel_factory = JSONQury as JSON;
     this.key_panel_factory = Object.keys(this.panel_factory);
     console.log(this.panel_factory);
+    console.log(this.panel_factory["Usine n°1"].production)
     /*  */
     JSONQury = {};
     this.json_entrepot = this.utilitaire.StringToTable(this.string_entrepot);
@@ -96,7 +97,7 @@ export class CenterService {
     this.panel_produits = JSONQury as JSON;
     this.key_panel_produits = Object.keys(this.panel_produits);
     console.log(this.panel_produits);
-    console.log(this.getProductionProduitbyUsine("Bouteille d'eau 21811", "Usine n°1", null));
+    //console.log(this.getProductionProduitbyUsine("Bouteille d'eau 21811", "Usine n°1", null));
     //this.actuliserPoucentageProduction("Usine n°1", 3600);
     /* */
     this.table_marche = this.utilitaire.createTableRow(this.string_marche);
@@ -127,10 +128,11 @@ export class CenterService {
     this.columns_tresorerie= this.table_tresorerie[this.table_tresorerie.length -1]['headers'];
     this.table_tresorerie.splice(this.table_tresorerie.length -1, 1);
     /* */
-    this.table_produits_possibles = this.utilitaire.createTableRow(this.string_produits_possibles, this.turn);
+    this.table_produits_possibles = this.utilitaire.createTableRow(this.string_produits_possibles);
     this.columns_produits_possibles = this.table_produits_possibles[this.table_produits_possibles.length -1]['headers'];
     this.table_produits_possibles.splice(this.table_produits_possibles.length -1, 1);
     /* */
+    this.actualiserValeurProduit("Bouteille d'eau 21811", 4, 2000);
   }
 
   createProduct(name: string, json:JSON): Product{
@@ -160,12 +162,13 @@ export class CenterService {
       , mb: Number(this.utilitaire.getData(json, name, "_"+turn_prod, 'Marge brute'))
       , tmb: Number(this.utilitaire.getData(json, name, "_"+turn_prod, 'taux de marge brute'))
     }
-    prod.productionbyFactory = this.getProductionProduitbyUsine(name, arrIns[0], prod);
-    prod.pourcentageProduction = this.panel_factory[prod.installationSelected].pourcentageProduction;
+    prod.productionbyFactory = Number(this.getProductionProduitbyUsine(name, arrIns[0], prod));
+    prod.pourcentageProduction = Number(this.panel_factory[prod.installationSelected].pourcentageProduction);
     return prod;
   }
 
   createFactory(name: string, json:JSON): Factory{
+    console.log(json);
     let factory: Factory = {
       id: name
       , entretien: Number(this.utilitaire.getData(json, name, "_"+this.turn, 'Entretien'))
@@ -183,7 +186,7 @@ export class CenterService {
       , pl: Number(this.utilitaire.getData(json, name, "_"+this.turn, "Production max"))
       , prod: Number(0)
     }
-    factory.pourcentageProduction = factory.production / factory.productionPossible;
+    factory.pourcentageProduction = Number(factory.production / factory.productionPossible);
     
     return factory;
   }
@@ -208,7 +211,7 @@ export class CenterService {
     return storage;
   }
 
-  iDInstallationToName(n: Number){
+  iDInstallationToName(n: number){
     for(var key of this.key_panel_factory){
         if (n == this.panel_factory[key].nIns){
           return this.panel_factory[key].id
@@ -216,7 +219,7 @@ export class CenterService {
     }
   }
 
-  getProductionProduitbyUsine(key_prod: string, key_ins: string, myproduct: Product): Number{
+  getProductionProduitbyUsine(key_prod: string, key_ins: string, myproduct: Product): number{
     if (myproduct==null){return this.panel_produits[key_prod].productions[this.panel_produits[key_prod].installations.indexOf(key_ins)];}
     else{return myproduct.productions[myproduct.installations.indexOf(key_ins)]};
   }
@@ -224,22 +227,24 @@ export class CenterService {
   actualiserValeurProduit(key_prod: string, attribue: number, data:any){
     if(attribue == 1){this.panel_produits[key_prod].prix = data;}
     else if(attribue == 2){this.panel_produits[key_prod].rd = data;}
-    else if(attribue == 4){this.panel_produits[key_prod].installationSelected = data;}
+    else if(attribue == 3){this.panel_produits[key_prod].installationSelected = data;}
     else{
-      attribue = data - this.panel_produits[key_prod];
-      this.panel_produits[key_prod].productionbyFactory = data;
-      this.panel_produits[key_prod].production += attribue; 
-      this.actuliserPoucentageProduction(this.panel_produits[key_prod].installationSelected, attribue);
-      }
-    console.log("Prix : "+this.panel_produits[key_prod].prix+" R&D : "+this.panel_produits[key_prod].rd+" Selected : "+this.panel_produits[key_prod].installationSelected)
+      attribue = data - this.panel_produits[key_prod].productionbyFactory;
+      data = this.actuliserPoucentageProduction(this.panel_produits[key_prod].installationSelected, attribue, data);
+      this.panel_produits[key_prod].productionbyFactory += Number(data[1]);
+      this.panel_produits[key_prod].production += Number(data[1]); 
+    }
+    console.log(this.panel_produits[key_prod].productionbyFactory +' '+this.panel_produits[key_prod].production);
+    this.panel_produits[key_prod].productionbyFactory=this.panel_produits[key_prod].productionbyFactory;
   }
-  actuliserPoucentageProduction(key: string, variation:Number){
-    this.panel_factory[key].production = this.panel_factory[key].production + variation;
-    this.panel_factory[key].pourcentageProduction = this.panel_factory[key].production / this.panel_factory[key].productionPossible;
-    for (var k in this.panel_produits){
-      if (this.panel_produits[k].installationSelected == key){
-        this.panel_produits[k].pourcentageProduction = this.panel_factory[key].pourcentageProduction;
-      }
+  actuliserPoucentageProduction(key: string, variation:number, data:number): number[]{
+    var val = this.panel_factory[key].production + variation;
+    if (val <= this.panel_factory[key].productionPossible && val >= 0 ){
+      this.panel_factory[key].production += variation;
+      this.panel_factory[key].pourcentageProduction = this.panel_factory[key].production / this.panel_factory[key].productionPossible;
+      return [data, variation];
+    }else{
+      return [0, 0];
     }
   }
 }

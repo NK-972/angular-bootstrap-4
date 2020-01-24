@@ -4,41 +4,42 @@
     <div id="body">
       <div id='test' class="descision">
         <label>Prix : </label><br>
-        <input type="nummber" [value]=centerService.panel_produits[key].prix autocomplete="false" (input)="centerService.actualiserValeurProduit(key, 1, $event.target.value)" required minlength="1" maxlength="8" size="10"><br>
+        <input type="number" [min]="0" [value]=centerService.panel_factory[selectedInstallation].pourcentageProduction autocomplete="false" (input)="centerService.actualiserValeurProduit(key, 1, $event.target.value)" required minlength="1" maxlength="8" size="10"><br>
         <label>R&D :</label><br>
-        <input type="nummber" [value]=centerService.panel_produits[key].rd autocomplete="false" (input)="centerService.actualiserValeurProduit(key, 2, $event.target.value)"  required minlength="1" maxlength="10" size="10"><br>
+        <input type="number" [min]="0" [value]=centerService.panel_produits[key].rd autocomplete="false" (input)="centerService.actualiserValeurProduit(key, 2, $event.target.value)"  required minlength="1" maxlength="10" size="10"><br>
         <label>Installations :</label><br>
         <mat-form-field>
-          <mat-select [(value)]="selectedInstallation">
+          <mat-select [(value)]="selectedInstallation" (selectionChange)="updateInstallations($event)">
               <mat-option *ngFor='let x of centerService.panel_produits[key].installations' value={{x}}>{{x}}</mat-option>
           </mat-select><br>
         </mat-form-field>
         <label>Production (%) :</label><br>
-        <progress max="100" [value]=centerService.panel_produits[key].pourcentageProduction*100></progress><br>
+        <mat-progress-bar class="example-margin" [color]="primary" [value]=centerService.panel_factory[selectedInstallation].pourcentageProduction*100></mat-progress-bar><br>
         <label>Production :</label><br>
-        <mat-slider [min]="1" [max]="5" step="0.5" [value]="1.5"></mat-slider>
-        <input type="nummber" name="name" [value]=centerService.panel_produits[key].productionbyFactory (input)="centerService.actualiserValeurProduit(key, 4, $event.target.value)" required minlength="1" maxlength="6" size="10"><br>
+        <mat-slider [min]="0" [max]="centerService.panel_factory[selectedInstallation].productionPossible" [value]="centerService.panel_produits[key].productionbyFactory" [thumbLabel]="true"
+        (change)="centerService.actualiserValeurProduit(key, 4, $event.value)"></mat-slider>
+        <input type="number" [min]="0" [(max)]="centerService.panel_factory[selectedInstallation].productionPossible-centerService.panel_factory[selectedInstallation].production" [value]=centerService.panel_produits[key].productionbyFactory (input)="centerService.actualiserValeurProduit(key, 4, $event.target.value)" required minlength="1" maxlength="6" size="10"><br>
         <label>Production totale :</label><br>
-        <input type="nummber" name="name" [value]=centerService.panel_produits[key].production required minlength="1" maxlength="8" size="10" disabled><br>
+        <input type="number" name="name" [value]=centerService.panel_produits[key].production required minlength="1" maxlength="8" size="10" disabled><br>
       </div>
 
       <div class="information">
         <label>Qualité :</label><br>
-        <input type="nummber" size="10" [value]=centerService.panel_produits[key].qualite disabled><br>
+        <input type="number" size="10" [value]=centerService.panel_produits[key].qualite disabled><br>
         <label>Image Prix :</label><br>
-        <input type="nummber" size="10" [value]=centerService.panel_produits[key].ip disabled><br>
+        <input type="number" size="10" [value]=centerService.panel_produits[key].ip disabled><br>
         <label>Indice Technique : </label><br>
-        <input type="nummber" size="10" [value]=centerService.panel_produits[key].it disabled><br>
+        <input type="number" size="10" [value]=centerService.panel_produits[key].it disabled><br>
         <label>Notoriété :</label><br>
-        <input type="nummber" size="10" [value]=centerService.panel_produits[key].notoriete disabled><br>
+        <input type="number" size="10" [value]=centerService.panel_produits[key].notoriete disabled><br>
         <label>Demande :</label><br>
-        <input type="nummber" size="10" [value]=centerService.panel_produits[key].demande disabled><br>
+        <input type="number" size="10" [value]=centerService.panel_produits[key].demande disabled><br>
         <label>En stock :</label><br>
-        <input type="nummber" size="10" [value]=centerService.panel_produits[key].stock disabled><br>
+        <input type="number" size="10" [value]=centerService.panel_produits[key].stock disabled><br>
         <label>Marge brute : </label><br>
-        <input type="nummber" size="10" [value]=centerService.panel_produits[key].mb disabled><br>
+        <input type="number" size="10" [value]=centerService.panel_produits[key].mb disabled><br>
         <label>Marge brute (%): </label><br>
-        <input type="nummber" size="10" [value]=centerService.panel_produits[key].tmb disabled><br>
+        <input type="number" size="10" [value]=centerService.panel_produits[key].tmb disabled><br>
       </div>
     </div>
   </div>
