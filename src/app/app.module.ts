@@ -81,7 +81,7 @@ const appRoutes: Routes = [
   , { path: 'installations', canActivate: [AuthGuard, ServGuard], component: InstallationsComponent}
   , { path: 'finance', canActivate: [AuthGuard, ServGuard], component:  FinanceComponent}
   //, { path: 'finance', canActivate: [AuthGuardService], component: TresorerieComponent}
-  , { path: 'marche', canActivate: [AuthGuard, ServGuard], component: MarcheDuTravailComponent}
+  , { path: 'marche', component: MarcheDuTravailComponent} //canActivate: [AuthGuard, ServGuard], 
   , { path: 'laboratoire', canActivate: [AuthGuard, ServGuard], component: LaboratoireComponent}
 ];
 

@@ -14,6 +14,7 @@ export class TableRowsComponent implements OnInit{
   @Input() height: string = '20vh';
   boolPag: boolean = true;
   boolMethod: boolean;
+  selection = new SelectionModel<any>(true, []);
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: false}) sort: MatPaginator;
 
@@ -22,7 +23,6 @@ export class TableRowsComponent implements OnInit{
     if(this.displayedColumns){
       this.dataSource.paginator = value;
     }
-    
   }
   @ViewChild(MatSort, { static: false })
   set setsort(value: MatSort){
@@ -30,6 +30,7 @@ export class TableRowsComponent implements OnInit{
       this.dataSource.sort = value;
     }
   }
+  
   getDisplayedColumns(): string[]{
     let list : string[] = [];
     for(var value of this.displayedColumns){
@@ -39,49 +40,24 @@ export class TableRowsComponent implements OnInit{
     }
     return list;
   }
-  actionOnRow(key: string): string{
-    if(key.includes('$iL$')){
-      return 'select';
-    }else if(key.includes('$iN$')){
-      return 'inputNumber';
-    }else if(key.includes('$iC$')){
-      return 'checkbox';
-    }
-    return 'string';
-  }
-  dataInCell(key: string, row: string): any{
-    let s: any;
-    s = row;
-    if(key.includes('$iL$')){
-      return row.split(',');
-    }
-    return s;
-  }
-  compareEgalite(str: string): boolean{
-    return str=='string' ? true : false;
-  }
-  ngOnInit(){
-  }
+  
+  ngOnInit(){}
+  
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-
-  selection = new SelectionModel<any>(true, []);
-
   /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected() {
     const numSelected = this.selection.selected.length;
     const numRows = this.dataSource.data.length;
     return numSelected === numRows;
   }
-
   /** Selects all rows if they are not all selected; otherwise clear selection. */
   masterToggle() {
     this.isAllSelected() ?
         this.selection.clear() :
         this.dataSource.data.forEach(row => this.selection.select(row));
   }
-
   /** The label for the checkbox on the passed row */
   checkboxLabel(row?: any): string {
     if (!row) {

@@ -1,10 +1,9 @@
+<!--
 
-
-
-
+-->
 <mat-accordion>
-  <mat-expansion-panel [expanded]="step" (click)="step=!step">
-    <mat-expansion-panel-header>
+  <mat-expansion-panel [expanded]="step"  animationDuration="500ms" >
+    <mat-expansion-panel-header (click)="step=!step">
       <mat-panel-title>
         Salariés
       </mat-panel-title>
@@ -16,8 +15,8 @@
     <app-table-rows [dataSource]=centerService.table_salaries [displayedColumns]=centerService.columns_salaries height='60vh'></app-table-rows>
 
   </mat-expansion-panel>
-  <mat-expansion-panel [expanded]="!step" (click)="step=!step">
-    <mat-expansion-panel-header>
+  <mat-expansion-panel [expanded]="!step" animationDuration="500ms" >
+    <mat-expansion-panel-header (click)="step=!step">
       <mat-panel-title>
         Marché du travail
       </mat-panel-title>
