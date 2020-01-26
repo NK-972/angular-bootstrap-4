@@ -127,6 +127,6 @@ export class DemoMaterialModule {}
   imports: [BrowserModule, FormsModule, MatInputModule, MatButtonModule, MatTableModule,BrowserAnimationsModule, DemoMaterialModule, RouterModule.forRoot(appRoutes)],
   declarations: [AppComponent, HeaderComponent, ProduitsComponent, ProduitComponent, InstallationsComponent, InstallationUsineComponent, InstallationEntrepotComponent, ServeurComponent, ServeursComponent, FinanceComponent, TableColumnsComponent, TableRowsComponent, ConnectionComponent, MenuLatComponent, BodyViewComponent, InformationComponent, HeaderTablePipe, MarcheDuTravailComponent, LaboratoireComponent, TresorerieComponent, DescriptionDataPipe, InstallationAchatComponent],
   bootstrap: [AppComponent],
-  providers: [CenterService, InitService, AuthGuardService, AuthGuard]
+  providers: [CenterService, InitService, AuthGuardService, AuthGuard, ServGuard]
 })
 export class AppModule { }

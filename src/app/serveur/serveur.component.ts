@@ -22,7 +22,7 @@ export class ServeurComponent implements OnInit {
     this.initService.signInServ(this.key).then(
       () => {
         console.log('Sign in successful!');
-        this.router.navigate(['serveurs']);
+        this.router.navigate(['presentation']);
       }
     );
   }
