@@ -1,12 +1,21 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
+import { InitService } from '../Services/init.service.ts'
+
 
 @Injectable()
 export class ServGuard implements CanActivate {
+  constructor(private initServices: InitService, private router: Router) { }
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    return true;
+    if(this.initServices.isAuth_serv_name != null) {
+      console.log('Connection ok');
+      return true;
+    } else {
+      console.log('Connection refusée')
+      this.router.navigate(['serv']);
+    }
   }
 }

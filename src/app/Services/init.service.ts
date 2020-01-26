@@ -5,6 +5,7 @@ import { Utilitaire } from '../../utilitaire';
 @Injectable()
 export class InitService {
   isAuth = false;
+  isAuth_serv_name: string = null;
   server_string : string ="[[JSON, Nom du serveur, Début, Nbr de tour, D des tours, Fin, Nombre de joueur, Etat], [astro, astro, null, 0, 0, null, 3, 1]]";
   json_server: JSON;
   panel_server: JSON;
@@ -39,8 +40,25 @@ export class InitService {
     );
   }
 
+  signInServ(serv_name: string) {
+    return new Promise(
+      (resolve, reject) => {
+        setTimeout(
+          () => {
+            this.isAuth_serv_name = serv_name;
+            resolve(true);
+          }, 10
+        );
+      }
+    );
+  }
+
   signOut() {
     this.isAuth = false;
+  }
+
+  signOutServ() {
+    this.isAuth_serv_name = null;
   }
 
   createServer(name: string, json:JSON): Server{

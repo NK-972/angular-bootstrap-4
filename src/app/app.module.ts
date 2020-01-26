@@ -68,20 +68,21 @@ import { TresorerieComponent } from './tresorerie/tresorerie.component';
 import { DescriptionDataPipe } from './Pipes/description-data.pipe';
 import { InstallationAchatComponent } from './installation-achat/installation-achat.component';
 
-
+import { AuthGuard } from './Guards/auth.guard';
+import { ServGuard } from './Guards/serv.guard';
 
 
 const appRoutes: Routes = [
   { path: '', component:  ConnectionComponent}
   , { path: 'auth', component: ConnectionComponent }
-  , { path: 'serveurs', canActivate: [AuthGuardService], component: ServeursComponent }
-  , { path: 'presentation', canActivate: [AuthGuardService], component: ProduitsComponent}
-  , { path: 'produits', canActivate: [AuthGuardService], component: ProduitsComponent}
-  , { path: 'installations', canActivate: [AuthGuardService], component: InstallationsComponent}
-  , { path: 'finance', canActivate: [AuthGuardService], component:  FinanceComponent}
+  , { path: 'serveurs', canActivate: [AuthGuard], component: ServeursComponent }
+  , { path: 'presentation', canActivate: [AuthGuard, ServGuard], component: ProduitsComponent}
+  , { path: 'produits', canActivate: [AuthGuard, ServGuard], component: ProduitsComponent}
+  , { path: 'installations', canActivate: [AuthGuard, ServGuard], component: InstallationsComponent}
+  , { path: 'finance', canActivate: [AuthGuard, ServGuard], component:  FinanceComponent}
   //, { path: 'finance', canActivate: [AuthGuardService], component: TresorerieComponent}
-  , { path: 'marche', canActivate: [AuthGuardService], component: MarcheDuTravailComponent}
-  , { path: 'laboratoire', canActivate: [AuthGuardService], component: LaboratoireComponent}
+  , { path: 'marche', canActivate: [AuthGuard, ServGuard], component: MarcheDuTravailComponent}
+  , { path: 'laboratoire', canActivate: [AuthGuard, ServGuard], component: LaboratoireComponent}
 ];
 
 @NgModule({
@@ -126,6 +127,6 @@ export class DemoMaterialModule {}
   imports: [BrowserModule, FormsModule, MatInputModule, MatButtonModule, MatTableModule,BrowserAnimationsModule, DemoMaterialModule, RouterModule.forRoot(appRoutes)],
   declarations: [AppComponent, HeaderComponent, ProduitsComponent, ProduitComponent, InstallationsComponent, InstallationUsineComponent, InstallationEntrepotComponent, ServeurComponent, ServeursComponent, FinanceComponent, TableColumnsComponent, TableRowsComponent, ConnectionComponent, MenuLatComponent, BodyViewComponent, InformationComponent, HeaderTablePipe, MarcheDuTravailComponent, LaboratoireComponent, TresorerieComponent, DescriptionDataPipe, InstallationAchatComponent],
   bootstrap: [AppComponent],
-  providers: [CenterService, InitService, AuthGuardService]
+  providers: [CenterService, InitService, AuthGuardService, AuthGuard]
 })
 export class AppModule { }
