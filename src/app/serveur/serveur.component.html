@@ -1,20 +1,20 @@
 <div class="server panel panel-default">
-  <div class="panel-body container">{{ initServer.panel_server[key].id }}
-    <div class="mypanel row"> 
-      <div class="information col-sm-5">
-        <label>Début :</label><br>
-        <input type="nummber" size="10" [value]=initServer.panel_server[key].debut disabled><br>
-        <label>Nbr de tour :</label><br>
-        <input type="nummber" size="10" [value]=initServer.panel_server[key].nbrTourMax disabled><br>
-        <label>Durée des tours : </label><br>
-        <input type="nummber" size="10" [value]=initServer.panel_server[key].Dtours disabled><br>
-        <label>Fin :</label><br>
-        <input type="nummber" size="10" [value]=initServer.panel_server[key].Fin disabled><br>
-        <label>Nbr de Joueur :</label><br>
-        <input type="nummber" size="10" [value]=initServer.panel_server[key].nbrJoueur disabled><br>
-        <label>Etat :</label><br>
-        <input type="nummber" size="10" [value]=initServer.panel_server[key].Etat disabled><br>
-      </div>
+  <div class='panel-heading' id='heading'><h4><strong>{{ initServer.panel_server[key].id }}</strong></h4></div>
+  <div class="panel-body">
+    <div class="mypanel"> 
+      <label>Début :</label><br>
+      <input type="number" size="10" [value]=initServer.panel_server[key].debut disabled><br>
+      <label>Nbr de tour :</label><br>
+      <input type="number" size="10" [value]=initServer.panel_server[key].nbrTourMax disabled><br>
+      <label>Durée des tours : </label><br>
+      <input type="number" size="10" [value]=initServer.panel_server[key].Dtours disabled><br>
+      <label>Fin :</label><br>
+      <input type="number" size="10" [value]=initServer.panel_server[key].Fin disabled><br>
+      <label>Nbr de Joueur :</label><br>
+      <input type="number" size="10" [value]=initServer.panel_server[key].nbrJoueur disabled><br>
+      <label>Etat :</label><br>
+      <input type="nummber" size="10" [value]=initServer.panel_server[key].Etat disabled><br><br>
+      <button mat-raised-button color="primary" (click)="connection(key)" [disabled]="!initServer.isAuth">Connection</button>
     </div>
   </div>
 </div>

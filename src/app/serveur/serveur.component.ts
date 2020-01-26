@@ -10,9 +10,14 @@ import { Server } from '../Interfaces/server';
 export class ServeurComponent implements OnInit {
   @Input() key: string;
   server: Server;
+  
   constructor(private initServer: InitService) { }
 
   ngOnInit() {
+  }
+
+  connection(){
+    console.log("connection to "+this.key);
   }
 
 }

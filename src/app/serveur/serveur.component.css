@@ -1,3 +1,13 @@
-#server{
-  width: 2vw;
+.server{
+  width: 15vw;
+  margin: 10vh;
+}
+#heading{
+  text-align: center;
+  border-bottom: 10px line;
+  background-color: red;
+}
+label, input, button{
+  text-align: center;
+  width: 100%;
 }
