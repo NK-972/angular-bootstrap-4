@@ -17,7 +17,7 @@ export class ConnectionComponent implements OnInit {
     this.initService.signIn().then(
       () => {
         console.log('Sign in successful!');
-        this.router.navigate(['presentation']);
+        this.router.navigate(['serveurs']);
       }
     );
   }

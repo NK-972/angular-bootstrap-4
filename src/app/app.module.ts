@@ -74,7 +74,7 @@ import { InstallationAchatComponent } from './installation-achat/installation-ac
 const appRoutes: Routes = [
   { path: '', component:  ConnectionComponent}
   , { path: 'auth', component: ConnectionComponent }
-  , { path: 'serveurs', component: ConnectionComponent }
+  , { path: 'serveurs', canActivate: [AuthGuardService], component: ServeursComponent }
   , { path: 'presentation', canActivate: [AuthGuardService], component: ProduitsComponent}
   , { path: 'produits', canActivate: [AuthGuardService], component: ProduitsComponent}
   , { path: 'installations', canActivate: [AuthGuardService], component: InstallationsComponent}
