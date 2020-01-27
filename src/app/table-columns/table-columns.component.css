@@ -1,5 +1,10 @@
 .myTableColumns{
+  width: max-content;
   padding: 1vh 0 0 0;
+}
+
+table{
+  width: max-content;
 }
 
 #test{
@@ -15,5 +20,4 @@ tr.example-element-row:not(.example-expanded-row):hover {
 
 .mat-table-sticky:first-child {
   border-right: 1px solid #e0e0e0;
-  width: 10vw;
 }

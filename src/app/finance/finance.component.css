@@ -3,6 +3,10 @@ div{
   display: inline-block;
 }
 
+mat-accordion, mat-expansion-panel{
+  width: 80vw;
+}
+
 mat-form-field{
   padding: 1vh 0.5vw 0 0.5vw;
   width: 30%;

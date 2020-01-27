@@ -73,7 +73,7 @@ import { ServGuard } from './Guards/serv.guard';
 
 
 const appRoutes: Routes = [
-  { path: '', component:  ConnectionComponent}
+  { path: '', component:  FinanceComponent}
   , { path: 'auth', component: ConnectionComponent }
   , { path: 'serveurs', canActivate: [AuthGuard], component: ServeursComponent }
   , { path: 'presentation', canActivate: [AuthGuard, ServGuard], component: ProduitsComponent}

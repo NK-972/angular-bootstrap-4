@@ -1,11 +1,11 @@
 <div class='myTableColumns'*ngIf='displayedColumns'>
-  <div class="example-container mat-elevation-z10" [ngStyle]="{'width':'70vw'}">
-    <table mat-table class="mytable" [dataSource]="dataSource" [ngStyle]="{'width':'65vw'}">
+  <div class="example-container mat-elevation-z10">
+    <table mat-table class="mytable" [dataSource]="dataSource">
       <ng-container *ngFor="let x of getDisplayedColumns(); let col = index;" matColumnDef={{x}}  [sticky]='isSticky(x)'>
         <th mat-header-cell *matHeaderCellDef [ngStyle]="{'text-align':'center','color': 'black'}" > {{x | headerTable}} </th>
         <ng-container>
           <td mat-cell [ngStyle]="{'height':'fit-content'}" *matCellDef="let row;let r = index;" > 
-            <p [matTooltip]="formateKey(row, col, r) | headerTable | descriptionData:1" [ngStyle]="{'font-weight':formateKey(row, 0, r).includes('$sG$') ? 'bold' : 'italic', 'padding':'0 0 0 0'}">{{formateKey(row, col, r) | headerTable | descriptionData:0 }}</p></td> 
+            <p [matTooltip]="formateKey(row, col, r) | headerTable | descriptionData:1" [ngStyle]="{'font-weight':formateKey(row, 0, r).includes('$sG$') ? 'bold' : 'italic','width':'7vw', 'padding':'0 0 0 0'}">{{formateKey(row, col, r) | headerTable | descriptionData:0 }}</p></td> 
         </ng-container>
       </ng-container>
       <tr mat-header-row class='columns' *matHeaderRowDef="getDisplayedColumns(), sticky: true"></tr>
