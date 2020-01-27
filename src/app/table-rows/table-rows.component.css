@@ -8,20 +8,15 @@
   
 }
 
-.mat-header-cell{
+.mat-header-cell p{
   text-align: center;
+  justify-content: center; 
   color: black;
-  justify-content: center;
+  font-weight: bold;
+  padding: 0 0 0 0;
 }
 
-.mat-cell {
-  padding: 0 0 0 10px;
-  margin: 0 0 0 0;
-  text-align: center;
-  width:10px;
-  height: 50px;
-}
 
-.my-mat-cell, .my-mat-header-cell {
-  flex: 0 0 10%;
+.mat-table-sticky{
+  border-bottom: 10px solid #e0e0e0;
 }

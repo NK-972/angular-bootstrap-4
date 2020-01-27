@@ -73,7 +73,7 @@ import { ServGuard } from './Guards/serv.guard';
 
 
 const appRoutes: Routes = [
-  { path: '', component:  FinanceComponent}
+  { path: '', component:  MarcheDuTravailComponent}
   , { path: 'auth', component: ConnectionComponent }
   , { path: 'serveurs', canActivate: [AuthGuard], component: ServeursComponent }
   , { path: 'presentation', canActivate: [AuthGuard, ServGuard], component: ProduitsComponent}
@@ -81,7 +81,7 @@ const appRoutes: Routes = [
   , { path: 'installations', canActivate: [AuthGuard, ServGuard], component: InstallationsComponent}
   , { path: 'finance', canActivate: [AuthGuard, ServGuard], component:  FinanceComponent}
   //, { path: 'finance', canActivate: [AuthGuardService], component: TresorerieComponent}
-  , { path: 'marche', component: MarcheDuTravailComponent} //canActivate: [AuthGuard, ServGuard], 
+  , { path: 'marche', canActivate: [AuthGuard, ServGuard], component: MarcheDuTravailComponent} //canActivate: [AuthGuard, ServGuard], 
   , { path: 'laboratoire', canActivate: [AuthGuard, ServGuard], component: LaboratoireComponent}
 ];
 

@@ -9,27 +9,16 @@ import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 })
 
 export class TableRowsComponent implements OnInit{
-  @Input() dataSource : MatTableDataSource<any>;
+  @Input() dataSource : any;
   @Input() displayedColumns: string[]; // = ['position', 'name', 'weight', 'symbol'];
   @Input() height: string = '20vh';
   boolPag: boolean = true;
   boolMethod: boolean;
   selection = new SelectionModel<any>(true, []);
-  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
-  @ViewChild(MatSort, {static: false}) sort: MatPaginator;
 
-  @ViewChild(MatPaginator, { static: false })
-  set setpaginator(value: MatPaginator) {
-    if(this.displayedColumns){
-      this.dataSource.paginator = value;
-    }
-  }
-  @ViewChild(MatSort, { static: false })
-  set setsort(value: MatSort){
-    if(this.displayedColumns){
-      this.dataSource.sort = value;
-    }
-  }
+  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
+
   
   getDisplayedColumns(): string[]{
     let list : string[] = [];
@@ -41,11 +30,20 @@ export class TableRowsComponent implements OnInit{
     return list;
   }
   
-  ngOnInit(){}
-  
+  ngOnInit() {
+    this.dataSource = new MatTableDataSource(this.dataSource);
+  }
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+    var test = { field: "Id -$nc$", operator: "startswith", value: "390" };
+    this.dataSource.filter = test;
+  }
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
+    console.log(this.dataSource);
   }
+
   /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected() {
     const numSelected = this.selection.selected.length;
