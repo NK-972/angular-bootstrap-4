@@ -20,6 +20,9 @@
 <body>
   <app-header></app-header>
   <div class='flex-container'>
+    <ul>
+      <li *ngFor="let book of (centerService.table_marche | findInColumn:'Prenom/nom':'u')">{{ book }}</li>
+    </ul>
     <router-outlet></router-outlet>
   </div>
   

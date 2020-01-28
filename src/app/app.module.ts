@@ -70,6 +70,7 @@ import { InstallationAchatComponent } from './installation-achat/installation-ac
 
 import { AuthGuard } from './Guards/auth.guard';
 import { ServGuard } from './Guards/serv.guard';
+import { FindInColumnPipe } from './Pipes/find-in-column.pipe';
 
 
 const appRoutes: Routes = [
@@ -125,7 +126,7 @@ export class DemoMaterialModule {}
 
 @NgModule({
   imports: [BrowserModule, FormsModule, MatInputModule, MatButtonModule, MatTableModule,BrowserAnimationsModule, DemoMaterialModule, RouterModule.forRoot(appRoutes)],
-  declarations: [AppComponent, HeaderComponent, ProduitsComponent, ProduitComponent, InstallationsComponent, InstallationUsineComponent, InstallationEntrepotComponent, ServeurComponent, ServeursComponent, FinanceComponent, TableColumnsComponent, TableRowsComponent, ConnectionComponent, MenuLatComponent, BodyViewComponent, InformationComponent, HeaderTablePipe, MarcheDuTravailComponent, LaboratoireComponent, TresorerieComponent, DescriptionDataPipe, InstallationAchatComponent],
+  declarations: [AppComponent, HeaderComponent, ProduitsComponent, ProduitComponent, InstallationsComponent, InstallationUsineComponent, InstallationEntrepotComponent, ServeurComponent, ServeursComponent, FinanceComponent, TableColumnsComponent, TableRowsComponent, ConnectionComponent, MenuLatComponent, BodyViewComponent, InformationComponent, HeaderTablePipe, MarcheDuTravailComponent, LaboratoireComponent, TresorerieComponent, DescriptionDataPipe, InstallationAchatComponent, FindInColumnPipe],
   bootstrap: [AppComponent],
   providers: [CenterService, InitService, AuthGuardService, AuthGuard, ServGuard]
 })
