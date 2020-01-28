@@ -32,10 +32,17 @@ export class TableRowsComponent implements OnInit{
   }
   ngOnInit() {
     this.dataSource = new MatTableDataSource(this.dataSource);
+    
   }
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+    this.dataSource.filterPredicate = (data: Element, filter: string) => {
+      console.log(filter);
+      if(Object.keys(data).includes('Installation -$nC$')){console.log('gggggggggggggggggggggggggg');return data['Installation -$nC$'].includes(filter);}
+     };
+    console.log(this.dataSource.data);
+    //this.dataSource.filter = this.dataSource.data.filter(e => console.log( && e['Installation -$nC$'].indexOf('Usin') !== -1));
     //this.dataSource.data[1]["Id -$nc$"] = 'test';
   console.log(this.dataSource.data);
   }
@@ -50,7 +57,7 @@ export class TableRowsComponent implements OnInit{
     //console.log(this.dataSource.data[this.dataSource.data.indexOf(val)]['Installation -$nC$'], x, data);
   }
   applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+    this.dataSource.filter = filterValue;
     //console.log(this.dataSource.data);
   }
   /** Whether the number of selected elements matches the total number of rows. */

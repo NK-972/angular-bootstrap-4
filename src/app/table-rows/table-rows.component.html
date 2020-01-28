@@ -1,9 +1,7 @@
 
 <ng-container class='Myss' *ngIf='displayedColumns'>
   <mat-form-field [ngStyle]="{'display': 'inline'}">
-    <mat-chip-list #chipList >
-      <mat-chip *ngFor="let installation of centerService.json_serveur['Nom du serveur']['Installations']" [selectable]="selectable" [removable]="removable" (removed)="remove(installation)">{{installation}}</mat-chip>
-    </mat-chip-list>
+    
     <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
   </mat-form-field>
 

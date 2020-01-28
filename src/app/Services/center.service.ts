@@ -68,6 +68,7 @@ export class CenterService {
     var JSONQury;
     /*  */
     this.json_serveur = this.utilitaire.StringToTable(this.string_serveur);
+    console.log(this.json_serveur);
     /*  */
     JSONQury = {};
     this.json_usines = this.utilitaire.StringToTable(this.string_usines);
