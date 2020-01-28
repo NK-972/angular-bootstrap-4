@@ -19,10 +19,10 @@
        
         <!-- Select Column  [(change)]="selectedChange();"-->
         <ng-container *ngIf="x.includes('$iL$')">
-          <td mat-cell  *matCellDef="let row" >
+          <td mat-cell  *matCellDef="let row;let index_row = index;" >
             <mat-form-field [ngStyle]="{'width':'50%', 'justify-content': 'center', 'text-align': 'center'}">
-              <select [(ngModel)]="row[x].split(',')[0]" (ngModelChange)="selectChange(row, x, $event)" matNativeControl required>
-                <option *ngFor="let cust of row[x].split(',')" > {{cust}} </option>
+              <select (change)="selectChange(row, x, $event['target']['value'])" matNativeControl required>
+                <option *ngFor="let cust of row[x].split(',')"> {{cust}} </option>
               </select>
             </mat-form-field>
           </td>

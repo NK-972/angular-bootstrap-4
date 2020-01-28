@@ -38,10 +38,17 @@ export class TableRowsComponent implements OnInit{
     this.dataSource.data[1]["Id -$nc$"] = 'test';
     console.log(this.dataSource.data);
   }
-  selectChange(val: any, x: any, data: any){
+  testtest(){
+    console.log('hello');
+  }
+  selectChange(val: any, x: any, data: string){
     console.log(val, x, data);
-    var l = val[x].split(',');
-    console.log(l);
+    this.dataSource.data[this.dataSource.data.indexOf(val)]['Installation  -$nC$'] = data;
+    //var l: string[] = val[x].split(',');
+    //var index = l.indexOf(data);
+    //l[index] = l[0];l[0] = data;
+    //console.log(int);
+    //return l.join(',');
   }
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
