@@ -74,8 +74,7 @@ import { FindInColumnPipe } from './Pipes/find-in-column.pipe';
 
 
 const appRoutes: Routes = [
-  { path: '', component:  ConnectionComponent}
-  , { path: 'auth', component: ConnectionComponent }
+  { path: 'auth', component: ConnectionComponent }
   , { path: 'serveurs', canActivate: [AuthGuard], component: ServeursComponent }
   , { path: 'presentation', canActivate: [AuthGuard, ServGuard], component: ProduitsComponent}
   , { path: 'produits', canActivate: [AuthGuard, ServGuard], component: ProduitsComponent}
@@ -84,6 +83,7 @@ const appRoutes: Routes = [
   //, { path: 'finance', canActivate: [AuthGuardService], component: TresorerieComponent}
   , { path: 'marche', canActivate: [AuthGuard, ServGuard], component: MarcheDuTravailComponent} //canActivate: [AuthGuard, ServGuard], 
   , { path: 'laboratoire', canActivate: [AuthGuard, ServGuard], component: LaboratoireComponent}
+  , { path: '', component:  MarcheDuTravailComponent}
 ];
 
 @NgModule({

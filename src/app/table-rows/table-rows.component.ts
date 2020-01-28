@@ -1,6 +1,7 @@
 import { Component, ViewChild, Input, OnInit } from '@angular/core';
 import {SelectionModel} from '@angular/cdk/collections';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import { CenterService } from '../Services/center.service';
 
 @Component({
   selector: 'app-table-rows',
@@ -19,7 +20,7 @@ export class TableRowsComponent implements OnInit{
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-  
+  constructor(private centerService: CenterService){}
   getDisplayedColumns(): string[]{
     let list : string[] = [];
     for(var value of this.displayedColumns){
@@ -36,7 +37,7 @@ export class TableRowsComponent implements OnInit{
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
     //this.dataSource.data[1]["Id -$nc$"] = 'test';
-    //console.log(this.dataSource.data);
+  console.log(this.dataSource.data);
   }
   testtest(row: any, val: string): boolean{
     //console.log('hello', row['Installation -$nC$'], val);

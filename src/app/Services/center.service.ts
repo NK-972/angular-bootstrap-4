@@ -9,6 +9,9 @@ import {MatTableDataSource} from '@angular/material/table';
 export class CenterService {
   turn: number = 4;
   utilitaire: Utilitaire = new Utilitaire();
+  /* Info Serveur */
+  string_serveur = "[[Nom du serveur, Date de début, Tour, Durée des tours, Date de fin, trésorerie, Point de recherche, Installations, Taille, Installation, Pays, Temps restant, Prix usine A, Prix usine B, Prix usine C, Entretien usine C, Entretien usnie B, Entretien usine A, Indice d'entretien minimal usine C, Indice d'entretien minimal usine B, Indice d'entretien minimal usine A, Indice upgrade u c to b, Indice upgrade u c to a, Indice upgrade u c to a, Prix entrepôt A, Prix entrepôt B, Prix entrepôt C, Entretien entrepôt C, Entretien usnie B, Entretien entrepôt A, Indice d'entretien minimal entrepôt C, Indice d'entretien minimal entrepôt B, Indice d'entretien minimal entrepôt A, Indice upgrade e c to b, Indice upgrade e c to a, Indice upgrade e c to a], [astro, null, 6, 0, null, 470070, 3, Usine n°1,Entrepôt n°1,Entrepôt n°2, A,B,C, U,E, xxx, 5,3,1, 1600000, 700000, 250000, 100000, 500000, 1000000, 1, 1, 1, 0.1, 0.1, 0.1, 1000000, 600000, 100000, 100000, 600000, 100000, 60000, 1, 1, 0.1, 0.1, 0.1]]";
+  json_serveur: JSON;
   /* Products */
   string_produits: string = "[[JSON, Tour, Nom du produit, Recette, Prix, R&D, Production, Prod° par instal, Installation, Actif, Qualité, Indice technique, Image prix, Marge brute, Taux de marge brute, Demande, Stock, Prix de mp, Notoriété, Indice R&D, Brevet, Nbr de produit vendu, Frais de transport], [Bouteille d'eau 21811_0, 0, Bouteille d'eau, 21811, 0, 0, 0, 0, 1, 0, 0, 0.000000, 1.00, 0, 0.00, 0, 0, null, 0.00, 1.00, 0, 0, 0], [Bouteille d'eau 21811_1, 1, Bouteille d'eau, 21811, 30, 30000, 3600, 3600, 1, 1, 0, 0.400000, 1.00, 19, 1.73, 13200, 0, null, 0.00, 1.60, 0, 3600, 14400], [Bouteille d'eau 21811_2, 2, Bouteille d'eau, 21811, 30, 30000, 5000, 5000, 1, 1, 0, 0.470000, 1.00, 11, 0.58, 11800, 0, null, 0.00, 1.60, 0, 5000, 20000], [Bouteille d'eau 21811_3, 3, Bouteille d'eau, 21811, 30, 30000, 3600, 3600, 1, 1, 0, 0.670000, 1.00, 6, 0.25, 13200, 0, null, 0.00, 1.60, 0, 3600, 14400]]";
   json_produits: JSON;
@@ -63,6 +66,8 @@ export class CenterService {
 
   constructor() {
     var JSONQury;
+    /*  */
+    this.json_serveur = this.utilitaire.StringToTable(this.string_serveur);
     /*  */
     JSONQury = {};
     this.json_usines = this.utilitaire.StringToTable(this.string_usines);

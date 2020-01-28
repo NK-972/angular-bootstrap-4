@@ -1,6 +1,9 @@
 
 <ng-container class='Myss' *ngIf='displayedColumns'>
-  <mat-form-field>
+  <mat-form-field [ngStyle]="{'display': 'inline'}">
+    <mat-chip-list #chipList >
+      <mat-chip *ngFor="let installation of centerService.json_serveur['Nom du serveur']['Installations']" [selectable]="selectable" [removable]="removable" (removed)="remove(installation)">{{installation}}</mat-chip>
+    </mat-chip-list>
     <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
   </mat-form-field>
 
@@ -17,7 +20,7 @@
             </mat-checkbox>
           </th>
        
-        <!-- Select Column  [(change)]="selectedChange();"-->
+        <!-- Select Column  [(change)]="selectedChange();" ""-->
         <ng-container *ngIf="x.includes('$iL$')">
           <td mat-cell  *matCellDef="let row;let index_row = index;" >
             <mat-form-field [ngStyle]="{'width':'50%', 'justify-content': 'center', 'text-align': 'center'}">
