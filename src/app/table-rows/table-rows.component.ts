@@ -29,21 +29,24 @@ export class TableRowsComponent implements OnInit{
     }
     return list;
   }
-  
   ngOnInit() {
     this.dataSource = new MatTableDataSource(this.dataSource);
   }
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
-    var test = { field: "Id -$nc$", operator: "startswith", value: "390" };
-    this.dataSource.filter = test;
+    this.dataSource.data[1]["Id -$nc$"] = 'test';
+    console.log(this.dataSource.data);
+  }
+  selectChange(val: any, x: any, data: any){
+    console.log(val, x, data);
+    var l = val[x].split(',');
+    console.log(l);
   }
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
-    console.log(this.dataSource);
+    console.log(this.dataSource.data);
   }
-
   /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected() {
     const numSelected = this.selection.selected.length;

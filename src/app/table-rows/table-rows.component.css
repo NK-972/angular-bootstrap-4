@@ -1,13 +1,8 @@
-.Myss{
-  padding: 1vh 0 0 0;
- 
-}
 
 .mat-row:hover {
   background: #777;
   
 }
-
 .mat-header-cell p{
   text-align: center;
   justify-content: center; 
@@ -15,8 +10,12 @@
   font-weight: bold;
   padding: 0 0 0 0;
 }
-
-
+h5{
+  text-align: center;
+  justify-content: center; 
+  color: black;
+  font-weight: bold;
+}
 .mat-table-sticky{
-  border-bottom: 10px solid #e0e0e0;
+  border-bottom: 2px solid #e0e0e0;
 }
