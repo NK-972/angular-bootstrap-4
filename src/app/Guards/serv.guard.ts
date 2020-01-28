@@ -15,7 +15,7 @@ export class ServGuard implements CanActivate {
       return true;
     } else {
       console.log('Connection refusée')
-      this.router.navigate(['serv']);
+      this.router.navigate(['serveurs']);
     }
   }
 }

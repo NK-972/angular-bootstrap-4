@@ -35,24 +35,22 @@ export class TableRowsComponent implements OnInit{
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
-    this.dataSource.data[1]["Id -$nc$"] = 'test';
-    console.log(this.dataSource.data);
+    //this.dataSource.data[1]["Id -$nc$"] = 'test';
+    //console.log(this.dataSource.data);
   }
-  testtest(){
-    console.log('hello');
+  testtest(row: any, val: string): boolean{
+    //console.log('hello', row['Installation -$nC$'], val);
+    //console.log(val.trim().toLowerCase() == row['Installation -$nC$'].trim().toLowerCase());
+    return val == row['Installation -$nC$'];
   }
   selectChange(val: any, x: any, data: string){
-    console.log(val, x, data);
-    this.dataSource.data[this.dataSource.data.indexOf(val)]['Installation  -$nC$'] = data;
-    //var l: string[] = val[x].split(',');
-    //var index = l.indexOf(data);
-    //l[index] = l[0];l[0] = data;
-    //console.log(int);
-    //return l.join(',');
+    //console.log(this.dataSource.data[this.dataSource.data.indexOf(val)]['Installation -$nC$'], x, data);
+    this.dataSource.data[this.dataSource.data.indexOf(val)]['Installation -$nC$'] = data;
+    //console.log(this.dataSource.data[this.dataSource.data.indexOf(val)]['Installation -$nC$'], x, data);
   }
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
-    console.log(this.dataSource.data);
+    //console.log(this.dataSource.data);
   }
   /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected() {
