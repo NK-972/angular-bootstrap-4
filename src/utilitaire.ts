@@ -1,6 +1,6 @@
 export class Utilitaire {
 
-    public StringToTable(str:String): JSON{
+  public StringToTable(str:String): JSON{
     let sortie: Array<string>;
     var JSONQury = {};
     sortie = str.replace("[[", "").replace("]]", "").split("], [");
@@ -12,12 +12,21 @@ export class Utilitaire {
     return JSONQury as JSON;
   }
 
-  public getData(json: JSON, key:String, turn:string, columns:string): string{
+  public getData(json: JSON, key:string, turn:string, columns:string): string{
     let sortie: Array<string> = Object.keys(json) as Array<string>;
     let index: Number = json['JSON'].indexOf(columns);
     let bool: Boolean = (key+turn) in json;
     if(key+turn in json){
           return json[key+turn][index];
+      }
+    return null;
+  }
+
+  public getMyData(json: JSON, column:string): string{
+    let keys: string[] = Object.keys(json);
+    //console.log(keys, json[keys[0]].indexOf(column)>-1, json[keys[1]]);
+    if(json[keys[0]].indexOf(column)>-1){
+          return json[keys[1]][json[keys[0]].indexOf(column)];
       }
     return null;
   }

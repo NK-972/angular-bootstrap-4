@@ -12,7 +12,14 @@
       </mat-panel-description>
     </mat-expansion-panel-header>
 
-    <app-table-rows [dataSource]=centerService.table_salaries [displayedColumns]=centerService.columns_salaries height='60vh'></app-table-rows>
+    <app-table-rows
+      [dataSource]=centerService.table_salaries
+      [displayedColumns]=centerService.columns_salaries 
+      height='60vh'
+      chipcol='Installations'
+      filtercol='Installation -$nC$,'
+      >
+    </app-table-rows>
 
   </mat-expansion-panel>
   <mat-expansion-panel [expanded]="!step" animationDuration="500ms" >
