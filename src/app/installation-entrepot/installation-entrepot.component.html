@@ -1,8 +1,8 @@
 <div class="entrepot panel panel-default">
   <div class='panel-heading' id='heading'><h4><strong>{{ centerService.panel_storage[key].id }}</strong></h4></div>
   <div class="panel-body container">
-  <div class="mypanel row"> 
-    <div class="descision col-sm-2">
+  <div class="d-flex justify-content-center"> 
+    <div class="decision">
       <label>Entretien : </label><br>
       <input type="nummber" id="name" [value]=centerService.panel_storage[key].entretien name="name" (input)="centerService.panel_storage[key].Prix = $event.target.value" required minlength="1" maxlength="8" size="10"><br>
       <label>Indice salaire :</label><br>
@@ -11,7 +11,7 @@
       <input type="nummber" id="name" [value]=centerService.panel_storage[key].nbrEmployes name="name" disabled required minlength="1" maxlength="10" size="10"><br>
     </div>
 
-    <div class="information col-sm-2">
+    <div class="information">
       <label>Moral :</label><br>
       <input type="nummber" size="10" [value]=centerService.panel_storage[key].moral disabled><br>
       <label>Région :</label><br>

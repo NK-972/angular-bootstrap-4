@@ -4,7 +4,7 @@
     <div id="body">
       <div id='test' class="descision">
         <label>Prix : </label><br>
-        <input type="number" [min]="0" [value]=centerService.panel_factory[selectedInstallation].pourcentageProduction autocomplete="false" (input)="centerService.actualiserValeurProduit(key, 1, $event.target.value)" required minlength="1" maxlength="8" size="10"><br>
+        <input type="number" [min]="0" [value]=centerService.panel_produits[key].prix autocomplete="false" (input)="centerService.actualiserValeurProduit(key, 1, $event.target.value)" required minlength="1" maxlength="8" size="10"><br>
         <label>R&D :</label><br>
         <input type="number" [min]="0" [value]=centerService.panel_produits[key].rd autocomplete="false" (input)="centerService.actualiserValeurProduit(key, 2, $event.target.value)"  required minlength="1" maxlength="10" size="10"><br>
         <label>Installations :</label><br>
