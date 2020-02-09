@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { InitService } from '../Services/init.service.ts'
+import { InitService } from '../Services/init.service'
 
 @Component({
   selector: 'app-connection',

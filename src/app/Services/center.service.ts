@@ -158,8 +158,8 @@ export class CenterService {
       , installations: arrIns
       , installationSelected: arrIns[0]
       //, ProductionbyFactory: this.getProductionProduitbyUsine(name, arrIns[0])
-      , production: Number(this.utilitaire.getData(json, name, "_"+turn_prod, 'Production'))
-      , productions: this.utilitaire.getData(json, name, "_"+turn_prod, 'Prod° par instal').split(',')
+      , production: this.utilitaire.getData(json, name, "_"+turn_prod, 'Production') as number
+      , productions: this.utilitaire.getData(json, name, "_"+turn_prod, 'Prod° par instal').split(',') as number[]
       , qualite: Number(this.utilitaire.getData(json, name, "_"+turn_prod, 'Qualité'))
       , ip: Number(this.utilitaire.getData(json, name, "_"+turn_prod, 'Indice prix'))
       , it: Number(this.utilitaire.getData(json, name, "_"+turn_prod, 'Indice technique'))
@@ -188,8 +188,8 @@ export class CenterService {
       , region: this.utilitaire.getData(json, name, "_"+this.turn, "Région")
       , it: Number(this.utilitaire.getData(json, name, "_"+this.turn, "Indice technique"))
       , fd: Number(this.utilitaire.getData(json, name, "_"+this.turn, "Frais divers"))
-      , production: Number(this.utilitaire.getData(json, name, "_"+this.turn, "Production"))
-      , productionPossible: Number(this.utilitaire.getData(json, name, "_"+this.turn, "Production possible"))
+      , production: this.utilitaire.getData(json, name, "_"+this.turn, "Production") as number
+      , productionPossible: this.utilitaire.getData(json, name, "_"+this.turn, "Production possible") as number
       , pl: Number(this.utilitaire.getData(json, name, "_"+this.turn, "Production max"))
       , prod: Number(0)
     }
@@ -204,7 +204,7 @@ export class CenterService {
       , entretien: Number(this.utilitaire.getData(json, name, "_"+this.turn, 'Entretien'))
       , nbrEmployes: Number(this.utilitaire.getData(json, name, "_"+this.turn, "Nombre d'employés"))
       , indS : Number(this.utilitaire.getData(json, name, "_"+this.turn, "Indice salaire"))
-      , TP : ['']
+      , t : ['']
       , nIns: Number(this.utilitaire.getData(json, name, "_"+this.turn, "N° entrepôt joueur"))
       , cout : Number(0)
       , moral: Number(this.utilitaire.getData(json, name, "_"+this.turn, "Moral"))
@@ -218,7 +218,7 @@ export class CenterService {
     return storage;
   }
 
-  iDInstallationToName(n: number): string{
+  iDInstallationToName(n: string): string{
     for(var key of this.key_panel_factory){
         if (n == this.panel_factory[key].nIns){
           return this.panel_factory[key].id

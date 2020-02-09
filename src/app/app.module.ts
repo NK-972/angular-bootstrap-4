@@ -57,7 +57,6 @@ import { FinanceComponent } from './finance/finance.component';
 import { TableColumnsComponent } from './table-columns/table-columns.component';
 import { TableRowsComponent } from './table-rows/table-rows.component';
 import { ConnectionComponent } from './connection/connection.component';
-import { AuthGuardService } from './Services/auth-guard.service';
 import { InformationComponent } from './information/information.component';
 import { HeaderTablePipe } from './Pipes/header-table.pipe';
 import { MarcheDuTravailComponent } from './marche-du-travail/marche-du-travail.component';
@@ -126,6 +125,6 @@ export class DemoMaterialModule {}
   imports: [BrowserModule, FormsModule, MatInputModule, MatButtonModule, MatTableModule,BrowserAnimationsModule, DemoMaterialModule, RouterModule.forRoot(appRoutes)],
   declarations: [AppComponent, HeaderComponent, ProduitsComponent, ProduitComponent, InstallationsComponent, InstallationUsineComponent, InstallationEntrepotComponent, ServeurComponent, ServeursComponent, FinanceComponent, TableColumnsComponent, TableRowsComponent, ConnectionComponent, InformationComponent, HeaderTablePipe, MarcheDuTravailComponent, LaboratoireComponent, TresorerieComponent, DescriptionDataPipe, InstallationAchatComponent, FindInColumnPipe],
   bootstrap: [AppComponent],
-  providers: [CenterService, InitService, AuthGuardService, AuthGuard, ServGuard]
+  providers: [CenterService, InitService, AuthGuard, ServGuard]
 })
 export class AppModule { }
