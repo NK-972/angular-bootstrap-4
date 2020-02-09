@@ -158,8 +158,8 @@ export class CenterService {
       , installations: arrIns
       , installationSelected: arrIns[0]
       //, ProductionbyFactory: this.getProductionProduitbyUsine(name, arrIns[0])
-      , production: this.utilitaire.getData(json, name, "_"+turn_prod, 'Production') as number
-      , productions: this.utilitaire.getData(json, name, "_"+turn_prod, 'Prod° par instal').split(',') as number[]
+      , production: +this.utilitaire.getData(json, name, "_"+turn_prod, 'Production')
+      , productions: +this.utilitaire.getData(json, name, "_"+turn_prod, 'Prod° par instal').split(',')
       , qualite: Number(this.utilitaire.getData(json, name, "_"+turn_prod, 'Qualité'))
       , ip: Number(this.utilitaire.getData(json, name, "_"+turn_prod, 'Indice prix'))
       , it: Number(this.utilitaire.getData(json, name, "_"+turn_prod, 'Indice technique'))
@@ -188,12 +188,12 @@ export class CenterService {
       , region: this.utilitaire.getData(json, name, "_"+this.turn, "Région")
       , it: Number(this.utilitaire.getData(json, name, "_"+this.turn, "Indice technique"))
       , fd: Number(this.utilitaire.getData(json, name, "_"+this.turn, "Frais divers"))
-      , production: this.utilitaire.getData(json, name, "_"+this.turn, "Production") as number
-      , productionPossible: this.utilitaire.getData(json, name, "_"+this.turn, "Production possible") as number
+      , production: Number(this.utilitaire.getData(json, name, "_"+this.turn, "Production"))
+      , productionPossible: Number(this.utilitaire.getData(json, name, "_"+this.turn, "Production possible"))
       , pl: Number(this.utilitaire.getData(json, name, "_"+this.turn, "Production max"))
       , prod: Number(0)
     }
-    factory.pourcentageProduction = Number(factory.production / factory.productionPossible);
+    factory.pourcentageProduction = Number((factory.production as number) / (factory.productionPossible as number));
     
     return factory;
   }
@@ -228,7 +228,7 @@ export class CenterService {
 
   getProductionProduitbyUsine(key_prod: string, key_ins: string, myproduct: Product): number{
     if (myproduct==null){return this.panel_produits[key_prod].productions[this.panel_produits[key_prod].installations.indexOf(key_ins)];}
-    else{return myproduct.productions[myproduct.installations.indexOf(key_ins)]};
+    else{return +myproduct.productions[myproduct.installations.indexOf(key_ins)]};
   }
 
   actualiserValeurProduit(key_prod: string, attribue: number, data:any){
