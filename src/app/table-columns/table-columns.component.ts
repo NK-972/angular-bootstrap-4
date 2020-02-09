@@ -43,13 +43,10 @@ export class TableColumnsComponent implements OnInit {
     }
     return false;
   }
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
+
   constructor() {}
 
   ngOnInit() {
-    this.dataSource.paginator = this.paginator;
   }
 
 }

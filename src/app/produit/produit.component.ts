@@ -19,7 +19,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./produit.component.css']
 })
 export class ProduitComponent implements OnInit{
-  @Input() key: Product;
+  @Input() key: string;
   utilitaire: Utilitaire = new Utilitaire();
   prod: Product;
   selectedInstallation: string;

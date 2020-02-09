@@ -41,10 +41,10 @@ export class Utilitaire {
     return l;
   }
 
-  public createTableRow(str: string): string[]{
+  public createTableRow(str: string): JSON[]{
     let sortie: string[] = str.replace("[[", "").replace("]]", "").split("], [");
-    let table: string[] = [];
-    let table_ = [];
+    let table: string[][] = [];
+    let table_: JSON[] = [];
     let json = {};
     sortie.forEach(function (value) {
       table.push(value.split(", "));
@@ -56,11 +56,11 @@ export class Utilitaire {
       headers.forEach((header, i)=>{
         json[header] = (row[i] == 'null') ? '' : row[i];
       })
-      table_.push(json); 
+      table_.push(json as JSON); 
     })
     json = {};
     json['headers'] = headers;
-    table_.push(json);
+    table_.push(json as JSON);
     return table_;
   }
 
@@ -88,7 +88,7 @@ export class Utilitaire {
       for (var r = 0; r < table.length; r++){
         json[c+''+r] = table[r][c];
       }
-      table_.push(json);json = {};
+      table_.push(json as JSON);json = {};
     };
     //console.log(table);
     json = {}; json['headers'] = headers; table_.push(JSON.parse(JSON.stringify(json)));

@@ -50,7 +50,7 @@ export class CenterService {
   columns_bilan_actif= [];
    /* */
   string_bilan_passif="[[Capital social, Réserve, Report à nouveau, Situation nette, Dette financière, Dette fournisseur, Bilan découvet, Total passif], [500000, 0, 0, 500000, 0, 0, -10000, 0], [500000, 0, 0, 500000, 0, 0, 0, 0], [500000, 0, 0, 500000, 0, 0, 0, 0], [500000, 0, 0, 500000, 0, 0, -32612, 0]]";
-  table_bilan_passif: [];
+  table_bilan_passif: JSON[];
   columns_bilan_passif= [];
   string_tresorerie= "[[Trésorerie initiale, Vente Comptant, Encaissements, Achat comptant, Achat d'usine, Remboursement Anticipé de Prêt, Décaissement, Impôt sur les benéfices, Flux de tresorerie, Trésorerie, Capital social], [500000, 0, 0, 0, 250000, 0, 250000, 0, -250000, 250000, 500000], [250000, 108000, 108000, 39600, 0, 0, 39600, 9025, 59375, 309375, 500000], [221175, 150000, 150000, 65000, 0, 0, 65000, 13205, 71795, 292970, 500000], [175470, 108000, 108000, 50400, 0, 0, 50400, 0, 57600, 233070, 500000]]";
   table_tresorerie: JSON[];
@@ -218,7 +218,7 @@ export class CenterService {
     return storage;
   }
 
-  iDInstallationToName(n: number){
+  iDInstallationToName(n: number): string{
     for(var key of this.key_panel_factory){
         if (n == this.panel_factory[key].nIns){
           return this.panel_factory[key].id
